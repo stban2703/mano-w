@@ -1,0 +1,51 @@
+.callToAction {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 0;
+    background-color: #DFB5FF;
+    background-image: url("./../images/ctaTrama.svg");
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+
+    &__backgroundCircle {
+        position: absolute;
+        width: 100%;
+        max-width: 950px;
+    }
+
+    &__btn {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+
+        img {
+            max-width: none;
+        }
+
+        h3 {
+            font-family: $monserrat;
+            text-decoration: underline;
+            font-size: $callToAction;
+            font-weight: $bold;
+            color: $purple;
+        }
+    }
+
+    &__slogan {
+        width: 100%;
+        text-align: center;
+        font-family: $monserrat;
+        font-weight: $bold;
+        font-style: italic;
+        color: $orange;
+        font-size: $bigTitle - 0.5;
+        margin-top: 30px;
+        z-index: 1;
+    }
+}

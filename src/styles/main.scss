@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+// Colors
+$purple: #7030a0;
+$lightPurple: #DFB5FF;
+$orange: #FF6C02;
+$darkBlue: #2b3640;
+$greenBlue: #00a2af;
+$lightBlue: #d8eff1;
+
+// Font weight
+$bold: 700;
+
+// Font sizes
+$headerTitle: 1rem;
+$bigTitle: 3rem;
+$cardTitle: 2.5rem;
+$cardParragraph: 1.4rem;
+$callToAction: 1.8rem;
+$footerMenu: 1rem;
+$footerInfo: 0.75rem;
+
+// Font families
+$monserrat: "Montserrat", sans-serif;
+$poppins: "Poppins", sans-serif;
+
+@import "reset";
+@import "header";
+@import "introduction";
+@import "card";
+@import "callToAction";
+@import "footer";
+@import "socialMedia";
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
