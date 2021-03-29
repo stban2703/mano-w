@@ -1,9 +1,162 @@
-.chatbot{
+.chatbot {
+    background-color: $lightOrange;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 510px;
+    max-width: 400px;
+    border-radius: 23px 23px 0 0;
     position: sticky;
-    bottom: 2vh;
-    left: 91%;
+    bottom: 0;
+    z-index: 10;
+    left: 73%;
 
-    &_img{
-        width: 15vh;    
+    &__btn {
+        position: sticky;
+        bottom: 2vh;
+        left: 91%;
+    }
+
+    &__img {
+        width: 15vh;
+    }
+
+    &__header {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+        background-color: $orange;
+        border-radius: 23px 23px 0 0;
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    &__profilePic {
+        max-width: none;
+        margin-right: 8px;
+    }
+
+    &__botIntro {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__title {
+        font-family: $monserrat;
+        font-weight: $bold;
+        color: white;
+        font-size: $chatbot;
+    }
+
+    &__name {
+        font-family: $monserrat;
+        font-weight: lighter;
+        color: white;
+        font-size: $chatbot - 0.2;
+    }
+
+    &__closeBtn {
+        max-width: none;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+
+    &__chat {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 0 10px;
+        overflow-y: scroll;
+
+        &::-webkit-scrollbar {
+            background-color: $lightOrange;
+            width: 10px;
+        }
+
+        &::-webkit-scrollbar-button {
+            display: none;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            border-radius: 5px;
+            background-color: $greenBlue;
+        }
+    }
+
+    &__topics {
+        width: fit-content;
+        margin: 10px 0;
+        p {
+            font-family: $poppins;
+            color: $darkBlue;
+            font-size: $chatbot - 0.1;
+        }
+    }
+
+    &__item {
+        width: fit-content;
+        background-color: $greenBlue;
+        border-radius: 15px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 10px;
+        margin: 5px 0;
+
+        img {
+            max-width: none;
+            margin-right: 8px;
+        }
+
+        p {
+            color: white;
+            font-size: $chatbot;
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &__footer{
+        width: 100%;
+        padding: 5px;
+        align-self: flex-end;
+        justify-self: flex-end;
+    }
+
+    &__input {
+        display: flex;
+        background-color: white;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: fit-content;
+        position: relative;
+        border-radius: 14px;
+    }
+
+    &__textBox {
+        width: 100%;
+        padding: 15px;
+        border-style: none;
+        font-family: $monserrat;
+        border-radius: 14px;
+    }
+
+    &__sendBtn {
+        position: absolute;
+        right: 0;
+        height: 100%;
     }
 }
