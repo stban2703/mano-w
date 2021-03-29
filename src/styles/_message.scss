@@ -1,0 +1,32 @@
+.message {
+    width: fit-content;
+    margin: 5px 0;
+
+    &__text {
+        padding: 10px;
+        border-radius: 15px 15px 15px 0;
+        background-color: $greenBlue;
+        font-family: $poppins;
+        font-size: $chatbot;
+        color: white;
+    }
+
+    &--mine {
+        align-self: flex-end;
+        .message__text {
+            background-color: $orange;
+            border-radius: 15px 0px 15px 15px;
+        }
+
+        .message__hour {
+            text-align: end;
+        }
+    }
+
+    &__hour {
+        font-family: $monserrat;
+        font-size: $chatbot - 0.3;
+        color: $darkBlue;
+        margin-top: 5px;
+    }
+}

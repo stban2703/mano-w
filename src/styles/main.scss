@@ -5,6 +5,7 @@
 $purple: #7030a0;
 $lightPurple: #DFB5FF;
 $orange: #FF6C02;
+$lightOrange: #FFF2EB;
 $darkBlue: #2b3640;
 $greenBlue: #00a2af;
 $lightBlue: #d8eff1;
@@ -20,6 +21,7 @@ $cardParragraph: 1.4rem;
 $callToAction: 1.8rem;
 $footerMenu: 1rem;
 $footerInfo: 0.75rem;
+$chatbot: 1rem;
 
 // Font families
 $monserrat: "Montserrat", sans-serif;
@@ -34,6 +36,7 @@ $poppins: "Poppins", sans-serif;
 @import "socialMedia";
 @import "chatbot";
 @import "profile";
+@import "message";
 
 html,
 body {
