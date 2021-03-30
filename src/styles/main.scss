@@ -22,6 +22,7 @@ $callToAction: 1.8rem;
 $footerMenu: 1rem;
 $footerInfo: 0.75rem;
 $chatbot: 1rem;
+$button: 1.75rem;
 
 // Font families
 $monserrat: "Montserrat", sans-serif;
@@ -37,7 +38,7 @@ $poppins: "Poppins", sans-serif;
 @import "chatbot";
 @import "profile";
 @import "message";
-@import "btnLogin";
+@import "btn";
 @import "login";
 @import "input";
 @import "register";

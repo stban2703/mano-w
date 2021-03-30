@@ -1,15 +1,14 @@
-.btnLogin{
-    margin: 0px auto;
+.btn {
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: $orange;
-    width: 45vh;
-    height: 8vh;
+    width: 100%;
+    padding: 10px 0;
     border-radius: 25px;
     border: none;
     color: white;
     font-weight: $bold;
-    font-size: 20px;
+    font-size: $button;
 }
 
