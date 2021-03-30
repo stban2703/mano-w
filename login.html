@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,46 +8,31 @@
     <title>Iniciar Sesión</title>
     <link rel="stylesheet" href="./src/styles/main.css">
 </head>
+
 <body>
-<div class="containerchara">
-    <div class="containerchara__content">
-        <h1>Iniciar sesión</h1>
-        <img src="./src/images/characterLogin.svg">
-    </div>
-
-</div>
- 
-
-    <div class="container">
-        <div class="container__login">
-            
-            <div class="container__main form">
-                <img src="./src/images/manowlogo.svg" class="container__logo">
-                <label class="form__label">
+    <article class="login">
+        <section class="login__container">
+            <form class="login__form">
+                <img src="./src/images/manowlogo.svg" class="login__logo">
+                <label class="input">
                     Cédula
-                    <input name="identification" type="text">
+                    <input class="input__textBox" name="identification" type="text" placeholder="Escribe tu cédula">
                 </label>
 
-                <label class="form__label">
+                <label class="input">
                     Contraseña
-                    <input name="password" type="text">
+                    <input class="input__textBox" name="password" type="text" placeholder="Escribe tu contraseña">
                 </label>
 
+                <p class="login__alternative">¿No tienes cuenta? Crea una <strong><a href="">aquí</a></strong></p>
                 <button class="btnLogin">Iniciar Sesión</button>
-
-                <p>¿No tienes cuenta? Crea una <a>aquí</a></p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-
-    <div>
-
-    </div>
-    
+            </form>
+        </section>
+        <section class="login__character">
+            <h1 class="login__title">Iniciar sesión</h1>
+            <img class="login__image" src="./src/images/characterLogin.svg">
+        </section>
+    </article>
 </body>
+
 </html>

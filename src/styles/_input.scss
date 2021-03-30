@@ -1,0 +1,18 @@
+.input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    font-family: $monserrat;
+    font-weight: bold;
+    font-size: 1.225rem;
+    margin-bottom: 20px;
+
+    &__textBox {
+       border: 2px solid $greenBlue;
+       border-radius: 20px;
+       padding: 15px 10px;
+       font-size: 1rem;
+       margin-top: 10px;
+       font-family: $poppins;
+    }
+}
