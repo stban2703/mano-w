@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,7 +10,7 @@
 <body>
     <header class="header">
         <img class="header__logo" src="./src/images/manowlogo.svg" alt="">
-        <section class="header__menu">
+        <nav class="header__menu">
             <a href="" class="header__section">
                 <h3 class="header__title">Inicio</h3>
             </a>
@@ -26,16 +26,16 @@
             <a href="" class="header__section">
                 <h3 class="header__title">Eventos</h3>
             </a>
-        </section>
+        </nav>
         <section class="header__menu">
-            <a href="" class="header__user hidden">
+            <a href="./profile.html" class="header__user hidden">
                 <h3 class="header__title">Perfil</h3>
                 <img src="./src/images/userlogo.svg" alt="">
             </a>
-            <a href="./login.html" class="header__section">
+            <a href="./login.html" class="header__section header__login">
                 <h3 class="header__title">Iniciar sesión</h3>
             </a>
-            <a href="./profile.html" class="header__section">
+            <a href="./register.html" class="header__section header__register">
                 <h3 class="header__title">Registro</h3>
             </a>
         </section>
@@ -110,5 +110,12 @@
             </p>
         </section>
     </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
+    <script src="./src/scripts/firebase.js"></script>
+    <script src="./src/scripts/auth.js"></script>
+    <script src="./src/scripts/handleHeader.js"></script>
 </body>
 </html>

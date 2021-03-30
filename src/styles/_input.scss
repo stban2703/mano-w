@@ -1,5 +1,6 @@
 .input {
     display: flex;
+    width: 100%;
     flex-direction: column;
     margin-bottom: 20px;
     font-family: $monserrat;
@@ -9,6 +10,7 @@
 
     &__textBox {
        border: 2px solid $greenBlue;
+       width: 100%;
        border-radius: 20px;
        padding: 12px 10px;
        font-size: 1rem;

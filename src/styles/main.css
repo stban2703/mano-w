@@ -830,11 +830,23 @@ input[type=button] {
 }
 
 .profile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   font-family: "Montserrat", sans-serif;
 }
 
 .profile__introduction {
   position: relative;
+  width: 100%;
 }
 
 .profile__introduction img {
@@ -932,27 +944,6 @@ input[type=button] {
   margin-right: 1vh;
 }
 
-.profile__logOut {
-  margin: 5vh auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  background-color: #FF6C02;
-  width: 45vh;
-  height: 8vh;
-  border-radius: 25px;
-  border: none;
-  color: white;
-  font-weight: 700;
-  font-size: 20px;
-}
-
 .message {
   width: -webkit-fit-content;
   width: -moz-fit-content;
@@ -1002,12 +993,14 @@ input[type=button] {
           justify-content: center;
   background-color: #FF6C02;
   width: 100%;
+  max-width: 300px;
   padding: 10px 0;
   border-radius: 25px;
   border: none;
   color: white;
   font-weight: 700;
   font-size: 1.75rem;
+  margin-bottom: 20px;
 }
 
 .login {
@@ -1060,6 +1053,9 @@ input[type=button] {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100%;
   max-width: 500px;
 }
@@ -1114,6 +1110,7 @@ input[type=button] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  width: 100%;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -1127,6 +1124,7 @@ input[type=button] {
 
 .input__textBox {
   border: 2px solid #00a2af;
+  width: 100%;
   border-radius: 20px;
   padding: 12px 10px;
   font-size: 1rem;
@@ -1184,6 +1182,9 @@ input[type=button] {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100%;
   height: 100%;
   max-width: 500px;
