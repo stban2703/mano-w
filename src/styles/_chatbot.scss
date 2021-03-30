@@ -9,12 +9,18 @@
     position: fixed;
     bottom: 0;
     z-index: 10;
-    left: 73%;
+    right: 8px;
 
-    &__btn {
+    &__openBtn {
         position: sticky;
         bottom: 2vh;
-        left: 91%;
+        margin-right: 5px;
+        display: flex;
+        flex-direction: row-reverse;
+
+        &:hover {
+            cursor: pointer;
+        }
     }
 
     &__img {
