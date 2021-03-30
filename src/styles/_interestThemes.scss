@@ -1,0 +1,81 @@
+.interestThemes {
+    font-family: $monserrat;
+
+    &__introduction {
+        position: relative;
+
+        img {
+            width: 100%;
+        }
+
+        & h2 {
+            font-size: $headerTitle;
+            color: $darkBlue;
+            font-size: 2rem;
+            font-weight: $bold;
+            text-align: center;
+            position: absolute;
+            width: 100%;
+            top: 40%;
+        }
+    }
+
+    &__select{
+        text-align: center;
+        margin: 4vh 0;
+    }
+
+    &__content{
+        text-align: center;
+
+        &__item{
+            display: inline-block;
+            margin: 0 5% 5vh 5%;
+
+            &__graphic{
+                position: relative;
+                width: 30vh;
+                height: 30vh;
+                border-radius: 50px;
+                & img{
+                    width: 80%;
+                    position: absolute;
+                    display: block;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    margin: auto;
+                }
+            }
+            & p{
+                font-weight: $bold;
+                width: 30vh;
+                text-align: center;
+            }
+
+        }
+    }
+    &__next{
+        margin: 5vh auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $orange;
+        width: 45vh;
+        height: 8vh;
+        border-radius: 25px;
+        border: none;
+        color: white;
+        font-weight: $bold;
+        font-size: 1.5rem;
+    }
+}
+
+.item__graphic--light{
+    background-color: $lightBlue;
+}
+
+.item__graphic--dark{
+    background-color: $greenBlue;
+}
