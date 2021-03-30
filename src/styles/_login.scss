@@ -8,8 +8,8 @@
   &__container {
     width: 100%;
     max-width: 800px;
-    border-left: 3px dashed gray;
-    border-right: 3px dashed gray;
+    border-left: 6px dashed gray;
+    border-right: 6px dashed gray;
     background-color: $lightPurple;
     height: 100%;
     display: flex;
@@ -65,3 +65,5 @@
     justify-content: flex-start;
   }
 }
+
+
