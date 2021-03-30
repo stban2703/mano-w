@@ -880,12 +880,12 @@ input[type=button] {
 }
 
 .profile__content__profileInfo .title {
-  font-size: 30px;
+  font-size: 2rem;
   font-weight: 700;
 }
 
 .profile__content__profileInfo .profileInformation {
-  font-size: 14px;
+  font-size: 1rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
