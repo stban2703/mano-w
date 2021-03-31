@@ -136,6 +136,7 @@ function handleAddMessagesInList(message, type) {
     messageList.push(newObj);
     //console.log(messageList);
     renderChatMessages(messageList);
+    handleLastUserMessage(newObj, messageList)
 }
 
 function handleSendMessageChatbot() {
