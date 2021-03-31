@@ -106,8 +106,11 @@ function handleLastUserMessage(message, messageList) {
             title: "Elige el tema del que desees obtener información",
             itemList: message.selectedOption.itemList
         }
-        messageList.push(newBotmessage);
-        renderChatMessages(messageList)
+
+        setTimeout(() => {
+            messageList.push(newBotmessage);
+            renderChatMessages(messageList)
+        }, 2000)
     }
 }
 
