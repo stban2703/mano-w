@@ -2,8 +2,9 @@ const chatbot = document.querySelector(".chatbot");
 const chatbotChat = document.querySelector(".chatbot__chat");
 const openChatbotBtn = document.querySelector(".chatbot__openBtn");
 const closeChatbotBtn = document.querySelector(".chatbot__closeBtn");
+const chabotMessageForm = document.querySelector(".chatbot__footer")
 
-const initialMessageList = [
+let messageList = [
     {
         id: 0,
         text: "Dime en qué te puedo ayudar",
@@ -17,7 +18,7 @@ const initialMessageList = [
     }
 ]
 
-renderChatMessages(initialMessageList);
+renderChatMessages(messageList);
 
 function renderChatMessages(list) {
     if (document.querySelector(".message")) {
@@ -86,14 +87,15 @@ function handleCreateTopicElement(elem, messageList) {
     return newItem;
 }
 
-function handleClickOptions(elem, messageList) {
+function handleClickOptions(elem, list) {
     const newMessage = {
-        id: messageList.length,
+        id: list.length,
         text: elem.value,
         type: "user",
         selectedOption: elem
     }
-    messageList.push(newMessage);
+    list.push(newMessage);
+    messageList = list;
     renderChatMessages(messageList);
     handleLastUserMessage(newMessage, messageList);
 }
@@ -114,32 +116,15 @@ function handleLastUserMessage(message, messageList) {
     }
 }
 
-// Retirada por el momento
-/*function renderChatbotTopics(htmlElement, list) {
-    //const chatbotTopicList = document.querySelector(".message__topicsList");
-    if (document.querySelector(".message--topics")) {
-        cleanRender();
-    }
-    list.forEach((elem) => {
-        const newItem = document.createElement("li");
-        newItem.classList.add("message__item");
-
-        newItem.innerHTML = `
-            <img src=${elem.imageUrl} alt="">
-            <p>${elem.value}</p>
-        `
-        htmlElement.appendChild(newItem);
-        newItem.addEventListener('click', function () {
-            if (elem.itemList) {
-                handleChatbotNextOptions(elem);
-            } else {
-                window.location.href = elem.redirectUrl;
-            }
-        })
-    })
-}*/
+chabotMessageForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    let messageText = chabotMessageForm.userMessage.value;
+    handleAddMessagesInList(messageText, "user");
+    chabotMessageForm.userMessage.value = "";
+})
 
 
+// Funciones anteriores
 // Mensajes nuevos
 // Lo de enviar un mensaje y que se haga push en el arreglo de messageList
 function handleAddMessagesInList(message, type) {
@@ -149,7 +134,7 @@ function handleAddMessagesInList(message, type) {
         type: type
     }
     messageList.push(newObj);
-    console.log(messageList);
+    //console.log(messageList);
     renderChatMessages(messageList);
 }
 
@@ -158,8 +143,9 @@ function handleSendMessageChatbot() {
     handleAddMessagesInList(messageElem.value, "user"); //Aqui pues creo que tiene sentido que siempre sea de tipo usuario porque el evento es al darle click en el botón de enviar, para los mensajes del asesor pues solo es cambiar "user" por "asesor" pero eso creo que no se hace por aca o no sé bien la verdad.
     messageElem.value = "";
 }
-const sendMessageBtn = document.querySelector(".chatbot__sendBtn");
-sendMessageBtn.addEventListener('click', handleSendMessageChatbot);
+
+//const sendMessageBtn = document.querySelector(".chatbot__sendBtn");
+//sendMessageBtn.addEventListener('click', handleSendMessageChatbot);
 //Hasta aqui lo de enviar mensaje
 
 function cleanRender() {
