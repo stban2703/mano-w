@@ -29,4 +29,39 @@
         color: $darkBlue;
         margin-top: 5px;
     }
+
+    &--topics {
+        width: fit-content;
+        margin: 10px 0;
+        p {
+            font-family: $poppins;
+            color: $darkBlue;
+            font-size: $chatbot - 0.1;
+        }
+    }
+
+    &__item {
+        width: fit-content;
+        background-color: $greenBlue;
+        border-radius: 15px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 10px;
+        margin: 5px 0;
+
+        img {
+            max-width: none;
+            margin-right: 8px;
+        }
+
+        p {
+            color: white;
+            font-size: $chatbot;
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
 }

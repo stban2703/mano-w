@@ -981,6 +981,53 @@ input[type=button] {
   margin-top: 5px;
 }
 
+.message--topics {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 10px 0;
+}
+
+.message--topics p {
+  font-family: "Poppins", sans-serif;
+  color: #2b3640;
+  font-size: 0.9rem;
+}
+
+.message__item {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: #00a2af;
+  border-radius: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+  margin: 5px 0;
+}
+
+.message__item img {
+  max-width: none;
+  margin-right: 8px;
+}
+
+.message__item p {
+  color: white;
+  font-size: 1rem;
+}
+
+.message__item:hover {
+  cursor: pointer;
+}
+
 .btn {
   display: -webkit-box;
   display: -ms-flexbox;
