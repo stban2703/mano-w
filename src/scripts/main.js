@@ -154,11 +154,41 @@ const messageList = [
     }
 ]
 
-//renderChatbotTopics(chatBotOptionsList);
+// Lo de enviar un mensaje y que se haga push en el arreglo de messageList
+
+    function handleAddMessagesInList(message, type) {
+        var newObj = {
+            id: messageList.length,
+            text: message,
+            type: type
+        }
+        messageList.push(newObj);
+        console.log(messageList);
+        renderChatMessages(messageList);
+    }
+
+    function handleSendMessageChatbot() {
+        var messageElem = document.querySelector(".chatbot__textBox");
+        handleAddMessagesInList(messageElem.value, "user"); //Aqui pues creo que tiene sentido que siempre sea de tipo usuario porque el evento es al darle click en el botón de enviar, para los mensajes del asesor pues solo es cambiar "user" por "asesor" pero eso creo que no se hace por aca o no sé bien la verdad.
+        messageElem.value = "";
+    }
+    const sendMessageBtn = document.querySelector(".chatbot__sendBtn");
+    sendMessageBtn.addEventListener('click', handleSendMessageChatbot);
+
+
+//Hasta aqui lo de enviar mensaje
 
 renderChatMessages(messageList);
 
+function cleanRender() {
+    var messageElem = document.querySelector(".chatbot__chat");
+    messageElem.innerHTML="";
+} //Esta función basicamente es para que elimine todos los mensajes antes de volver a renderizar todo, la ejecuto al inicio de renderChatMessages y con esos if para que comience a usar la función a partir de la segunda renderización y no desde la primera. Y pues lo mismo en renderChatbotTopics
+
 function renderChatMessages(list) {
+    if (document.querySelector(".message")) {
+        cleanRender();
+    }
     list.forEach((elem) => {
         const newMessage = document.createElement("div");
         newMessage.classList.add("message");
@@ -194,6 +224,9 @@ function renderChatMessages(list) {
 
 function renderChatbotTopics(htmlElement, list) {
     //const chatbotTopicList = document.querySelector(".message__topicsList");
+    if (document.querySelector(".message--topics")) {
+        cleanRender();
+    }
     list.forEach((elem) => {
         const newItem = document.createElement("li");
         newItem.classList.add("message__item");
