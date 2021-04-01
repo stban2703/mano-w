@@ -27,17 +27,19 @@ let isChatOnline = false;
 
 function getMessages(isOnline) {
     if (isOnline) {
-        dbMessageList = [];
         userMessagesRef.onSnapshot((querySnapshot) => {
+            dbMessageList = [];
             querySnapshot.forEach((doc) => {
                 const object = doc.data();
                 dbMessageList.push(object);
             });
             //console.log(doc.id, " => ", doc.data());
+            cleanRender("online");
             renderChatMessages(dbMessageList, true);
         });
     } else {
         localMessageListCopy = [...localMessageList];
+        cleanRender("local");
         renderChatMessages(localMessageListCopy, false);
     }
 }
@@ -45,12 +47,6 @@ function getMessages(isOnline) {
 //renderChatMessages(messageList);
 
 function renderChatMessages(list, isOnline) {
-    if (isOnline) {
-        cleanRender("online");
-    } else {
-        cleanRender("local");
-    }
-
     const listCopy = [...list].sort((a, b) => {
         return a.date - b.date;
     });
