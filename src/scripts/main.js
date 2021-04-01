@@ -9,12 +9,14 @@ let hour = `${date.getHours()}:${(date.getMinutes() < 10 ? '0' : '') + date.getM
 
 let initialMessageList = [
     {
+        id: 0,
         text: "Dime en qué te puedo ayudar",
         type: "asesor",
         date: Date.now(),
         hour: hour
     },
-    {
+    {   
+        id: 1,
         type: "bot",
         title: "Elige el tema del que desees obtener información",
         itemList: chatBotOptionsList,
@@ -28,14 +30,15 @@ let dbMessageList = [];
 function getDbMessages() {
     dbMessageList = [];
     userMessagesRef.get().then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-            // doc.data() is never undefined for query doc snapshots
-            dbMessageList.push(doc.data());
-            console.log(doc.id, " => ", doc.data());
-        });
         initialMessageList.forEach(elem => {
             dbMessageList.push(elem);
         })
+        querySnapshot.forEach((doc) => {
+            // doc.data() is never undefined for query doc snapshots
+            const object = doc.data();
+            dbMessageList.push(object);
+            console.log(doc.id, " => ", doc.data());
+        });
         renderChatMessages(dbMessageList);
     }).catch((error) => {
         console.log("Error getting documents: ", error);
@@ -49,14 +52,15 @@ function renderChatMessages(list) {
         cleanRender();
     }
     const listCopy = [...list].sort((a, b) => {
-        return b.date - a.date;
+        return b.id - a.id;
     });
 
     console.log(listCopy)
 
     const listReverse = [...listCopy].reverse();
+    console.log(listReverse)
 
-    listReverse.forEach((elem) => {
+    listCopy.forEach((elem) => {
         // Crear elemento div para el mensaje
         const newMessage = document.createElement("div");
         newMessage.classList.add("message");
@@ -158,7 +162,9 @@ chabotMessageForm.addEventListener("submit", function (event) {
 
 
 function handleSendMessageFirestore(message) {
-    userMessagesRef.add(message).then((docRef) => {
+    const newMessage = message;
+    newMessage.id = dbMessageList.length;
+    userMessagesRef.add(newMessage).then((docRef) => {
         console.log("Document written with ID: ", docRef.id);
         getDbMessages();
     })
