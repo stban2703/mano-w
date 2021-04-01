@@ -175,7 +175,7 @@ function handleLastUserMessage(message, elem) {
 chabotMessageForm.addEventListener("submit", function (event) {
     event.preventDefault();
     let messageText = chabotMessageForm.userMessage.value;
-    handleAddMessagesInList(messageText, "user");
+    handleAddMessagesInList(messageText, "user", false);
     chabotMessageForm.userMessage.value = "";
 })
 
@@ -192,17 +192,23 @@ function handleSendMessageFirestore(message) {
         });;
 }
 
-function handleAddMessagesInList(message, type) {
+function handleAddMessagesInList(message, type, isOnline) {
     var newObj = {
         text: message,
         type: type,
         date: Date.now(),
         hour: getMessageHour()
     }
-    // messageList.push(newObj);
-    handleSendMessageFirestore(newObj);
+
+    if (isOnline) {
+
+    } else {
+        localMessageList.push(newObj);
+        getMessages(isOnline);
+    }
+    //handleSendMessageFirestore(newObj);
     //renderChatMessages(messageList);
-    handleLastUserMessage(newObj)
+    //handleLastUserMessage(newObj)
 }
 
 function handleSendMessageChatbot() {
