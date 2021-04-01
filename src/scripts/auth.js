@@ -1,4 +1,5 @@
 let userInfo;
+let userMessagesRef;
 
 firebase.auth().onAuthStateChanged((user) => {
     if (user) {
@@ -8,7 +9,9 @@ firebase.auth().onAuthStateChanged((user) => {
                 const data = doc.data();
                 userInfo = data;
                 userInfo.uid = uid;
+                userMessagesRef = userRef.doc(uid).collection('messages');
                 handleHeader();
+                getDbMessages()
             }
         })
     } else {

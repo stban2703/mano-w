@@ -4,27 +4,56 @@ const openChatbotBtn = document.querySelector(".chatbot__openBtn");
 const closeChatbotBtn = document.querySelector(".chatbot__closeBtn");
 const chabotMessageForm = document.querySelector(".chatbot__footer")
 
-let messageList = [
+let date = new Date();
+let hour = `${date.getHours()}:${(date.getMinutes() < 10 ? '0' : '') + date.getMinutes()}`
+
+let initialMessageList = [
     {
-        id: 0,
         text: "Dime en qué te puedo ayudar",
         type: "asesor",
+        date: Date.now(),
+        hour: hour
     },
     {
-        id: 1,
         type: "bot",
         title: "Elige el tema del que desees obtener información",
-        itemList: chatBotOptionsList
+        itemList: chatBotOptionsList,
+        date: Date.now(),
+        hour: hour
     }
 ]
 
-renderChatMessages(messageList);
+let dbMessageList = [];
+
+function getDbMessages() {
+    dbMessageList = [];
+    userMessagesRef.get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            // doc.data() is never undefined for query doc snapshots
+            dbMessageList.push(doc.data());
+            console.log(doc.id, " => ", doc.data());
+        });
+        initialMessageList.forEach(elem => {
+            dbMessageList.push(elem);
+        })
+        renderChatMessages(dbMessageList);
+    }).catch((error) => {
+        console.log("Error getting documents: ", error);
+    });
+}
+
+//renderChatMessages(messageList);
 
 function renderChatMessages(list) {
     if (document.querySelector(".message")) {
         cleanRender();
     }
-    const listCopy = [...list];
+    const listCopy = [...list].sort((a, b) => {
+        return b.date - a.date;
+    });
+
+    console.log(listCopy)
+
     const listReverse = [...listCopy].reverse();
 
     listReverse.forEach((elem) => {
@@ -44,7 +73,7 @@ function renderChatMessages(list) {
                 `
                 const itemList = elem.itemList;
                 itemList.forEach((elem) => {
-                    const newTopic = handleCreateTopicElement(elem, listCopy);
+                    const newTopic = handleCreateTopicElement(elem);
                     newTopicList.appendChild(newTopic);
                 })
 
@@ -55,13 +84,13 @@ function renderChatMessages(list) {
                 newMessage.classList.add("message--mine");
                 newMessage.innerHTML = `
                     <p class="message__text">${elem.text}</p>
-                    <p class="message__hour">15:10</p>
+                    <p class="message__hour">${elem.hour}</p>
                 `
                 break;
             default:
                 newMessage.innerHTML = `
                     <p class="message__text">${elem.text}</p>
-                    <p class="message__hour">15:10</p>
+                    <p class="message__hour">${elem.hour}</p>
                 `
                 break;
         }
@@ -69,7 +98,7 @@ function renderChatMessages(list) {
     })
 }
 
-function handleCreateTopicElement(elem, messageList) {
+function handleCreateTopicElement(elem) {
     const newItem = document.createElement("li");
     newItem.classList.add("message__item");
 
@@ -79,7 +108,7 @@ function handleCreateTopicElement(elem, messageList) {
         `
     newItem.addEventListener('click', function () {
         if (elem.itemList) {
-            handleClickOptions(elem, messageList);
+            handleClickOptions(elem);
         } else {
             window.location.href = elem.redirectUrl;
         }
@@ -87,31 +116,35 @@ function handleCreateTopicElement(elem, messageList) {
     return newItem;
 }
 
-function handleClickOptions(elem, list) {
+function handleClickOptions(elem) {
+    let date = new Date();
+    let hour = `${date.getHours()}:${(date.getMinutes() < 10 ? '0' : '') + date.getMinutes()}`
     const newMessage = {
-        id: list.length,
         text: elem.value,
         type: "user",
+        date: date,
+        hour: hour,
         selectedOption: elem
     }
-    list.push(newMessage);
-    messageList = list;
-    renderChatMessages(messageList);
-    handleLastUserMessage(newMessage, messageList);
+    //list.push(newMessage);
+    handleSendMessageFirestore(newMessage);
+    //messageList = list;
+    //renderChatMessages(messageList);
+    handleLastUserMessage(newMessage);
 }
 
-function handleLastUserMessage(message, messageList) {
+function handleLastUserMessage(message) {
     if (message.type === "user" && message.selectedOption) {
         const newBotmessage = {
-            id: messageList.length,
             type: "bot",
             title: "Elige el tema del que desees obtener información",
             itemList: message.selectedOption.itemList
         }
-
+        handleSendMessageFirestore(newBotmessage);
         setTimeout(() => {
-            messageList.push(newBotmessage);
-            renderChatMessages(messageList)
+            //messageList.push(newBotmessage);
+            //renderChatMessages(messageList)
+            getDbMessages();
         }, 2000)
     }
 }
@@ -124,36 +157,42 @@ chabotMessageForm.addEventListener("submit", function (event) {
 })
 
 
-// Funciones anteriores
-// Mensajes nuevos
-// Lo de enviar un mensaje y que se haga push en el arreglo de messageList
+function handleSendMessageFirestore(message) {
+    userMessagesRef.add(message).then((docRef) => {
+        console.log("Document written with ID: ", docRef.id);
+        getDbMessages();
+    })
+        .catch((error) => {
+            console.error("Error adding document: ", error);
+        });;
+}
+
 function handleAddMessagesInList(message, type) {
+    let date = new Date();
+    let hour = `${date.getHours()}:${(date.getMinutes() < 10 ? '0' : '') + date.getMinutes()}`
+
     var newObj = {
-        id: messageList.length,
         text: message,
-        type: type
+        type: type,
+        date: Date.now(),
+        hour: hour
     }
-    messageList.push(newObj);
-    //console.log(messageList);
-    renderChatMessages(messageList);
-    handleLastUserMessage(newObj, messageList)
+   // messageList.push(newObj);
+    handleSendMessageFirestore(newObj);
+    //renderChatMessages(messageList);
+    handleLastUserMessage(newObj)
 }
 
 function handleSendMessageChatbot() {
     var messageElem = document.querySelector(".chatbot__textBox");
-    handleAddMessagesInList(messageElem.value, "user"); //Aqui pues creo que tiene sentido que siempre sea de tipo usuario porque el evento es al darle click en el botón de enviar, para los mensajes del asesor pues solo es cambiar "user" por "asesor" pero eso creo que no se hace por aca o no sé bien la verdad.
+    handleAddMessagesInList(messageElem.value, "user");
     messageElem.value = "";
 }
-
-//const sendMessageBtn = document.querySelector(".chatbot__sendBtn");
-//sendMessageBtn.addEventListener('click', handleSendMessageChatbot);
-//Hasta aqui lo de enviar mensaje
 
 function cleanRender() {
     var messageElem = document.querySelector(".chatbot__chat");
     messageElem.innerHTML = "";
-} //Esta función basicamente es para que elimine todos los mensajes antes de volver a renderizar todo, la ejecuto al inicio de renderChatMessages y con esos if para que comience a usar la función a partir de la segunda renderización y no desde la primera. Y pues lo mismo en renderChatbotTopics
-
+}
 
 // Abrir / cerra bot
 function handleOpenChatbot() {

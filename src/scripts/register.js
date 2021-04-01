@@ -13,7 +13,7 @@ registerForm.addEventListener("submit", function (event) {
             // Signed in
             const userId = userCredential.user.uid;
 
-            userRef.doc(userId).set({
+            userRef.doc(userIdentification).set({
                 email: userEmail,
                 name: userName,
                 surname: userSurname,
