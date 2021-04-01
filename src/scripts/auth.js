@@ -2,8 +2,12 @@ let userInfo;
 let userMessagesRef;
 
 firebase.auth().onAuthStateChanged((user) => {
+    const openChatbotBtn = document.querySelector(".chatbot__openBtn");
     if (user) {
         const uid = user.uid;
+        if (openChatbotBtn) {
+            openChatbotBtn.classList.remove("hidden")
+        }
         userRef.doc(uid).get().then(function (doc) {
             if (doc.exists) {
                 const data = doc.data();
@@ -18,6 +22,9 @@ firebase.auth().onAuthStateChanged((user) => {
         })
     } else {
         console.log("Not logged")
+        if (openChatbotBtn) {
+            openChatbotBtn.classList.add("hidden")
+        }
     }
 });
 

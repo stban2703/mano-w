@@ -171,7 +171,7 @@ function handleLastUserMessage(message, elem) {
         if (elem.isFinal) {
             isChatOnline = true;
             handleSendMessageFirestore({
-                title: `Ahora estás conectado con un asesor`,
+                title: `Ahora están conectados`,
                 type: "bot",
                 date: Date.now(),
                 hour: getMessageHour()
