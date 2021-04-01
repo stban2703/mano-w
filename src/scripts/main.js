@@ -23,6 +23,7 @@ let localMessageList = [
 ]
 
 let dbMessageList = [];
+let isChatOnline = false;
 
 function getMessages(isOnline) {
     if (isOnline) {
@@ -32,7 +33,7 @@ function getMessages(isOnline) {
                 dbMessageList.push(object);
                 console.log(doc.id, " => ", doc.data());
             });
-            renderChatMessages(dbMessageList);
+            renderChatMessages(dbMessageList, true);
         }).catch((error) => {
             console.log("Error getting documents: ", error);
         });
@@ -57,9 +58,11 @@ function renderChatMessages(list, isOnline) {
 
     const listReverse = [...listCopy].reverse();
     handleCreateMessageElem(listCopy, isOnline);
+    const chatbotScroll = document.querySelector(".chatbot__messages");
+    chatbotScroll.scrollTop = chatbotScroll.scrollHeight;
 }
 
-function handleCreateMessageElem(list, online) {
+function handleCreateMessageElem(list, isOnline) {
     list.forEach((elem) => {
         // Crear elemento div para el mensaje
         const newMessage = document.createElement("div");
@@ -99,7 +102,7 @@ function handleCreateMessageElem(list, online) {
                 break;
         }
 
-        if (online) {
+        if (isOnline) {
             const chabotOnlineMessages = document.querySelector(".chatbot__onlineMessages")
             chabotOnlineMessages.appendChild(newMessage);
         } else {
@@ -166,8 +169,20 @@ function handleLastUserMessage(message, elem) {
     }
     //handleSendMessageFirestore(newBotmessage);
     setTimeout(() => {
+
         localMessageList.push(newMessage);
         getMessages(false);
+
+        if (elem.isFinal) {
+            isChatOnline = true;
+            handleSendMessageFirestore({
+                text: `Ahora estás conectado con un asesor`,
+                type: "asesor",
+                date: Date.now(),
+                hour: getMessageHour()
+            })
+        }
+
         //getDbMessages();
     }, 2000)
 }
@@ -185,7 +200,7 @@ function handleSendMessageFirestore(message) {
     newMessage.id = dbMessageList.length;
     userMessagesRef.add(newMessage).then((docRef) => {
         console.log("Document written with ID: ", docRef.id);
-        getDbMessages();
+        getMessages(isChatOnline);
     })
         .catch((error) => {
             console.error("Error adding document: ", error);
@@ -193,7 +208,7 @@ function handleSendMessageFirestore(message) {
 }
 
 function handleAddMessagesInList(message, type, isOnline) {
-    var newObj = {
+    const newMessage = {
         text: message,
         type: type,
         date: Date.now(),
@@ -201,9 +216,10 @@ function handleAddMessagesInList(message, type, isOnline) {
     }
 
     if (isOnline) {
-
+        handleSendMessageFirestore(newMessage);
+        getMessages(isChatOnline);
     } else {
-        localMessageList.push(newObj);
+        localMessageList.push(newMessage);
         getMessages(isOnline);
     }
     //handleSendMessageFirestore(newObj);
@@ -212,7 +228,7 @@ function handleAddMessagesInList(message, type, isOnline) {
 }
 
 function handleSendMessageChatbot() {
-    var messageElem = document.querySelector(".chatbot__textBox");
+    let messageElem = document.querySelector(".chatbot__textBox");
     handleAddMessagesInList(messageElem.value, "user");
     messageElem.value = "";
 }
