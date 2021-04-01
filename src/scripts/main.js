@@ -27,15 +27,14 @@ let isChatOnline = false;
 
 function getMessages(isOnline) {
     if (isOnline) {
-        userMessagesRef.get().then((querySnapshot) => {
+        dbMessageList = [];
+        userMessagesRef.onSnapshot((querySnapshot) => {
             querySnapshot.forEach((doc) => {
                 const object = doc.data();
                 dbMessageList.push(object);
-                console.log(doc.id, " => ", doc.data());
             });
+            //console.log(doc.id, " => ", doc.data());
             renderChatMessages(dbMessageList, true);
-        }).catch((error) => {
-            console.log("Error getting documents: ", error);
         });
     } else {
         localMessageListCopy = [...localMessageList];
@@ -176,8 +175,8 @@ function handleLastUserMessage(message, elem) {
         if (elem.isFinal) {
             isChatOnline = true;
             handleSendMessageFirestore({
-                text: `Ahora estás conectado con un asesor`,
-                type: "asesor",
+                title: `Ahora estás conectado con un asesor`,
+                type: "bot",
                 date: Date.now(),
                 hour: getMessageHour()
             })
@@ -190,7 +189,7 @@ function handleLastUserMessage(message, elem) {
 chabotMessageForm.addEventListener("submit", function (event) {
     event.preventDefault();
     let messageText = chabotMessageForm.userMessage.value;
-    handleAddMessagesInList(messageText, "user", false);
+    handleAddMessagesInList(messageText, "user", isChatOnline);
     chabotMessageForm.userMessage.value = "";
 })
 
