@@ -709,7 +709,7 @@ input[type=button] {
   cursor: pointer;
 }
 
-.chatbot__chat {
+.chatbot__messages {
   width: 100%;
   height: 100%;
   display: -webkit-box;
@@ -723,18 +723,40 @@ input[type=button] {
   overflow-y: scroll;
 }
 
-.chatbot__chat::-webkit-scrollbar {
+.chatbot__messages::-webkit-scrollbar {
   background-color: #FFF2EB;
   width: 10px;
 }
 
-.chatbot__chat::-webkit-scrollbar-button {
+.chatbot__messages::-webkit-scrollbar-button {
   display: none;
 }
 
-.chatbot__chat::-webkit-scrollbar-thumb {
+.chatbot__messages::-webkit-scrollbar-thumb {
   border-radius: 5px;
   background-color: #00a2af;
+}
+
+.chatbot__localMessages {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+}
+
+.chatbot__onlineMessages {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
 }
 
 .chatbot__topics {

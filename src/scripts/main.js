@@ -1,66 +1,66 @@
 const chatbot = document.querySelector(".chatbot");
-const chatbotChat = document.querySelector(".chatbot__chat");
+const chatbotMessages = document.querySelector(".chatbot__messages");
 const openChatbotBtn = document.querySelector(".chatbot__openBtn");
 const closeChatbotBtn = document.querySelector(".chatbot__closeBtn");
 const chabotMessageForm = document.querySelector(".chatbot__footer")
 
-let date = new Date();
-let hour = `${date.getHours()}:${(date.getMinutes() < 10 ? '0' : '') + date.getMinutes()}`
-
-let initialMessageList = [
+let localMessageList = [
     {
         id: 0,
         text: "Dime en qué te puedo ayudar",
         type: "asesor",
         date: Date.now(),
-        hour: hour
+        hour: getMessageHour()
     },
-    {   
+    {
         id: 1,
         type: "bot",
         title: "Elige el tema del que desees obtener información",
         itemList: chatBotOptionsList,
         date: Date.now(),
-        hour: hour
+        hour: getMessageHour() + 1
     }
 ]
 
 let dbMessageList = [];
 
-function getDbMessages() {
-    dbMessageList = [];
-    userMessagesRef.get().then((querySnapshot) => {
-        initialMessageList.forEach(elem => {
-            dbMessageList.push(elem);
-        })
-        querySnapshot.forEach((doc) => {
-            // doc.data() is never undefined for query doc snapshots
-            const object = doc.data();
-            dbMessageList.push(object);
-            console.log(doc.id, " => ", doc.data());
+function getMessages(isOnline) {
+    if (isOnline) {
+        userMessagesRef.get().then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                const object = doc.data();
+                dbMessageList.push(object);
+                console.log(doc.id, " => ", doc.data());
+            });
+            renderChatMessages(dbMessageList);
+        }).catch((error) => {
+            console.log("Error getting documents: ", error);
         });
-        renderChatMessages(dbMessageList);
-    }).catch((error) => {
-        console.log("Error getting documents: ", error);
-    });
+    } else {
+        localMessageListCopy = [...localMessageList];
+        renderChatMessages(localMessageListCopy, false);
+    }
 }
 
 //renderChatMessages(messageList);
 
-function renderChatMessages(list) {
-    if (document.querySelector(".message")) {
-        cleanRender();
+function renderChatMessages(list, isOnline) {
+    if (isOnline) {
+        cleanRender("online");
+    } else {
+        cleanRender("local");
     }
+
     const listCopy = [...list].sort((a, b) => {
-        return b.id - a.id;
+        return a.date - b.date;
     });
 
-    console.log(listCopy)
-
     const listReverse = [...listCopy].reverse();
-    console.log(listReverse)
+    handleCreateMessageElem(listCopy, isOnline);
+}
 
-    listCopy.forEach((elem) => {
+function handleCreateMessageElem(list, online) {
+    list.forEach((elem) => {
         // Crear elemento div para el mensaje
         const newMessage = document.createElement("div");
         newMessage.classList.add("message");
@@ -69,36 +69,43 @@ function renderChatMessages(list) {
         switch (elem.type) {
             case "bot":
                 newMessage.classList.add("message--topics");
-
                 const newTopicList = document.createElement("ul");
                 newTopicList.classList.add("message__topicsList");
                 newMessage.innerHTML = `
                 <p class="message__title">${elem.title}</p>
                 `
                 const itemList = elem.itemList;
-                itemList.forEach((elem) => {
-                    const newTopic = handleCreateTopicElement(elem);
-                    newTopicList.appendChild(newTopic);
-                })
 
+                if (itemList) {
+                    itemList.forEach((elem) => {
+                        const newTopic = handleCreateTopicElement(elem);
+                        newTopicList.appendChild(newTopic);
+                    })
+                }
                 newMessage.appendChild(newTopicList);
-                //renderChatbotTopics(newTopicList, elem.optionsList);
                 break;
             case "user":
                 newMessage.classList.add("message--mine");
                 newMessage.innerHTML = `
-                    <p class="message__text">${elem.text}</p>
-                    <p class="message__hour">${elem.hour}</p>
-                `
+                <p class="message__text">${elem.text}</p>
+                <p class="message__hour">${elem.hour}</p>
+            `
                 break;
             default:
                 newMessage.innerHTML = `
-                    <p class="message__text">${elem.text}</p>
-                    <p class="message__hour">${elem.hour}</p>
-                `
+                <p class="message__text">${elem.text}</p>
+                <p class="message__hour">${elem.hour}</p>
+            `
                 break;
         }
-        chatbotChat.appendChild(newMessage);
+
+        if (online) {
+            const chabotOnlineMessages = document.querySelector(".chatbot__onlineMessages")
+            chabotOnlineMessages.appendChild(newMessage);
+        } else {
+            const chabotLocalMessages = document.querySelector(".chatbot__localMessages")
+            chabotLocalMessages.appendChild(newMessage);
+        }
     })
 }
 
@@ -111,46 +118,58 @@ function handleCreateTopicElement(elem) {
             <p>${elem.value}</p>
         `
     newItem.addEventListener('click', function () {
-        if (elem.itemList) {
-            handleClickOptions(elem);
-        } else {
-            window.location.href = elem.redirectUrl;
-        }
+        handleClickOptions(elem);
     })
     return newItem;
 }
 
 function handleClickOptions(elem) {
-    let date = new Date();
-    let hour = `${date.getHours()}:${(date.getMinutes() < 10 ? '0' : '') + date.getMinutes()}`
     const newMessage = {
         text: elem.value,
         type: "user",
-        date: date,
-        hour: hour,
-        selectedOption: elem
+        date: Date.now(),
+        hour: getMessageHour(),
+        selectedOption: elem,
+        //isFinal: elem.isFinal
     }
-    //list.push(newMessage);
-    handleSendMessageFirestore(newMessage);
-    //messageList = list;
-    //renderChatMessages(messageList);
-    handleLastUserMessage(newMessage);
+    console.log(elem.value)
+    localMessageList.push(newMessage);
+    getMessages(false);
+    //handleSendMessageFirestore(newMessage);
+    handleLastUserMessage(newMessage, elem);
 }
 
-function handleLastUserMessage(message) {
-    if (message.type === "user" && message.selectedOption) {
-        const newBotmessage = {
+function handleLastUserMessage(message, elem) {
+    let newMessage;
+    if (message.type === "user" && elem.itemList) {
+        newMessage = {
             type: "bot",
             title: "Elige el tema del que desees obtener información",
             itemList: message.selectedOption.itemList
         }
-        handleSendMessageFirestore(newBotmessage);
-        setTimeout(() => {
-            //messageList.push(newBotmessage);
-            //renderChatMessages(messageList)
-            getDbMessages();
-        }, 2000)
+    } else if (message.type === "user" && elem.isFinal) {
+        newMessage = {
+            id: localMessageList.length,
+            text: "Te contactaré con un asesor, dame unos segundos...",
+            type: "asesor",
+            date: Date.now(),
+            hour: getMessageHour()
+        }
+    } else if (message.type === "user" && elem.redirectUrl) {
+        newMessage = {
+            id: localMessageList.length,
+            text: `Por favor, haz click <a href="${elem.redirectUrl}">aquí</a> para obtener información`,
+            type: "asesor",
+            date: Date.now(),
+            hour: getMessageHour()
+        }
     }
+    //handleSendMessageFirestore(newBotmessage);
+    setTimeout(() => {
+        localMessageList.push(newMessage);
+        getMessages(false);
+        //getDbMessages();
+    }, 2000)
 }
 
 chabotMessageForm.addEventListener("submit", function (event) {
@@ -174,16 +193,13 @@ function handleSendMessageFirestore(message) {
 }
 
 function handleAddMessagesInList(message, type) {
-    let date = new Date();
-    let hour = `${date.getHours()}:${(date.getMinutes() < 10 ? '0' : '') + date.getMinutes()}`
-
     var newObj = {
         text: message,
         type: type,
         date: Date.now(),
-        hour: hour
+        hour: getMessageHour()
     }
-   // messageList.push(newObj);
+    // messageList.push(newObj);
     handleSendMessageFirestore(newObj);
     //renderChatMessages(messageList);
     handleLastUserMessage(newObj)
@@ -195,9 +211,24 @@ function handleSendMessageChatbot() {
     messageElem.value = "";
 }
 
-function cleanRender() {
-    var messageElem = document.querySelector(".chatbot__chat");
-    messageElem.innerHTML = "";
+function cleanRender(type) {
+    const localMessages = document.querySelector(".chatbot__localMessages");
+    const onlineMessages = document.querySelector(".chatbot__onlineMessages")
+
+    switch (type) {
+        case "local":
+            localMessages.innerHTML = "";
+            break;
+        case "online":
+            onlineMessages.innerHTML = "";
+            break;
+    }
+}
+
+function getMessageHour() {
+    let date = new Date();
+    let hour = `${date.getHours()}:${(date.getMinutes() < 10 ? '0' : '') + date.getMinutes()}`
+    return hour;
 }
 
 // Abrir / cerra bot
