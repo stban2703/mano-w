@@ -11,7 +11,9 @@ firebase.auth().onAuthStateChanged((user) => {
                 userInfo.uid = uid;
                 userMessagesRef = userRef.doc(uid).collection('messages');
                 handleHeader();
-                getMessages(isChatOnline);
+                if (document.querySelector(".chatbot")) {
+                    getMessages(isChatOnline);
+                }
             }
         })
     } else {
