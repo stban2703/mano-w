@@ -16,8 +16,19 @@ firebase.auth().onAuthStateChanged((user) => {
                 userMessagesRef = userRef.doc(uid).collection('messages');
                 setProfileInfo(userInfo);
                 handleHeader();
+
+                // Detectar si el otro usuario esta escribiendo
                 if (document.querySelector(".chatbot")) {
                     getMessages(isChatOnline);
+                    userRef.doc(userInfo.uid).onSnapshot((doc) => {
+                        //console.log("CAMBIO")
+                        const user = doc.data();
+                        if (user.isTyping && isChatOnline) {
+                            chatbotTyping.classList.remove("invisible")
+                        } else {
+                            chatbotTyping.classList.add("invisible");
+                        }
+                    })
                 }
             }
         })
