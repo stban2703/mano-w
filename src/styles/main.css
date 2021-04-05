@@ -279,7 +279,9 @@ input[type=button] {
 }
 
 .header__section {
+  background: none;
   margin: 0 10px;
+  border: none;
 }
 
 .header__title {
@@ -1477,6 +1479,7 @@ input[type=button] {
 html,
 body {
   width: 100%;
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

@@ -275,5 +275,5 @@ function handleCloseChatbot() {
 function hideChatbotNotification() {
     setTimeout(() => {
         chatbotNotification.classList.add("hidden");
-    }, 6000);
+    }, 4500);
 }

@@ -2,7 +2,7 @@ let userInfo;
 let userMessagesRef;
 
 firebase.auth().onAuthStateChanged((user) => {
-    const openChatbotBtn = document.querySelector(".chatbot__openBtn");
+    const openChatbotBtn = document.querySelector(".chatbotOpen");
     if (user) {
         const uid = user.uid;
         if (openChatbotBtn) {

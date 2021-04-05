@@ -5,9 +5,11 @@ function handleHeader() {
         const headerUser = header.querySelector(".header__user");
         const headerLogin = header.querySelector(".header__login");
         const headerRegister = header.querySelector(".header__register");
+        const headerLogOut = header.querySelector(".header__logOut");
 
         if (userInfo) {
             headerUser.classList.remove("hidden");
+            headerLogOut.classList.remove("hidden");
             headerLogin.classList.add("hidden");
             headerRegister.classList.add("hidden");
         }
