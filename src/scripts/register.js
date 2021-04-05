@@ -17,7 +17,8 @@ registerForm.addEventListener("submit", function (event) {
                 email: userEmail,
                 name: userName,
                 surname: userSurname,
-                identification: userIdentification
+                identification: userIdentification,
+                isTyping: false
 
             }).then(function () {
                 window.location.href = "index.html";
