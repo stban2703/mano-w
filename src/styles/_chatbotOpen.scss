@@ -1,0 +1,46 @@
+.chatbotOpen {
+    position: fixed;
+    display: flex;
+    align-self: flex-end;
+    bottom: 0;
+
+    &__btn {
+        background-color: $orange;
+        border-radius: 100%;
+        width: 120px;
+        height: 120px;
+        margin: 0 8px 5px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        animation: pulse 3s infinite;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &__notification {
+        width: 500px;
+    }
+    
+    &__icon {
+        width: 50%;
+        margin-left: 5px;
+    }
+    
+    @keyframes pulse {
+        0% {
+            background-color: #ff4136;
+        }
+    
+        50% {
+            background-color: #ff7870;
+        }
+    
+        100% {
+            background-color: #ff4136;
+        }
+    }
+}

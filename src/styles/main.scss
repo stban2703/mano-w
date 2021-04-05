@@ -39,6 +39,7 @@ $poppins: "Poppins", sans-serif;
 @import "profile";
 @import "message";
 @import "btn";
+@import "chatbotOpen";
 @import "login";
 @import "input";
 @import "register";
@@ -47,7 +48,6 @@ $poppins: "Poppins", sans-serif;
 html,
 body {
     width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: column;
 }

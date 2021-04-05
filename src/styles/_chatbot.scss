@@ -11,45 +11,6 @@
     z-index: 10;
     right: 8px;
 
-    &__openBtn {
-        background-color: $orange;
-        align-self: flex-end;
-        border-radius: 100%;
-        width: 120px;
-        height: 120px;
-        position: fixed;
-        bottom: 0;
-        margin: 0 8px 5px 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        animation: pulse 3s infinite;
-
-        &:hover {
-            cursor: pointer;
-        }
-    }
-
-    &__icon {
-        width: 50%;
-        margin-left: 5px;
-    }
-
-    @keyframes pulse {
-        0% {
-          background-color: #FF4136;
-        }
-
-        50% {
-            background-color: #ff7870;
-        }
-
-        100% {
-          background-color: #FF4136;
-        }
-      }
-
     &__header {
         width: 100%;
         display: flex;

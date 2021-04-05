@@ -1,6 +1,6 @@
 const chatbot = document.querySelector(".chatbot");
 const chatbotMessages = document.querySelector(".chatbot__messages");
-const openChatbotBtn = document.querySelector(".chatbot__openBtn");
+const openChatbotBtn = document.querySelector(".chatbotOpen__btn");
 const closeChatbotBtn = document.querySelector(".chatbot__closeBtn");
 const chabotMessageForm = document.querySelector(".chatbot__footer");
 
