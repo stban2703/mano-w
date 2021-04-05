@@ -145,7 +145,7 @@
         align-items: center;
         justify-content: center;
         width: 100%;
-        height: fit-content;
+        height: 50px;
         border-radius: 14px;
     }
 
@@ -159,7 +159,10 @@
     }
 
     &__sendBtn {
-        background: none;
+        background: $orange;
+        border-radius: 14px;
+        width: 80px;
+        height: 100%;
         border: none;
         right: 0;
         height: 100%;

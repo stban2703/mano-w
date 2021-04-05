@@ -815,9 +815,7 @@ input[type=button] {
       -ms-flex-pack: center;
           justify-content: center;
   width: 100%;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
+  height: 50px;
   border-radius: 14px;
 }
 
@@ -831,7 +829,10 @@ input[type=button] {
 }
 
 .chatbot__sendBtn {
-  background: none;
+  background: #FF6C02;
+  border-radius: 14px;
+  width: 80px;
+  height: 100%;
   border: none;
   right: 0;
   height: 100%;
