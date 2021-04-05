@@ -4,6 +4,7 @@ const openChatbotBtn = document.querySelector(".chatbotOpen__btn");
 const closeChatbotBtn = document.querySelector(".chatbot__closeBtn");
 const chabotMessageForm = document.querySelector(".chatbot__footer");
 const chatbotNotification = document.querySelector(".chatbotOpen__notification");
+const chatbotTextBox = document.querySelector(".chatbot__textBox");
 
 // Esconder notificacion
 hideChatbotNotification();
@@ -33,6 +34,12 @@ chabotMessageForm.addEventListener("submit", function (event) {
     handleAddMessagesInList(messageText, "user", isChatOnline);
     chabotMessageForm.userMessage.value = "";
 })
+
+/*chatbotTextBox.addEventListener("input", function() {
+    chatbotTextBox.style.height = "" + chatbotTextBox.scrollHeight + "px";
+    chatbotTextBox.scrollTop = chatbotTextBox.scrollHeight;
+    //console.log(chatbotTextBox.scrollHeight)
+})*/
 
 // Abrir y cerrar chatbot
 openChatbotBtn.addEventListener('click', function (event) {
