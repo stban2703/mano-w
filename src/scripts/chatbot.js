@@ -14,18 +14,11 @@ let isChatOnline = false;
 let localMessageList = [
     {
         id: 0,
-        text: "Dime en qué te puedo ayudar",
-        type: "asesor",
-        date: Date.now(),
-        hour: getMessageHour()
-    },
-    {
-        id: 1,
         type: "bot",
-        title: "Elige el tema del que desees obtener información",
+        text: "Dime en qué te puedo ayudar. Elige el tema del que desees obtener información",
         itemList: chatBotOptionsList,
         date: Date.now(),
-        hour: getMessageHour() + 1
+        hour: getMessageHour()
     }
 ];
 
@@ -95,7 +88,7 @@ function handleCreateMessageElem(list, isOnline) {
                 const newTopicList = document.createElement("ul");
                 newTopicList.classList.add("message__topicsList");
                 newMessage.innerHTML = `
-                <p class="message__title">${elem.title}</p>
+                <p class="message__text">${elem.text}</p>
                 `
                 const itemList = elem.itemList;
 
@@ -106,6 +99,9 @@ function handleCreateMessageElem(list, isOnline) {
                     })
                 }
                 newMessage.appendChild(newTopicList);
+                const newMessageHour = document.createElement("p")
+                newMessageHour.innerHTML = `<p class="message__hour">${elem.hour}</p>`
+                newMessage.appendChild(newMessageHour);
                 break;
             case "user":
                 newMessage.classList.add("message--mine");
@@ -166,8 +162,10 @@ function handleLastUserMessage(message, elem) {
     if (message.type === "user" && elem.itemList) {
         newMessage = {
             type: "bot",
-            title: "Elige el tema del que desees obtener información",
-            itemList: message.selectedOption.itemList
+            text: "Elige el tema del que desees obtener información",
+            itemList: message.selectedOption.itemList,
+            date: Date.now(),
+            hour: getMessageHour()
         }
     } else if (message.type === "user" && elem.isFinal) {
         newMessage = {
@@ -194,13 +192,13 @@ function handleLastUserMessage(message, elem) {
         if (elem.isFinal) {
             isChatOnline = true;
             handleSendMessageFirestore({
-                title: `Ahora están conectados`,
+                text: `Ahora están conectados`,
                 type: "bot",
                 date: Date.now(),
                 hour: getMessageHour()
             })
         }
-    }, 2000);
+    }, 1500);
 }
 
 // Enivar mensaje a firestore y recuperarlos
@@ -216,7 +214,7 @@ function handleSendMessageFirestore(message) {
         });;
 }
 
-// Agregar mensaje a la lista local o a la lista online
+// Agregar mensaje a la lista local o a la lista online si NO son del bot
 function handleAddMessagesInList(message, type, isOnline) {
     const newMessage = {
         text: message,

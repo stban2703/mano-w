@@ -14,7 +14,7 @@
     &--mine {
         align-self: flex-end;
         .message__text {
-            background-color: $orange;
+            background-color: $purple;
             border-radius: 15px 0px 15px 15px;
         }
 
@@ -27,17 +27,13 @@
         font-family: $monserrat;
         font-size: $chatbot - 0.3;
         color: $darkBlue;
-        margin-top: 5px;
+        margin: 5px;
     }
 
     &--topics {
         width: fit-content;
         margin: 10px 0;
-        p {
-            font-family: $poppins;
-            color: $darkBlue;
-            font-size: $chatbot - 0.1;
-        }
+        font-family: $poppins;
     }
 
     &__item {

@@ -657,6 +657,7 @@ input[type=button] {
   padding: 10px;
   background-color: #FF6C02;
   border-radius: 23px 23px 0 0;
+  position: relative;
 }
 
 .chatbot__info {
@@ -715,11 +716,14 @@ input[type=button] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  padding: 0 10px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding: 0 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   overflow-y: scroll;
 }
 
@@ -990,7 +994,7 @@ input[type=button] {
 }
 
 .message--mine .message__text {
-  background-color: #FF6C02;
+  background-color: #7030a0;
   border-radius: 15px 0px 15px 15px;
 }
 
@@ -1002,7 +1006,7 @@ input[type=button] {
   font-family: "Montserrat", sans-serif;
   font-size: 0.7rem;
   color: #2b3640;
-  margin-top: 5px;
+  margin: 5px;
 }
 
 .message--topics {
@@ -1010,12 +1014,7 @@ input[type=button] {
   width: -moz-fit-content;
   width: fit-content;
   margin: 10px 0;
-}
-
-.message--topics p {
   font-family: "Poppins", sans-serif;
-  color: #2b3640;
-  font-size: 0.9rem;
 }
 
 .message__item {
