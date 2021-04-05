@@ -3,6 +3,10 @@ const chatbotMessages = document.querySelector(".chatbot__messages");
 const openChatbotBtn = document.querySelector(".chatbotOpen__btn");
 const closeChatbotBtn = document.querySelector(".chatbot__closeBtn");
 const chabotMessageForm = document.querySelector(".chatbot__footer");
+const chatbotNotification = document.querySelector(".chatbotOpen__notification");
+
+// Esconder notificacion
+hideChatbotNotification();
 
 // Lista de mensajes de firestore
 let dbMessageList = [];
@@ -266,4 +270,10 @@ function handleOpenChatbot() {
 
 function handleCloseChatbot() {
     chatbot.classList.add("hidden");
+}
+
+function hideChatbotNotification() {
+    setTimeout(() => {
+        chatbotNotification.classList.add("hidden");
+    }, 6000);
 }

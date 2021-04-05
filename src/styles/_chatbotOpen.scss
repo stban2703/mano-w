@@ -3,6 +3,26 @@
     display: flex;
     align-self: flex-end;
     bottom: 0;
+    z-index: 10;
+    position: fixed;
+
+    &__notification {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $purple;
+        border-radius: 15px 15px 0px 15px;
+        padding: 10px 15px;
+        font-family: $poppins;
+        width: 400px;
+        position: absolute;
+        right: 72%;
+        bottom: 72%;
+        p {
+            font-size: 1.125rem;
+            color: white;
+        }
+    }
 
     &__btn {
         background-color: $orange;
@@ -21,8 +41,10 @@
         }
     }
 
-    &__notification {
-        width: 500px;
+    &:hover {
+        .chatbotOpen__notification {
+            display: flex !important;
+        }
     }
     
     &__icon {
