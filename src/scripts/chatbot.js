@@ -237,7 +237,7 @@ function handleSendMessageFirestore(message) {
     const newMessage = message;
     newMessage.id = dbMessageList.length;
     userMessagesRef.add(newMessage).then((docRef) => {
-        console.log("Document written with ID: ", docRef.id);
+        //console.log("Document written with ID: ", docRef.id);
         getMessages(isChatOnline);
     })
         .catch((error) => {
