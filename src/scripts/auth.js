@@ -43,13 +43,15 @@ firebase.auth().onAuthStateChanged((user) => {
 handleLogOut();
 
 function handleLogOut() {
-    const logOutBtn = document.querySelector(".logOutBtn");
+    const logOutBtn = document.querySelectorAll(".logOutBtn");
 
     if (logOutBtn) {
-        logOutBtn.addEventListener("click", function (event) {
-            event.preventDefault();
-            firebase.auth().signOut();
-            window.location.href = "index.html"
+        logOutBtn.forEach(elem => {
+            elem.addEventListener("click", function (event) {
+                event.preventDefault();
+                firebase.auth().signOut();
+                window.location.href = "index.html"
+            })
         })
     }
 }
