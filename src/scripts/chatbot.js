@@ -122,6 +122,11 @@ function handleCreateMessageElem(list, isOnline) {
                 <p class="message__hour">${elem.hour}</p>
             `
                 break;
+            case "advise":
+                newMessage.innerHTML = `
+                <p class="message__advise">${elem.text}</p>
+            `
+                break;
             default:
                 newMessage.innerHTML = `
                 <p class="message__text">${elem.text}</p>
@@ -190,6 +195,7 @@ function handleLastUserMessage(message, elem) {
             date: Date.now(),
             hour: getMessageHour()
         }
+        chatbotTyping.classList.remove("invisible");
     } else if (message.type === "user" && elem.redirectUrl) {
         newMessage = {
             id: localMessageList.length,
@@ -207,10 +213,18 @@ function handleLastUserMessage(message, elem) {
         getMessages(false);
 
         if (elem.isFinal) {
+            /*localMessageList.push({
+                id: localMessageList.length,
+                text: `Ahora están conectados`,
+                type: "advise",
+                date: Date.now(),
+                hour: getMessageHour()
+            })
+            getMessages(false);*/
             isChatOnline = true;
             handleSendMessageFirestore({
                 text: `Ahora están conectados`,
-                type: "bot",
+                type: "advise",
                 date: Date.now(),
                 hour: getMessageHour()
             })

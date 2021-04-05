@@ -36,6 +36,13 @@
         font-family: $poppins;
     }
 
+    &__advise {
+        font-family: $poppins;
+        color: $darkBlue;
+        font-size: $chatbot - 0.1;
+        text-align: center;
+    }
+
     &__item {
         width: fit-content;
         background-color: $greenBlue;
