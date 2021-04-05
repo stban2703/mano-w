@@ -5,6 +5,7 @@ const closeChatbotBtn = document.querySelector(".chatbot__closeBtn");
 const chabotMessageForm = document.querySelector(".chatbot__footer");
 const chatbotNotification = document.querySelector(".chatbotOpen__notification");
 const chatbotTextBox = document.querySelector(".chatbot__textBox");
+const chatbotTyping = document.querySelector(".chatbot__typing")
 
 // Esconder notificacion
 hideChatbotNotification();
@@ -155,16 +156,18 @@ function handleCreateTopicElement(elem) {
 
 // Controlar el click en los temas del chatbot
 function handleClickOptions(elem) {
-    const newMessage = {
-        text: elem.value,
-        type: "user",
-        date: Date.now(),
-        hour: getMessageHour(),
-        selectedOption: elem
+    if (!isChatOnline) {
+        const newMessage = {
+            text: elem.value,
+            type: "user",
+            date: Date.now(),
+            hour: getMessageHour(),
+            selectedOption: elem
+        }
+        localMessageList.push(newMessage);
+        getMessages(false);
+        handleLastUserMessage(newMessage, elem);
     }
-    localMessageList.push(newMessage);
-    getMessages(false);
-    handleLastUserMessage(newMessage, elem);
 }
 
 // Controlar el chatbot dependiendo del ultimo mensaje del usuario
@@ -178,6 +181,7 @@ function handleLastUserMessage(message, elem) {
             date: Date.now(),
             hour: getMessageHour()
         }
+        chatbotTyping.classList.remove("invisible");
     } else if (message.type === "user" && elem.isFinal) {
         newMessage = {
             id: localMessageList.length,
@@ -194,10 +198,12 @@ function handleLastUserMessage(message, elem) {
             date: Date.now(),
             hour: getMessageHour()
         }
+        chatbotTyping.classList.remove("invisible");
     }
     // Dar un tiempo al chatbot para enviar el mensaje
     setTimeout(() => {
         localMessageList.push(newMessage);
+        chatbotTyping.classList.add("invisible");
         getMessages(false);
 
         if (elem.isFinal) {

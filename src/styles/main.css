@@ -705,6 +705,7 @@ input[type=button] {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: relative;
   overflow-y: scroll;
 }
 
@@ -837,6 +838,12 @@ input[type=button] {
   border: none;
   right: 0;
   height: 100%;
+}
+
+.chatbot__typing {
+  font-family: "Poppins", sans-serif;
+  color: white;
+  font-size: 0.8rem;
 }
 
 .profile {
@@ -1496,5 +1503,9 @@ body {
 
 .overlay {
   z-index: 10;
+}
+
+.invisible {
+  visibility: hidden;
 }
 /*# sourceMappingURL=main.css.map */
