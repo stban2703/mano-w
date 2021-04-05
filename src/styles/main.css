@@ -818,7 +818,6 @@ input[type=button] {
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
-  position: relative;
   border-radius: 14px;
 }
 
@@ -828,12 +827,12 @@ input[type=button] {
   border-style: none;
   font-family: "Montserrat", sans-serif;
   border-radius: 14px;
+  outline: none;
 }
 
 .chatbot__sendBtn {
   background: none;
   border: none;
-  position: absolute;
   right: 0;
   height: 100%;
 }

@@ -146,7 +146,6 @@
         justify-content: center;
         width: 100%;
         height: fit-content;
-        position: relative;
         border-radius: 14px;
     }
 
@@ -156,12 +155,12 @@
         border-style: none;
         font-family: $monserrat;
         border-radius: 14px;
+        outline: none;
     }
 
     &__sendBtn {
         background: none;
         border: none;
-        position: absolute;
         right: 0;
         height: 100%;
     }
