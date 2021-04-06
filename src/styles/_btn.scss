@@ -12,5 +12,14 @@
     font-weight: $bold;
     font-size: $button;
     margin-bottom: 20px;
+    transition: .25s;
+    
+    &:hover{
+        background-color: $greenBlue;
+    }
+
+    &:focus{
+        outline: none;
+    }
 }
 

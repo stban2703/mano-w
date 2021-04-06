@@ -88,10 +88,18 @@ function renderChatMessages(list, isOnline) {
 
 // Crear elemento mensaje
 function handleCreateMessageElem(list, isOnline) {
+    var finalItem = 0;
     list.forEach((elem) => {
+        finalItem++;
         // Crear elemento div para el mensaje
         const newMessage = document.createElement("div");
         newMessage.classList.add("message");
+        if (finalItem == list.length) {
+            newMessage.classList.add("message--anim");
+            setTimeout(() => {
+                newMessage.classList.remove("message--anim");
+            }, 100);
+        }
 
         // Verifica el tipo de mensaje
         switch (elem.type) {
@@ -301,6 +309,18 @@ function handleCloseChatbot() {
 
 function hideChatbotNotification() {
     setTimeout(() => {
-        chatbotNotification.classList.add("hidden");
+        chatbotNotification.classList.add("chatbotOpen__notification--hidden");
     }, 4500);
 }
+
+var chatbotButtonOpen = document.querySelector('.chatbotOpen');
+
+var handleOpenMessageRemoveClass = () =>{
+    chatbotNotification.classList.add('chatbotOpen__notification--hidden');
+}
+
+var handleOpenMessageAddClass = () =>{
+    chatbotNotification.classList.remove('chatbotOpen__notification--hidden');
+}
+chatbotButtonOpen.addEventListener('mouseenter', handleOpenMessageAddClass);
+chatbotButtonOpen.addEventListener('mouseleave', handleOpenMessageRemoveClass);

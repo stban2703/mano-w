@@ -707,6 +707,7 @@ input[type=button] {
           align-items: center;
   position: relative;
   overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .chatbot__messages::-webkit-scrollbar {
@@ -966,6 +967,14 @@ input[type=button] {
   width: -moz-fit-content;
   width: fit-content;
   margin: 5px 0;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.message--anim {
+  -webkit-transform: translate(100%, 0);
+          transform: translate(100%, 0);
+  opacity: 0%;
 }
 
 .message__text {
@@ -1067,6 +1076,16 @@ input[type=button] {
   font-weight: 700;
   font-size: 1.75rem;
   margin-bottom: 20px;
+  -webkit-transition: .25s;
+  transition: .25s;
+}
+
+.btn:hover {
+  background-color: #00a2af;
+}
+
+.btn:focus {
+  outline: none;
 }
 
 .chatbotOpen {
@@ -1099,11 +1118,19 @@ input[type=button] {
   position: absolute;
   right: 72%;
   bottom: 72%;
+  -webkit-transition: .25s;
+  transition: .25s;
 }
 
 .chatbotOpen__notification p {
   font-size: 1.125rem;
   color: white;
+}
+
+.chatbotOpen__notification--hidden {
+  opacity: 0;
+  -webkit-transform: translate(100%, 0);
+          transform: translate(100%, 0);
 }
 
 .chatbotOpen__btn {
@@ -1131,12 +1158,6 @@ input[type=button] {
 
 .chatbotOpen__btn:hover {
   cursor: pointer;
-}
-
-.chatbotOpen:hover .chatbotOpen__notification {
-  display: -webkit-box !important;
-  display: -ms-flexbox !important;
-  display: flex !important;
 }
 
 .chatbotOpen__icon {
@@ -1295,6 +1316,13 @@ input[type=button] {
   font-size: 1rem;
   margin-top: 10px;
   font-family: "Poppins", sans-serif;
+  -webkit-transition: .25s;
+  transition: .25s;
+}
+
+.input__textBox:focus {
+  outline: none;
+  border: 2px solid #FF6C02;
 }
 
 .register {

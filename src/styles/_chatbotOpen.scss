@@ -18,9 +18,16 @@
         position: absolute;
         right: 72%;
         bottom: 72%;
+        transition: .25s;
+        
         p {
             font-size: 1.125rem;
             color: white;
+        }
+
+        &--hidden{
+            opacity: 0;
+            transform: translate(100%,0);
         }
     }
 
@@ -42,9 +49,7 @@
     }
 
     &:hover {
-        .chatbotOpen__notification {
-            display: flex !important;
-        }
+        
     }
     
     &__icon {

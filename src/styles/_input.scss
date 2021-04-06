@@ -16,5 +16,10 @@
        font-size: 1rem;
        margin-top: 10px;
        font-family: $poppins;
+        transition: .25s;
+       &:focus {
+           outline: none;
+           border: 2px solid $orange;
+       }
     }
 }

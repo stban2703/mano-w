@@ -69,6 +69,7 @@
         align-items: center;
         position: relative;
         overflow-y: scroll;
+        overflow-x: hidden;
 
         &::-webkit-scrollbar {
             background-color: $lightOrange;
