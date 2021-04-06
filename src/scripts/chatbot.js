@@ -94,17 +94,17 @@ function handleCreateMessageElem(list, isOnline) {
         // Crear elemento div para el mensaje
         const newMessage = document.createElement("div");
         newMessage.classList.add("message");
-        if (finalItem == list.length) {
-            newMessage.classList.add("message--anim");
-            setTimeout(() => {
-                newMessage.classList.remove("message--anim");
-            }, 100);
-        }
 
         // Verifica el tipo de mensaje
         switch (elem.type) {
             case "bot":
                 newMessage.classList.add("message--topics");
+                if (finalItem == list.length) {
+                    newMessage.classList.add("message--anim--bot");
+                    setTimeout(() => {
+                        newMessage.classList.remove("message--anim--bot");
+                    }, 100);
+                }
                 const newTopicList = document.createElement("ul");
                 newTopicList.classList.add("message__topicsList");
                 newMessage.innerHTML = `
@@ -125,6 +125,12 @@ function handleCreateMessageElem(list, isOnline) {
                 break;
             case "user":
                 newMessage.classList.add("message--mine");
+                if (finalItem == list.length) {
+                    newMessage.classList.add("message--anim--user");
+                    setTimeout(() => {
+                        newMessage.classList.remove("message--anim--user");
+                    }, 100);
+                }
                 newMessage.innerHTML = `
                 <p class="message__text">${elem.text}</p>
                 <p class="message__hour">${elem.hour}</p>
