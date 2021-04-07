@@ -10,7 +10,7 @@ const chatBotOptionsList = [
                     {
                         value: "Información",
                         imageUrl: "./src/images/chatbotproducts.svg",
-                        redirectUrl: "productInformation.html"
+                        redirectUrl: "https://www.bancow.com.co/inversion/cdt/#3"
                     },
                     {
                         value: "Duda específica",

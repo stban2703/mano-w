@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +7,6 @@
     <link rel="stylesheet" href="./src/styles/main.css">
     <title>Mano W</title>
 </head>
-
 <body>
     <header class="header">
         <a href="index.html" class="header__logo">
@@ -47,42 +45,35 @@
             </a>
         </section>
     </header>
-    <main class="profile">
-        <section class="profile__introduction">
-            <img src="./src/images/profileBackground.svg" alt="">
-            <h2>Perfil</h2>
+    <main class="interestThemes">
+        <section class="interestThemes__introduction">
+            <img src="./src/images/interestThemesBackground.svg" alt="">
+            <h2>Selecciona tus temas de interés</h2>
         </section>
-        <section class="profile__content">
-            <div class="profile__content__profilePicture">
-                <img src="./src/images/profileIcon.svg" alt="">
+        <p class="interestThemes__select">Puedes seleccionar un tema o varios</p>
+        <section class="interestThemes__content">
+            <a href="https://www.bancow.com.co/inversion/cdt/#3">
+                <div class="interestThemes__content__item">
+                    <div class="interestThemes__content__item__graphic item__graphic--dark">
+                        <img src="./src/images/CDT.svg" alt="">
+                    </div>
+                    <p>CDT</p>
+                </div>
+            </a>
+            <div class="interestThemes__content__item">
+                <div class="interestThemes__content__item__graphic item__graphic--light">
+                    <img src="./src/images/microCredito.svg" alt="">
+                </div>
+                <p>Microcrédito</p>
             </div>
-            <div class="profile__content__profileInfo">
-                <span class="title" id="profileTitle"></span>
-                    <div class="profileInformation">
-                        <p class="profileSubTitle">Nombre</p>
-                        <p class="profileContent" id="profileName"></p>
-                    </div>
-                    <div class="profileInformation">
-                        <p class="profileSubTitle">Apellido</p>
-                        <p class="profileContent" id="profileLastName"></p>
-                    </div>
-                    <div class="profileInformation">
-                        <p class="profileSubTitle">Correo</p>
-                        <p class="profileContent" id="profileEmail">xxxxxxxx@gmail.com</p>
-                    </div>
-                    <div class="profileInformation">
-                        <p class="profileSubTitle">Cédula</p>
-                        <p class="profileContent" id="profileCC">0000000000</p>
-                    </div>
-                    <div class="profileInformation">
-                        <p class="profileSubTitle">Contraseña</p>
-                        <p class="profileContent">**************</p>
-                    </div>
-                    <button class="profile__content__edit"><img src="./src/images/editPencil.svg" alt="">
-                        Editar</button>
+            <div class="interestThemes__content__item">
+                <div class="interestThemes__content__item__graphic item__graphic--dark">
+                    <img src="./src/images/cuentaDeAhorros.svg" alt="">
+                </div>
+                <p>Cuenta de ahorro</p>
             </div>
         </section>
-        <button class="btn logOutBtn">Cerrar sesión</button>
+        <button class="interestThemes__next">Siguiente</button>
     </main>
     <footer class="footer">
         <section class="footer__menu">
@@ -114,8 +105,6 @@
     <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
     <script src="./src/scripts/firebase.js"></script>
     <script src="./src/scripts/auth.js"></script>
-    <script src="./src/scripts/profile.js"></script>
     <script src="./src/scripts/handleHeader.js"></script>
 </body>
-
 </html>
