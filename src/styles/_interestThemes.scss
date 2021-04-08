@@ -1,5 +1,6 @@
 .interestThemes {
     font-family: $monserrat;
+    filter: grayscale(100%);
 
     &__introduction {
         position: relative;
@@ -46,6 +47,7 @@
                     left: 0;
                     right: 0;
                     margin: auto;
+                    visibility: hidden;
                 }
             }
             & p{

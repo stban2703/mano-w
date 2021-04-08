@@ -259,6 +259,8 @@ input[type=button] {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
 }
 
 .header__logo {
@@ -344,6 +346,8 @@ input[type=button] {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
 }
 
 .introduction__title {
@@ -399,6 +403,7 @@ input[type=button] {
   width: 100%;
   max-width: none;
   max-width: 600px;
+  visibility: hidden;
 }
 
 .card__description {
@@ -546,6 +551,8 @@ input[type=button] {
   padding: 50px 0;
   border-top: 5px solid #7030a0;
   margin-bottom: 120px;
+  -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
 }
 
 .footer__menu {
@@ -860,6 +867,8 @@ input[type=button] {
       -ms-flex-align: center;
           align-items: center;
   font-family: "Montserrat", sans-serif;
+  -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
 }
 
 .profile__introduction {
@@ -1206,6 +1215,8 @@ input[type=button] {
       -ms-flex-direction: row;
           flex-direction: row;
   position: relative;
+  -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
 }
 
 .login__container {
@@ -1341,6 +1352,8 @@ input[type=button] {
       -ms-flex-direction: row-reverse;
           flex-direction: row-reverse;
   position: relative;
+  -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
 }
 
 .register__container {
@@ -1437,6 +1450,8 @@ input[type=button] {
 
 .interestThemes {
   font-family: "Montserrat", sans-serif;
+  -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
 }
 
 .interestThemes__introduction {
@@ -1488,6 +1503,7 @@ input[type=button] {
   left: 0;
   right: 0;
   margin: auto;
+  visibility: hidden;
 }
 
 .interestThemes__content__item p {

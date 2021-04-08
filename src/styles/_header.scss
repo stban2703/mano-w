@@ -5,6 +5,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    filter: grayscale(100%);
 
     &__logo {
         max-width: none;
