@@ -625,6 +625,8 @@ input[type=button] {
   bottom: 0;
   z-index: 10;
   right: 8px;
+  -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
 }
 
 .chatbot__header {
@@ -1113,6 +1115,8 @@ input[type=button] {
   bottom: 0;
   z-index: 10;
   position: fixed;
+  -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
 }
 
 .chatbotOpen__notification {

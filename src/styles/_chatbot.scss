@@ -10,6 +10,7 @@
     bottom: 0;
     z-index: 10;
     right: 8px;
+    filter: grayscale(100%);
 
     &__header {
         width: 100%;
