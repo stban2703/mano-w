@@ -259,8 +259,6 @@ input[type=button] {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-filter: grayscale(100%);
-          filter: grayscale(100%);
 }
 
 .header__logo {
@@ -346,8 +344,6 @@ input[type=button] {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-filter: grayscale(100%);
-          filter: grayscale(100%);
 }
 
 .introduction__title {
@@ -551,8 +547,6 @@ input[type=button] {
   padding: 50px 0;
   border-top: 5px solid #7030a0;
   margin-bottom: 120px;
-  -webkit-filter: grayscale(100%);
-          filter: grayscale(100%);
 }
 
 .footer__menu {
@@ -625,8 +619,6 @@ input[type=button] {
   bottom: 0;
   z-index: 10;
   right: 8px;
-  -webkit-filter: grayscale(100%);
-          filter: grayscale(100%);
 }
 
 .chatbot__header {
@@ -869,8 +861,6 @@ input[type=button] {
       -ms-flex-align: center;
           align-items: center;
   font-family: "Montserrat", sans-serif;
-  -webkit-filter: grayscale(100%);
-          filter: grayscale(100%);
 }
 
 .profile__introduction {
@@ -1115,8 +1105,6 @@ input[type=button] {
   bottom: 0;
   z-index: 10;
   position: fixed;
-  -webkit-filter: grayscale(100%);
-          filter: grayscale(100%);
 }
 
 .chatbotOpen__notification {
@@ -1219,8 +1207,6 @@ input[type=button] {
       -ms-flex-direction: row;
           flex-direction: row;
   position: relative;
-  -webkit-filter: grayscale(100%);
-          filter: grayscale(100%);
 }
 
 .login__container {
@@ -1356,8 +1342,6 @@ input[type=button] {
       -ms-flex-direction: row-reverse;
           flex-direction: row-reverse;
   position: relative;
-  -webkit-filter: grayscale(100%);
-          filter: grayscale(100%);
 }
 
 .register__container {
@@ -1454,8 +1438,6 @@ input[type=button] {
 
 .interestThemes {
   font-family: "Montserrat", sans-serif;
-  -webkit-filter: grayscale(100%);
-          filter: grayscale(100%);
 }
 
 .interestThemes__introduction {
@@ -1543,6 +1525,129 @@ input[type=button] {
 
 .item__graphic--dark {
   background-color: #00a2af;
+}
+
+.dreamBoard {
+  font-family: "Montserrat", sans-serif;
+}
+
+.dreamBoard__introduction {
+  position: relative;
+}
+
+.dreamBoard__introduction img {
+  width: 100%;
+}
+
+.dreamBoard__introduction h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  color: #2b3640;
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  top: 40%;
+}
+
+.dreamBoard__container {
+  background-color: #d8eff1;
+  width: 30%;
+  height: 100vh;
+  place-content: center;
+}
+
+.dreamBoard__container__title {
+  height: 10vh;
+  display: -ms-grid;
+  display: grid;
+  place-content: center;
+}
+
+.dreamBoard__container__title span {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.dreamBoard__item {
+  background-color: #FF8B47;
+  width: 70%;
+  height: 40%;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: auto;
+  border-radius: 50px;
+}
+
+.dreamBoard__item__title {
+  display: block;
+  color: white;
+  font-weight: 700;
+  margin-top: 10%;
+  margin-left: 10%;
+  width: 70%;
+}
+
+.dreamBoard__item__deleteBtn {
+  width: 4vh;
+  height: 4vh;
+  position: absolute;
+  right: 3vh;
+  top: 4vh;
+  font-size: large;
+  color: white;
+  border-color: #B15FEF;
+  background-color: #B15FEF;
+  border-radius: 5px;
+}
+
+.dreamBoard__item__objective {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 80%;
+  height: 15%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25px;
+}
+
+.dreamBoard__item__objective img {
+  width: 25%;
+  position: absolute;
+  left: 0;
+}
+
+.dreamBoard__item__objective--value {
+  position: absolute;
+  right: 0;
+}
+
+.nextState {
+  display: inline-block;
+  margin: auto;
+  background-color: white;
+  color: #FF8B47;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  height: 15%;
+  border-radius: 25px;
+  border-color: #FF8B47;
+  width: 70%;
 }
 
 html,

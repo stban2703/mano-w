@@ -23,10 +23,10 @@
             <a href="interestThemes.html" class="header__section">
                 <h3 class="header__title">Temas de interés</h3>
             </a>
-            <a href="" class="header__section">
+            <a href="dreamBoard.html" class="header__section">
                 <h3 class="header__title">Tablero de sueños</h3>
             </a>
-            <a href="" class="header__section">
+            <a href="events.html" class="header__section">
                 <h3 class="header__title">Eventos</h3>
             </a>
         </nav>
@@ -46,51 +46,33 @@
             </a>
         </section>
     </header>
-    <main class="interestThemes">
-        <section class="interestThemes__introduction">
-            <img src="./src/images/interestThemesBackground.svg" alt="">
-            <h2>Selecciona tus temas de interés</h2>
+    <main>
+        <section class="dreamBoard__introduction">
+            <img src="./src/images/dreamBoardBackground.svg" alt="">
+            <h2>Tablero de los sueños</h2>
         </section>
-        <p class="interestThemes__select">Puedes seleccionar un tema o varios</p>
-        <section class="interestThemes__content">
-            <div class="interestThemes__content__item">
-                <div class="interestThemes__content__item__graphic item__graphic--dark">
-                    <img src="./src/images/emprendimiento.svg" alt="">
+        <section class="dreamBoard">
+            <div class="dreamBoard__container">
+                <div class="dreamBoard__container__title">
+                    <span>Sin comenzar</span>
                 </div>
-                <p>Emprendimiento</p>
-            </div>
-            <div class="interestThemes__content__item">
-                <div class="interestThemes__content__item__graphic item__graphic--light">
-                    <img src="./src/images/motivacion.svg" alt="">
+                <div class="dreamBoard__item">
+                    <span class="dreamBoard__item__title">
+                        Mensualidad del colegio de mi hijo
+                    </span>
+                    <button class="dreamBoard__item__deleteBtn">x</button>
+                    <div class="dreamBoard__item__objective">
+                        <img src="./src/images/moneyIcon.svg" alt="">
+                        <span class="dreamBoard__item__objective--value">$200.000</span>
+                    </div>
+                    <div class="dreamBoard__item__objective">
+                        <img src="./src/images/dateIcon.svg" alt="">
+                        <span class="dreamBoard__item__objective--value">$200.000</span>
+                    </div>
+                    <button class="nextState">Siguiente estado</button>
                 </div>
-                <p>Motivación</p>
-            </div>
-            <div class="interestThemes__content__item">
-                <div class="interestThemes__content__item__graphic item__graphic--dark">
-                    <img src="./src/images/emocional.svg" alt="">
-                </div>
-                <p>Emocional</p>
-            </div>
-            <div class="interestThemes__content__item">
-                <div class="interestThemes__content__item__graphic item__graphic--light">
-                    <img src="./src/images/ahorro.svg" alt="">
-                </div>
-                <p>Ahorro</p>
-            </div>
-            <div class="interestThemes__content__item">
-                <div class="interestThemes__content__item__graphic item__graphic--dark">
-                    <img src="./src/images/inversiones.svg" alt="">
-                </div>
-                <p>Inversiones</p>
-            </div>
-            <div class="interestThemes__content__item">
-                <div class="interestThemes__content__item__graphic item__graphic--light">
-                    <img src="./src/images/creditos.svg" alt="">
-                </div>
-                <p>Créditos</p>
             </div>
         </section>
-        <button class="interestThemes__next">Siguiente</button>
     </main>
     <footer class="footer">
         <section class="footer__menu">
@@ -116,12 +98,5 @@
             </p>
         </section>
     </footer>
-
-    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
-    <script src="./src/scripts/firebase.js"></script>
-    <script src="./src/scripts/auth.js"></script>
-    <script src="./src/scripts/handleHeader.js"></script>
 </body>
 </html>

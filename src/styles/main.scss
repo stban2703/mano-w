@@ -5,6 +5,7 @@
 $purple: #7030a0;
 $lightPurple: #DFB5FF;
 $orange: #FF6C02;
+$mediumOrange: #FF8B47;
 $lightOrange: #FFF2EB;
 $darkBlue: #2b3640;
 $greenBlue: #00a2af;
@@ -23,6 +24,7 @@ $footerMenu: 1rem;
 $footerInfo: 0.75rem;
 $chatbot: 1rem;
 $button: 1.75rem;
+$dreamBoardTitle: 1.5rem;
 
 // Font families
 $monserrat: "Montserrat", sans-serif;
@@ -44,6 +46,7 @@ $poppins: "Poppins", sans-serif;
 @import "input";
 @import "register";
 @import "interestThemes";
+@import "dreamBoard";
 
 html,
 body {
