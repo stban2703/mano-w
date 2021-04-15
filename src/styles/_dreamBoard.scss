@@ -1,5 +1,7 @@
 .dreamBoard {
     font-family: $monserrat;
+    display: flex;
+    flex-direction: row;
 
     &__introduction {
         position: relative;
