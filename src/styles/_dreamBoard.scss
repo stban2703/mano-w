@@ -21,6 +21,19 @@
         }
     }
 
+    &__addBtn {
+        background-color: $purple;
+        width: 10vh;
+        height: 10vh;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position:fixed;
+        bottom: 0;
+        right: 0;
+    }
+
     &__container {
         background-color: $lightBlue;
         width: 30%;
