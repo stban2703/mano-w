@@ -1,5 +1,6 @@
 let userInfo;
 let userMessagesRef;
+let userDreamsRef;
 
 firebase.auth().onAuthStateChanged((user) => {
     const openChatbotBtn = document.querySelector(".chatbotOpen");
@@ -14,6 +15,7 @@ firebase.auth().onAuthStateChanged((user) => {
                 userInfo = data;
                 userInfo.uid = uid;
                 userMessagesRef = userRef.doc(uid).collection('messages');
+                userDreamsRef = userRef.doc(uid).collection('dreams');
                 setProfileInfo(userInfo);
                 handleHeader();
 
