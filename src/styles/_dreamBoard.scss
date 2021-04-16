@@ -1,14 +1,19 @@
 .dreamBoard {
-    font-family: $monserrat;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    font-family: $monserrat;
 
     &__introduction {
+        display: flex;
+        align-items: center;
+        background-image: url("./../images/dreamBoardBackground.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        justify-content: center;
         position: relative;
-
-        img {
-            width: 100%;
-        }
+        width: 100%;
+        height: 140px;
 
         & h2 {
             font-family: $monserrat;
@@ -17,10 +22,13 @@
             font-size: 2rem;
             font-weight: $bold;
             text-align: center;
-            position: absolute;
-            width: 100%;
-            top: 40%;
+            //top: 40%;
         }
+    }
+
+    &__board {
+        display: flex;
+        width: 100%;
     }
 
     &__addBtn {
@@ -31,22 +39,22 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        position:fixed;
+        position: fixed;
         bottom: 0;
         right: 0;
     }
 
     &__container {
         background-color: $lightBlue;
-        width: 30%;
+        width: 100%;
         height: 100vh;
         place-content: center;
 
-        &__title{
+        &__title {
             height: 10vh;
             display: grid;
             place-content: center;
-            
+
             & span {
                 font-size: $dreamBoardTitle;
                 font-weight: $bold;
@@ -54,17 +62,21 @@
         }
     }
 
-    &__item{
+    //&__itemContainer {
+        
+    //}
+
+    &__item {
         background-color: $mediumOrange;
         width: 70%;
-        height: 40%;
+        height: 270px;
         position: relative;
         display: flex;
         flex-direction: column;
         margin: auto;
         border-radius: 50px;
-        
-        &__title{
+
+        &__title {
             display: block;
             color: white;
             font-weight: $bold;
@@ -73,20 +85,20 @@
             width: 70%;
         }
 
-        &__deleteBtn{
-            width: 4vh;            
+        &__deleteBtn {
+            width: 4vh;
             height: 4vh;
             position: absolute;
             right: 3vh;
             top: 4vh;
             font-size: large;
             color: white;
-            border-color: #B15FEF;
-            background-color: #B15FEF;
+            border-color: #b15fef;
+            background-color: #b15fef;
             border-radius: 5px;
         }
 
-        &__objective{
+        &__objective {
             display: flex;
             position: relative;
             justify-content: center;
@@ -97,20 +109,20 @@
             margin-right: auto;
             margin-top: 25px;
 
-            & img{
+            & img {
                 width: 25%;
                 position: absolute;
                 left: 0;
             }
 
-            &--value{
+            &--value {
                 position: absolute;
                 right: 0;
             }
         }
     }
 }
-.nextState{
+.nextState {
     display: inline-block;
     margin: auto;
     background-color: white;

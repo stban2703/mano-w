@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +9,7 @@
     <link rel="shortcut icon" href="./src/images/favicon.ico" type="image/x-icon">
     <title>Mano W</title>
 </head>
+
 <body>
     <header class="header">
         <a href="index.html" class="header__logo">
@@ -46,71 +48,76 @@
             </a>
         </section>
     </header>
-    <main>
+    <main class="dreamBoard">
         <section class="dreamBoard__introduction">
-            <img src="./src/images/dreamBoardBackground.svg" alt="">
             <h2>Tablero de los sueños</h2>
         </section>
-        <section class="dreamBoard">
+        <section class="dreamBoard__board">
             <div class="dreamBoard__container">
                 <div class="dreamBoard__container__title">
                     <span>Sin comenzar</span>
                 </div>
-                <div class="dreamBoard__item">
-                    <span class="dreamBoard__item__title">
-                        Mensualidad del colegio de mi hijo
-                    </span>
-                    <button class="dreamBoard__item__deleteBtn">x</button>
-                    <div class="dreamBoard__item__objective">
-                        <img src="./src/images/moneyIcon.svg" alt="">
-                        <span class="dreamBoard__item__objective--value">$200.000</span>
+                <section class="dreamBoard__itemContainer">
+                    <div class="dreamBoard__item">
+                        <span class="dreamBoard__item__title">
+                            Mensualidad del colegio de mi hijo
+                        </span>
+                        <button class="dreamBoard__item__deleteBtn">x</button>
+                        <div class="dreamBoard__item__objective">
+                            <img src="./src/images/moneyIcon.svg" alt="">
+                            <span class="dreamBoard__item__objective--value">$200.000</span>
+                        </div>
+                        <div class="dreamBoard__item__objective">
+                            <img src="./src/images/dateIcon.svg" alt="">
+                            <span class="dreamBoard__item__objective--value">$200.000</span>
+                        </div>
+                        <button class="nextState">Siguiente estado</button>
                     </div>
-                    <div class="dreamBoard__item__objective">
-                        <img src="./src/images/dateIcon.svg" alt="">
-                        <span class="dreamBoard__item__objective--value">$200.000</span>
-                    </div>
-                    <button class="nextState">Siguiente estado</button>
-                </div>
+                </section>
             </div>
             <div class="dreamBoard__container">
                 <div class="dreamBoard__container__title">
-                    <span>Sin comenzar</span>
+                    <span>En progreso</span>
                 </div>
-                <div class="dreamBoard__item">
-                    <span class="dreamBoard__item__title">
-                        Mensualidad del colegio de mi hijo
-                    </span>
-                    <button class="dreamBoard__item__deleteBtn">x</button>
-                    <div class="dreamBoard__item__objective">
-                        <img src="./src/images/moneyIcon.svg" alt="">
-                        <span class="dreamBoard__item__objective--value">$200.000</span>
+                <section class="dreamBoard__itemContainer">
+                    <div class="dreamBoard__item">
+                        <span class="dreamBoard__item__title">
+                            Mensualidad del colegio de mi hijo
+                        </span>
+                        <button class="dreamBoard__item__deleteBtn">x</button>
+                        <div class="dreamBoard__item__objective">
+                            <img src="./src/images/moneyIcon.svg" alt="">
+                            <span class="dreamBoard__item__objective--value">$200.000</span>
+                        </div>
+                        <div class="dreamBoard__item__objective">
+                            <img src="./src/images/dateIcon.svg" alt="">
+                            <span class="dreamBoard__item__objective--value">$200.000</span>
+                        </div>
+                        <button class="nextState">Siguiente estado</button>
                     </div>
-                    <div class="dreamBoard__item__objective">
-                        <img src="./src/images/dateIcon.svg" alt="">
-                        <span class="dreamBoard__item__objective--value">$200.000</span>
-                    </div>
-                    <button class="nextState">Siguiente estado</button>
-                </div>
+                </section>
             </div>
             <div class="dreamBoard__container">
                 <div class="dreamBoard__container__title">
-                    <span>Sin comenzar</span>
+                    <span>Finalizado</span>
                 </div>
-                <div class="dreamBoard__item">
-                    <span class="dreamBoard__item__title">
-                        Mensualidad del colegio de mi hijo
-                    </span>
-                    <button class="dreamBoard__item__deleteBtn">x</button>
-                    <div class="dreamBoard__item__objective">
-                        <img src="./src/images/moneyIcon.svg" alt="">
-                        <span class="dreamBoard__item__objective--value">$200.000</span>
+                <section class="dreamBoard__itemContainer">
+                    <div class="dreamBoard__item">
+                        <span class="dreamBoard__item__title">
+                            Mensualidad del colegio de mi hijo
+                        </span>
+                        <button class="dreamBoard__item__deleteBtn">x</button>
+                        <div class="dreamBoard__item__objective">
+                            <img src="./src/images/moneyIcon.svg" alt="">
+                            <span class="dreamBoard__item__objective--value">$200.000</span>
+                        </div>
+                        <div class="dreamBoard__item__objective">
+                            <img src="./src/images/dateIcon.svg" alt="">
+                            <span class="dreamBoard__item__objective--value">$200.000</span>
+                        </div>
+                        <button class="nextState">Siguiente estado</button>
                     </div>
-                    <div class="dreamBoard__item__objective">
-                        <img src="./src/images/dateIcon.svg" alt="">
-                        <span class="dreamBoard__item__objective--value">$200.000</span>
-                    </div>
-                    <button class="nextState">Siguiente estado</button>
-                </div>
+                </section>
             </div>
             <div class="dreamBoard__addBtn">+</div>
         </section>
@@ -140,4 +147,5 @@
         </section>
     </footer>
 </body>
+
 </html>
