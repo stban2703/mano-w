@@ -1590,6 +1590,12 @@ input[type=button] {
   position: fixed;
   bottom: 0;
   right: 0;
+  color: white;
+  font-size: 3rem;
+}
+
+.dreamBoard__addBtn:hover {
+  cursor: pointer;
 }
 
 .dreamBoard__container {
