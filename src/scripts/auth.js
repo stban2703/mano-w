@@ -32,6 +32,10 @@ firebase.auth().onAuthStateChanged((user) => {
                         }
                     })
                 }
+
+                if(document.querySelector(".dreamBoard")) {
+                    getUserDreams();
+                }
             }
         })
     } else {

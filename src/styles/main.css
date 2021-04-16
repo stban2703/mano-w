@@ -1695,6 +1695,8 @@ input[type=button] {
 }
 
 .dreamBoard__item__objective--value {
+  color: white;
+  font-family: "Poppins", sans-serif;
   position: absolute;
   right: 0;
 }
