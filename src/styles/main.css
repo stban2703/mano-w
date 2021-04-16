@@ -1571,6 +1571,7 @@ input[type=button] {
   display: -ms-flexbox;
   display: flex;
   width: 100%;
+  border: 3px dashed #00a2af;
 }
 
 .dreamBoard__addBtn {
@@ -1615,6 +1616,20 @@ input[type=button] {
 .dreamBoard__container__title span {
   font-size: 1.5rem;
   font-weight: 700;
+}
+
+.dreamBoard__container--unstarted {
+  background-color: #E7FAFC;
+  border-right: 3px dashed #00a2af;
+}
+
+.dreamBoard__container--inProgress {
+  background-color: #BDEFF4;
+}
+
+.dreamBoard__container--finished {
+  background-color: #8BDBE2;
+  border-left: 3px dashed #00a2af;
 }
 
 .dreamBoard__item {

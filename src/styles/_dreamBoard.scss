@@ -29,6 +29,8 @@
     &__board {
         display: flex;
         width: 100%;
+        border: 3px dashed $greenBlue;
+
     }
 
     &__addBtn {
@@ -65,6 +67,20 @@
                 font-size: $dreamBoardTitle;
                 font-weight: $bold;
             }
+        }
+
+        &--unstarted {
+            background-color: $unstartedBlue;
+            border-right: 3px dashed $greenBlue;
+        }
+
+        &--inProgress {
+            background-color: $inProgressBlue;
+        }
+
+        &--finished {
+            background-color: $finishedBlue;
+            border-left: 3px dashed $greenBlue;
         }
     }
 
