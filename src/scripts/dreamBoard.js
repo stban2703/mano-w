@@ -1,0 +1,1 @@
+const dreamBoardAddBtn = document.querySelector(".dreamBoard__addBtn");

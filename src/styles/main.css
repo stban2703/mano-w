@@ -1312,19 +1312,19 @@ input[type=button] {
   font-family: "Montserrat", sans-serif;
   font-weight: bold;
   font-size: 1.225rem;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .input__textBox {
   border: 2px solid #00a2af;
   width: 100%;
-  border-radius: 20px;
-  padding: 12px 10px;
+  border-radius: 15px;
+  padding: 8px 10px;
   font-size: 1rem;
   margin-top: 10px;
   font-family: "Poppins", sans-serif;
-  -webkit-transition: .25s;
-  transition: .25s;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
 }
 
 .input__textBox:focus {
@@ -1676,6 +1676,108 @@ input[type=button] {
 .dreamBoard__item__objective--value {
   position: absolute;
   right: 0;
+}
+
+.dreamBoard__addModal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.dreamBoard__addContainer {
+  width: 100%;
+  max-width: 600px;
+  background-color: #DFB5FF;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 20px 0;
+  border: 3px dashed #7030A0;
+}
+
+.dreamBoard__form {
+  width: 100%;
+  max-width: 500px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.dreamBoard__form h3 {
+  font-size: 1.625rem;
+  font-weight: bold;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  margin-bottom: 20px;
+}
+
+.dreamBoard__addClose {
+  background-color: #B15FEF;
+  outline: none;
+  border: none;
+  border-radius: 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 5px 12px;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  margin-right: 20px;
+}
+
+.dreamBoard__addClose img {
+  max-width: none;
+}
+
+.dreamBoard__addImage {
+  width: 300px;
+  margin-bottom: 10px;
 }
 
 .nextState {

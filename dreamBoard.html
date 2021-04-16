@@ -121,6 +121,32 @@
             </div>
             <div class="dreamBoard__addBtn">+</div>
         </section>
+        <section class="dreamBoard__addModal">
+            <div class="dreamBoard__addContainer">
+                <button class="dreamBoard__addClose">
+                    <img src="./src/images/equis.svg" alt="">
+                </button>
+                <img class="dreamBoard__addImage" src="./src/images/cerdito.svg" alt="">
+                <form class="dreamBoard__form">
+                    <h3>Crear una meta</h3>
+                    <label class="input">
+                        Nombre de la meta
+                        <input class="input__textBox" type="text" name="goal">
+                    </label>
+                    <label class="input">
+                        Cantidad
+                        <input class="input__textBox" type="number" name="goal">
+                    </label>
+                    <label class="input">
+                        Fecha límite
+                        <input class="input__textBox" type="date" name="time">
+                    </label>
+                    <button class="btn">
+                        Agregar
+                    </button>
+                </form>
+            </div>
+        </section>
     </main>
     <footer class="footer">
         <section class="footer__menu">
@@ -146,6 +172,14 @@
             </p>
         </section>
     </footer>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
+    <script src="./src/scripts/firebase.js"></script>
+    <script src="./src/scripts/auth.js"></script>
+    <script src="./src/scripts/profile.js"></script>
+    <script src="./src/scripts/handleHeader.js"></script>
+    <script src="./src/scripts/dreamBoard.js"></script>
 </body>
 
 </html>

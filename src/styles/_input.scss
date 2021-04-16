@@ -6,20 +6,20 @@
     font-family: $monserrat;
     font-weight: bold;
     font-size: 1.225rem;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 
     &__textBox {
-       border: 2px solid $greenBlue;
-       width: 100%;
-       border-radius: 20px;
-       padding: 12px 10px;
-       font-size: 1rem;
-       margin-top: 10px;
-       font-family: $poppins;
-        transition: .25s;
-       &:focus {
-           outline: none;
-           border: 2px solid $orange;
-       }
+        border: 2px solid $greenBlue;
+        width: 100%;
+        border-radius: 15px;
+        padding: 8px 10px;
+        font-size: 1rem;
+        margin-top: 10px;
+        font-family: $poppins;
+        transition: 0.25s;
+        &:focus {
+            outline: none;
+            border: 2px solid $orange;
+        }
     }
 }
