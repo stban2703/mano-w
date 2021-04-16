@@ -16,11 +16,16 @@ dreamBoardForm.addEventListener('submit', (event) => {
 });
 
 function getUserDreams() {
+    unstartedDreamsList = [];
+    inProgressDreamsList = [];
+    finishedDreamsList = [];
+
     userDreamsRef.get()
         .then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
-                console.log(doc.id, " => ", doc.data());
+                //console.log(doc.id, " => ", doc.data());
                 let dreamObject = doc.data();
+                dreamObject.id = doc.id;
                 switch (dreamObject.status) {
                     case "unstarted":
                         unstartedDreamsList.push(dreamObject);
@@ -33,29 +38,22 @@ function getUserDreams() {
                         break;
                 }
             });
-            renderDreams(unstartedDreamsList, "unstarted");
-            renderDreams(inProgressDreamsList, "inprogress");
-            renderDreams(finishedDreamsList, "finished");
+            renderDreams(unstartedDreamsList, inProgressDreamsList, finishedDreamsList);
         });
 
 }
 
-function renderDreams(list, status) {
-    switch (status) {
-        default:
-        case "unstarted":
-            dreamUnstartedSection.innerHTML = "";
-            break;
-        case "inprogress":
-            dreamInProgressSection.innerHTML = "";
-            break;
-        case "finished":
-            dreamFinishedSection.innerHTML = "";
-            break;
-    }
+function renderDreams(unstartedList, inProgressList, finishedList) {
+    dreamUnstartedSection.innerHTML = "";
+    dreamInProgressSection.innerHTML = "";
+    dreamFinishedSection.innerHTML = "";
+    appendDreamItems(unstartedList);
+    appendDreamItems(inProgressList);
+    appendDreamItems(finishedList);
+}
 
+function appendDreamItems(list) {
     list.forEach(elem => {
-        console.log("recorre lista")
         const newDreamItem = document.createElement("div");
         newDreamItem.classList.add("dreamBoard__item");
         newDreamItem.innerHTML = `
@@ -73,19 +71,53 @@ function renderDreams(list, status) {
             </div>
             <button class="nextState">Siguiente estado</button>`
 
-        switch (status) {
+
+        switch (elem.status) {
             default:
             case "unstarted":
                 dreamUnstartedSection.appendChild(newDreamItem);
-                console.log("agregado sin comenzar")
+                handleChangeStatus(newDreamItem, elem, "inprogress");
                 break;
             case "inprogress":
                 dreamInProgressSection.appendChild(newDreamItem);
+                handleChangeStatus(newDreamItem, elem, "finished");
                 break;
             case "finished":
                 dreamFinishedSection.appendChild(newDreamItem);
                 break;
         }
+        handleRemoveDream(newDreamItem, elem);
+
+    })
+}
+
+function handleChangeStatus(htmlElement, elem, newStatus) {
+    const nextStateBtn = htmlElement.querySelector(".nextState");
+    nextStateBtn.addEventListener('click', () => {
+        console.log(elem.id);
+        userDreamsRef.doc(elem.id).update({
+            status: newStatus
+        })
+            .then(() => {
+                console.log("Document successfully updated!");
+                getUserDreams();
+            })
+            .catch((error) => {
+                // The document probably doesn't exist.
+                console.error("Error updating document: ", error);
+            });
+    })
+}
+
+function handleRemoveDream(htmlElement, elem) {
+    const deleteBtn = htmlElement.querySelector(".dreamBoard__item__deleteBtn");
+    deleteBtn.addEventListener('click', () => {
+        userDreamsRef.doc(elem.id).delete().then(() => {
+            console.log("Document successfully deleted!");
+            getUserDreams();
+        }).catch((error) => {
+            console.error("Error removing document: ", error);
+        });
     })
 }
 
