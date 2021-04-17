@@ -64,7 +64,7 @@ const chatBotOptionsList = [
         itemList: [
             {
                 value: "Acceder a eventos",
-                imageUrl: "./src/images/chatbotproducts.svg",
+                imageUrl: "./src/images/chatbotevents.svg",
                 itemList: [
                     {
                         value: "Videos informativos",
@@ -80,7 +80,7 @@ const chatBotOptionsList = [
             },
             {
                 value: "Tablero de sueños",
-                imageUrl: "./src/images/chatbotproducts.svg",
+                imageUrl: "./src/images/chatbotdreams.svg",
                 itemList: [
                     {
                         value: "Videos informativos",
@@ -96,7 +96,7 @@ const chatBotOptionsList = [
             },
             {
                 value: "Uso del chabot",
-                imageUrl: "./src/images/chatbotproducts.svg",
+                imageUrl: "./src/images/chatbotchatbot.svg",
                 itemList: [
                     {
                         value: "Videos informativos",
