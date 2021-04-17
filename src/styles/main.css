@@ -1656,7 +1656,7 @@ input[type=button] {
 .dreamBoard__item {
   background-color: #FF8B47;
   width: 70%;
-  height: 270px;
+  height: 45vh;
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1707,7 +1707,7 @@ input[type=button] {
   height: 15%;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 25px;
+  margin-top: 5vh;
 }
 
 .dreamBoard__item__objective img {
