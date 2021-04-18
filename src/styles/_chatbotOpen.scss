@@ -51,6 +51,7 @@
     &__icon {
         width: 50%;
         margin-left: 5px;
+        margin-top: 8px;
     }
     
     @keyframes pulse {
@@ -65,5 +66,12 @@
         100% {
             background-color: #ff4136;
         }
+    }
+
+    &__title {
+        font-family: $poppins;
+        color: white;
+        margin-top: 5px;
+        font-weight: bold;
     }
 }

@@ -17,18 +17,9 @@ let dbMessageList = [];
 let isChatOnline = false;
 
 // Lista de mensajes locales
-let localMessageList = [
-    {
-        id: 0,
-        type: "bot",
-        text: `¡Hola! Soy Alfonso Bot. Bienvenid@ *nombre persona*,
-        dime en qué te puedo ayudar.<br>
-        <strong>Elige el tema que desees obtener información:<strong>`,
-        itemList: chatBotOptionsList,
-        date: Date.now(),
-        hour: getMessageHour()
-    }
-];
+/*let localMessageList = [
+    
+];*/
 
 // Enviar mensaje del input al chatbot
 chabotMessageForm.addEventListener("submit", function (event) {
