@@ -399,7 +399,6 @@ input[type=button] {
   width: 100%;
   max-width: none;
   max-width: 600px;
-  visibility: hidden;
 }
 
 .card__description {
@@ -1489,7 +1488,6 @@ input[type=button] {
   left: 0;
   right: 0;
   margin: auto;
-  visibility: hidden;
 }
 
 .interestThemes__content__item p {

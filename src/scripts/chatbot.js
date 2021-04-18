@@ -21,7 +21,9 @@ let localMessageList = [
     {
         id: 0,
         type: "bot",
-        text: "Dime en qué te puedo ayudar. Elige el tema del que desees obtener información",
+        text: `¡Hola! Soy Alfonso Bot. Bienvenid@ *nombre persona*,
+        dime en qué te puedo ayudar.<br>
+        <strong>Elige el tema que desees obtener información:<strong>`,
         itemList: chatBotOptionsList,
         date: Date.now(),
         hour: getMessageHour()
