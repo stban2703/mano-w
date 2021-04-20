@@ -69,7 +69,7 @@ function appendDreamItems(list) {
                 <img src="./src/images/dateIcon.svg" alt="">
                 <span class="dreamBoard__item__objective--value">${elem.time}</span>
             </div>
-            <button class="nextState">Siguiente estado</button>`
+            ${(elem.status != "finished") ? `<button class="nextState">Siguiente estado</button>` : ''}`
 
 
         switch (elem.status) {
