@@ -56,7 +56,7 @@ const chatBotOptionsList = [
     {
         value: "Preguntas frecuentes",
         imageUrl: "./src/images/chatbotquestions.svg",
-        redirectUrl: "frequentQuestions.html"
+        redirectUrl: "index.html"
     },
     {
         value: "Entrenamiento digital",
