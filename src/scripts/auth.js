@@ -1,6 +1,7 @@
 let userInfo;
 let userMessagesRef;
 let userDreamsRef;
+let localMessageList = [];
 
 firebase.auth().onAuthStateChanged((user) => {
     const openChatbotBtn = document.querySelector(".chatbotOpen");
@@ -18,22 +19,9 @@ firebase.auth().onAuthStateChanged((user) => {
                 userDreamsRef = userRef.doc(uid).collection('dreams');
                 setProfileInfo(userInfo);
                 handleHeader();
+                handleChatbotWhenIsLogged();
 
-                // Detectar si el otro usuario esta escribiendo
-                if (document.querySelector(".chatbot")) {
-                    getMessages(isChatOnline);
-                    userRef.doc(userInfo.uid).onSnapshot((doc) => {
-                        //console.log("CAMBIO")
-                        const user = doc.data();
-                        if (user.isTyping && isChatOnline) {
-                            chatbotTyping.classList.remove("invisible")
-                        } else {
-                            chatbotTyping.classList.add("invisible");
-                        }
-                    })
-                }
-
-                if(document.querySelector(".dreamBoard")) {
+                if (document.querySelector(".dreamBoard")) {
                     getUserDreams();
                 }
             }
@@ -59,5 +47,36 @@ function handleLogOut() {
                 window.location.href = "index.html"
             })
         })
+    }
+}
+
+function handleChatbotWhenIsLogged() {
+    const chatbot = document.querySelector(".chatbot");
+    if (chatbot) {
+        localMessageList.push(
+            {
+                id: 0,
+                type: "bot",
+                text: `¡Hola! Soy Alfonso Bot. Bienvenid@ ${userInfo.name},
+                dime en qué te puedo ayudar.<br>
+                <strong>Elige el tema que desees obtener información:<strong>`,
+                itemList: chatBotOptionsList,
+                date: Date.now(),
+                hour: getMessageHour()
+            }
+        )
+
+        if (document.querySelector(".chatbot")) {
+            getMessages(isChatOnline);
+            userRef.doc(userInfo.uid).onSnapshot((doc) => {
+                //console.log("CAMBIO")
+                const user = doc.data();
+                if (user.isTyping && isChatOnline) {
+                    chatbotTyping.classList.remove("invisible")
+                } else {
+                    chatbotTyping.classList.add("invisible");
+                }
+            })
+        }
     }
 }
