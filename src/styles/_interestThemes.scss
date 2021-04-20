@@ -79,3 +79,8 @@
 .item__graphic--dark{
     background-color: $greenBlue;
 }
+
+.interestThemes__content__item:focus{
+    border: 2px solid $purple;
+    outline: $purple;
+}

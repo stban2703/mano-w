@@ -72,9 +72,9 @@ const chatBotOptionsList = [
                         redirectUrl: "productInformation.html"
                     },
                     {
-                        value: "Duda específica",
+                        value: "Ir a eventos",
                         imageUrl: "./src/images/chatbotproducts.svg",
-                        isFinal: true
+                        redirectUrl: "events.html",
                     }
                 ]
             },
@@ -88,9 +88,9 @@ const chatBotOptionsList = [
                         redirectUrl: "productInformation.html"
                     },
                     {
-                        value: "Duda específica",
+                        value: "Ir al tablero de sueños",
                         imageUrl: "./src/images/chatbotproducts.svg",
-                        isFinal: true
+                        redirectUrl: "dreamBoard.html",
                     }
                 ]
             },
@@ -102,11 +102,6 @@ const chatBotOptionsList = [
                         value: "Videos informativos",
                         imageUrl: "./src/images/chatbotproducts.svg",
                         redirectUrl: "productInformation.html"
-                    },
-                    {
-                        value: "Duda específica",
-                        imageUrl: "./src/images/chatbotproducts.svg",
-                        isFinal: true
                     }
                 ]
             }
