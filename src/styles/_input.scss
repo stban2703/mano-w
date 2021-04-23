@@ -5,8 +5,12 @@
     margin-bottom: 20px;
     font-family: $monserrat;
     font-weight: bold;
-    font-size: 1.225rem;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+
+    label {
+        font-weight: bold;
+        font-size: 1.15rem;
+    }
 
     &__textBox {
         border: 2px solid $greenBlue;
@@ -14,12 +18,70 @@
         border-radius: 15px;
         padding: 8px 10px;
         font-size: 1rem;
-        margin-top: 10px;
+        margin-top: 5px;
         font-family: $poppins;
         transition: 0.25s;
         &:focus {
             outline: none;
             border: 2px solid $orange;
+        }
+    }
+
+    &__radioContainer {
+        display: flex;
+        flex-direction: row;
+
+        [type="radio"]:checked,
+        [type="radio"]:not(:checked) {
+            position: absolute;
+            left: -9999px;
+        }
+        [type="radio"]:checked + label,
+        [type="radio"]:not(:checked) + label {
+            position: relative;
+            padding-left: 22px;
+            margin-right: 10px;
+            cursor: pointer;
+            line-height: 20px;
+            display: inline-block;
+            color: #000000;
+            margin: 10px 0;
+            margin-right: 20px;
+        }
+        [type="radio"]:checked + label:before,
+        [type="radio"]:not(:checked) + label:before {
+            content: "";
+            position: absolute;
+            left: 1px;
+            top: 1px;
+            width: 18px;
+            height: 18px;
+            border: 1px solid #ddd;
+            border-radius: 100%;
+            background: #fff;
+        }
+        [type="radio"]:checked + label:after,
+        [type="radio"]:not(:checked) + label:after {
+            content: "";
+            width: 12px;
+            height: 12px;
+            background: #f87da9;
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            border-radius: 100%;
+            -webkit-transition: all 0.2s ease;
+            transition: all 0.2s ease;
+        }
+        [type="radio"]:not(:checked) + label:after {
+            opacity: 0;
+            -webkit-transform: scale(0);
+            transform: scale(0);
+        }
+        [type="radio"]:checked + label:after {
+            opacity: 1;
+            -webkit-transform: scale(1);
+            transform: scale(1);
         }
     }
 }

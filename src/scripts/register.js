@@ -7,6 +7,7 @@ registerForm.addEventListener("submit", function (event) {
     const userEmail = registerForm.email.value;
     const userIdentification = registerForm.identification.value;
     const userPassword = registerForm.password.value;
+    const userSex = registerForm.sex.value;
 
     firebase.auth().createUserWithEmailAndPassword(userEmail, userPassword)
         .then((userCredential) => {
@@ -18,6 +19,7 @@ registerForm.addEventListener("submit", function (event) {
                 name: userName,
                 surname: userSurname,
                 identification: userIdentification,
+                sex: userSex,
                 isTyping: false
 
             }).then(function () {
