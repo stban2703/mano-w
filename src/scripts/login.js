@@ -31,6 +31,7 @@ loginForm.addEventListener("submit", function (event) {
         })
         .catch((error) => {
             console.log("Error getting documents: ", error);
+            alert("El usuario no existe")
         });
 
     /*firebase.auth().signInWithEmailAndPassword(email, password)

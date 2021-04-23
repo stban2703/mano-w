@@ -9,26 +9,43 @@ registerForm.addEventListener("submit", function (event) {
     const userPassword = registerForm.password.value;
     const userSex = registerForm.sex.value;
 
-    firebase.auth().createUserWithEmailAndPassword(userEmail, userPassword)
-        .then((userCredential) => {
-            // Signed in
-            const userId = userCredential.user.uid;
+    const query = userRef.where("identification", "==", userIdentification);
+    let checkUser;
+    query.get()
+        .then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                checkUser = doc.data();
+                console.log(checkUser);
+            })
 
-            userRef.doc(userId).set({
-                email: userEmail,
-                name: userName,
-                surname: userSurname,
-                identification: userIdentification,
-                sex: userSex,
-                isTyping: false
+            if (checkUser) {
+                alert("El usuario ya está registrado");
+            } else {
+                firebase.auth().createUserWithEmailAndPassword(userEmail, userPassword)
+                    .then((userCredential) => {
+                        // Signed in
+                        const userId = userCredential.user.uid;
 
-            }).then(function () {
-                window.location.href = "index.html";
-            });
+                        userRef.doc(userId).set({
+                            email: userEmail,
+                            name: userName,
+                            surname: userSurname,
+                            identification: userIdentification,
+                            sex: userSex,
+                            isTyping: false
+
+                        }).then(function () {
+                            window.location.href = "index.html";
+                        });
+                    })
+                    .catch((error) => {
+                        var errorCode = error.code;
+                        var errorMessage = error.message;
+                        alert(errorCode + ": " + errorMessage)
+                    });
+            }
         })
         .catch((error) => {
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            alert(errorCode + ": " + errorMessage)
+            console.log("Error getting documents: ", error);
         });
 })
