@@ -57,7 +57,7 @@ function handleChatbotWhenIsLogged() {
             {
                 id: 0,
                 type: "bot",
-                text: `¡Hola! Soy Alfonso Bot. Bienvenid@ ${userInfo.name},
+                text: `¡Hola! Soy Alfonso Bot. ${userInfo.sex === "female" ? "Bienvenida" : "Bienvenido"} <strong>${userInfo.name}</strong>,
                 dime en qué te puedo ayudar.<br>
                 <strong>Elige el tema que desees obtener información:<strong>`,
                 itemList: chatBotOptionsList,

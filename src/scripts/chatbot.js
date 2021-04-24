@@ -117,7 +117,7 @@ function handleCreateMessageElem(list, isOnline) {
                 newMessage.appendChild(newMessageHour);
                 break;
             case "user":
-                newMessage.classList.add("message--mine");
+                newMessage.classList.add("message--user");
                 if (finalItem == list.length) {
                     newMessage.classList.add("message--anim--user");
                     setTimeout(() => {
