@@ -16,11 +16,6 @@ let dbMessageList = [];
 // Variable para saber si esta chateando online con un asesor
 let isChatOnline = false;
 
-// Lista de mensajes locales
-/*let localMessageList = [
-    
-];*/
-
 // Enviar mensaje del input al chatbot
 chabotMessageForm.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -188,7 +183,7 @@ function handleLastUserMessage(message, elem) {
     if (message.type === "user" && elem.itemList) {
         newMessage = {
             type: "bot",
-            text: "Elige el tema del que desees obtener información",
+            text: elem.text,
             itemList: message.selectedOption.itemList,
             date: Date.now(),
             hour: getMessageHour()

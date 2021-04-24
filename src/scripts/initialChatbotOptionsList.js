@@ -1,11 +1,13 @@
 const chatBotOptionsList = [
     {
         value: "Productos del banco",
+        text: "Elige el producto del que desees conocer más:",
         imageUrl: "./src/images/chatbotproducts.svg",
         itemList: [
             {
                 value: "CDT",
                 imageUrl: "./src/images/chatbotproducts.svg",
+                text: "Elige qué quieres conocer de CDT:",
                 itemList: [
                     {
                         value: "Información",
@@ -22,6 +24,7 @@ const chatBotOptionsList = [
             {
                 value: "Cuenta de ahorros",
                 imageUrl: "./src/images/chatbotproducts.svg",
+                text: "Elige qué quieres conocer de Cuenta de ahorros:",
                 itemList: [
                     {
                         value: "Información",
@@ -38,6 +41,7 @@ const chatBotOptionsList = [
             {
                 value: "Microcréditos",
                 imageUrl: "./src/images/chatbotproducts.svg",
+                text: "Elige qué quieres conocer de Microcréditos:",
                 itemList: [
                     {   
                         value: "Información",
@@ -61,10 +65,12 @@ const chatBotOptionsList = [
     {
         value: "Entrenamiento digital",
         imageUrl: "./src/images/chatbotentertaiment.svg",
+        text: "Elige la parte de la página que desees aprender a usar",
         itemList: [
             {
                 value: "Acceder a eventos",
                 imageUrl: "./src/images/chatbotevents.svg",
+                text: "Elige que quieres ver de la página:",
                 itemList: [
                     {
                         value: "Videos informativos",
@@ -81,6 +87,7 @@ const chatBotOptionsList = [
             {
                 value: "Tablero de sueños",
                 imageUrl: "./src/images/chatbotdreams.svg",
+                text: "Elige que quieres ver de la página:",
                 itemList: [
                     {
                         value: "Videos informativos",
@@ -97,6 +104,7 @@ const chatBotOptionsList = [
             {
                 value: "Uso del chabot",
                 imageUrl: "./src/images/chatbotchatbot.svg",
+                text: "Elige que quieres ver de la página:",
                 itemList: [
                     {
                         value: "Videos informativos",
