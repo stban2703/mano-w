@@ -6,51 +6,51 @@ const chatBotOptionsList = [
         itemList: [
             {
                 value: "CDT",
-                imageUrl: "./src/images/chatbotproducts.svg",
+                imageUrl: "./src/images/chatbotcdt.svg",
                 text: "Elige qué quieres conocer de CDT:",
                 itemList: [
                     {
                         value: "Información",
-                        imageUrl: "./src/images/chatbotproducts.svg",
+                        imageUrl: "./src/images/chatbotinformation.svg",
                         redirectUrl: "https://www.bancow.com.co/inversion/cdt/#3"
                     },
                     {
                         value: "Duda específica",
-                        imageUrl: "./src/images/chatbotproducts.svg",
+                        imageUrl: "./src/images/chatbotquestionspecific.svg",
                         isFinal: true
                     }
                 ]
             },
             {
                 value: "Cuenta de ahorros",
-                imageUrl: "./src/images/chatbotproducts.svg",
+                imageUrl: "./src/images/chatbotsavings.svg",
                 text: "Elige qué quieres conocer de Cuenta de ahorros:",
                 itemList: [
                     {
                         value: "Información",
-                        imageUrl: "./src/images/chatbotproducts.svg",
+                        imageUrl: "./src/images/chatbotinformation.svg",
                         redirectUrl: "productInformation.html"
                     },
                     {
                         value: "Duda específica",
-                        imageUrl: "./src/images/chatbotproducts.svg",
+                        imageUrl: "./src/images/chatbotquestionspecific.svg",
                         isFinal: true
                     }
                 ]
             },
             {
                 value: "Microcréditos",
-                imageUrl: "./src/images/chatbotproducts.svg",
+                imageUrl: "./src/images/chatbotmicrocredits.svg",
                 text: "Elige qué quieres conocer de Microcréditos:",
                 itemList: [
                     {   
                         value: "Información",
-                        imageUrl: "./src/images/chatbotproducts.svg",
+                        imageUrl: "./src/images/chatbotinformation.svg",
                         redirectUrl: "productInformation.html"
                     },
                     {
                         value: "Duda específica",
-                        imageUrl: "./src/images/chatbotproducts.svg",
+                        imageUrl: "./src/images/chatbotquestionspecific.svg",
                         isFinal: true
                     }
                 ]
@@ -74,12 +74,12 @@ const chatBotOptionsList = [
                 itemList: [
                     {
                         value: "Videos informativos",
-                        imageUrl: "./src/images/chatbotproducts.svg",
+                        imageUrl: "./src/images/chatbotvideo.svg",
                         redirectUrl: "productInformation.html"
                     },
                     {
                         value: "Ir a eventos",
-                        imageUrl: "./src/images/chatbotproducts.svg",
+                        imageUrl: "./src/images/chatbotevents.svg",
                         redirectUrl: "events.html",
                     }
                 ]
@@ -91,12 +91,12 @@ const chatBotOptionsList = [
                 itemList: [
                     {
                         value: "Videos informativos",
-                        imageUrl: "./src/images/chatbotproducts.svg",
+                        imageUrl: "./src/images/chatbotvideo.svg",
                         redirectUrl: "productInformation.html"
                     },
                     {
                         value: "Ir al tablero de sueños",
-                        imageUrl: "./src/images/chatbotproducts.svg",
+                        imageUrl: "./src/images/chatbotdreams.svg",
                         redirectUrl: "dreamBoard.html",
                     }
                 ]
@@ -108,7 +108,7 @@ const chatBotOptionsList = [
                 itemList: [
                     {
                         value: "Videos informativos",
-                        imageUrl: "./src/images/chatbotproducts.svg",
+                        imageUrl: "./src/images/chatbotvideo.svg",
                         redirectUrl: "productInformation.html"
                     }
                 ]
