@@ -1913,9 +1913,8 @@ input[type=button] {
   margin-bottom: 10px;
 }
 
-.nextState {
-  display: inline-block;
-  margin: auto;
+.state {
+  display: inline;
   background-color: white;
   color: #FF8B47;
   font-family: "Montserrat", sans-serif;
@@ -1923,8 +1922,18 @@ input[type=button] {
   height: 15%;
   border-radius: 25px;
   border-color: #FF8B47;
-  width: 70%;
+  width: 50%;
   border-style: solid;
+  position: absolute;
+  bottom: 6vh;
+}
+
+.nextState {
+  right: 0;
+}
+
+.backState {
+  left: 0;
 }
 
 input[type=number]::-webkit-outer-spin-button,

@@ -69,7 +69,8 @@ function appendDreamItems(list) {
                 <img src="./src/images/dateIcon.svg" alt="">
                 <span class="dreamBoard__item__objective--value">${elem.time}</span>
             </div>
-            ${(elem.status != "finished") ? `<button class="nextState">Siguiente estado</button>` : ''}`
+            ${(elem.status != "unstarted") ? `<button class="backState state">Anterior estado</button>` : ''}
+            ${(elem.status != "finished") ? `<button class="nextState state">Siguiente estado</button>` : ''}`
 
 
         switch (elem.status) {
@@ -86,14 +87,28 @@ function appendDreamItems(list) {
                 dreamFinishedSection.appendChild(newDreamItem);
                 break;
         }
+        switch (elem.status) {
+            default:
+            case "unstarted":
+                dreamUnstartedSection.appendChild(newDreamItem);
+                break;
+            case "inprogress":
+                dreamInProgressSection.appendChild(newDreamItem);
+                handleChangeStatus(newDreamItem, elem, "unstarted");
+                break;
+            case "finished":
+                dreamFinishedSection.appendChild(newDreamItem);
+                handleChangeStatus(newDreamItem, elem, "inprogress");
+                break;
+        }
         handleRemoveDream(newDreamItem, elem);
 
     })
 }
 
 function handleChangeStatus(htmlElement, elem, newStatus) {
-    const nextStateBtn = htmlElement.querySelector(".nextState");
-    nextStateBtn.addEventListener('click', () => {
+    const stateBtn = htmlElement;
+    stateBtn.addEventListener('click', () => {
         console.log(elem.id);
         userDreamsRef.doc(elem.id).update({
             status: newStatus
