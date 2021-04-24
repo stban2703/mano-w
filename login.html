@@ -16,15 +16,15 @@
                 <a href="index.html" class="login__logo">
                     <img src="./src/images/manowlogo.svg" class="login__logo"/>
                 </a>
-                <label class="input overlay">
-                    Cédula
-                    <input class="input__textBox" name="identification" type="text" placeholder="Escribe tu cédula">
-                </label>
+                <div class="input overlay">
+                    <label for="identification">Cédula</label>
+                    <input class="input__textBox" name="identification" type="text" placeholder="Escribe tu cédula" required>
+                </div>
 
-                <label class="input overlay">
-                    Contraseña
-                    <input class="input__textBox" name="password" type="password" placeholder="Escribe tu contraseña">
-                </label>
+                <div class="input overlay">
+                    <label for="password">Contraseña</label>
+                    <input class="input__textBox" name="password" type="password" placeholder="Escribe tu contraseña" required>
+                </div>
 
                 <p class="login__alternative overlay">¿No tienes cuenta? Crea una <strong><a
                             href="./register.html">aquí</a></strong></p>
