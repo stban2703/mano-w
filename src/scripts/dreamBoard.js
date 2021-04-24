@@ -55,6 +55,8 @@ function renderDreams(unstartedList, inProgressList, finishedList) {
 function appendDreamItems(list) {
     list.forEach(elem => {
         const newDreamItem = document.createElement("div");
+        newDreamItem.setAttribute('draggable','true');
+        newDreamItem.setAttribute('onDragEnd','dragEndHandler(event)');
         newDreamItem.classList.add("dreamBoard__item");
         newDreamItem.innerHTML = `
             <span class="dreamBoard__item__title">
@@ -169,3 +171,18 @@ dreamBoardAddBtn.addEventListener('click', () => {
 dreamBoardCloseModalBtn.addEventListener('click', () => {
     dreamBoardAddModal.classList.add("hidden");
 })
+
+function dragOverHandler(ev) {
+    ev.preventDefault();
+  }
+
+function dropHandler(ev) {
+    ev.preventDefault();
+    console.log('Dropeado');
+    console.log(ev.target);
+}
+function dragEndHandler(ev) {
+    ev.preventDefault();
+    console.log('dragEnded');
+    console.log(ev.target);
+}
