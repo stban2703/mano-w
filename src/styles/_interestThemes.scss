@@ -4,13 +4,14 @@
     &__introduction {
         position: relative;
 
+
         img {
             width: 100%;
         }
 
         & h2 {
             font-size: $headerTitle;
-            color: $darkBlue;
+            color: white;
             font-size: 2rem;
             font-weight: $bold;
             text-align: center;
@@ -72,8 +73,15 @@
     }
 }
 
+.item__graphic--border{ 
+    border: 4px solid $greenBlue;
+    background-color: white;
+    
+}
+
 .item__graphic--light{
     background-color: $lightBlue;
+       
 }
 
 .item__graphic--dark{

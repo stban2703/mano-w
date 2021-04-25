@@ -1220,9 +1220,9 @@ input[type=button] {
   height: 100%;
   max-width: 800px;
   padding: 0 50px;
-  border-left: 6px dashed gray;
-  border-right: 6px dashed gray;
-  background-color: #DFB5FF;
+  border-left: 6px dashed #7030a0;
+  border-right: 6px dashed #7030a0;
+  background-color: white;
   height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1432,9 +1432,9 @@ input[type=button] {
   width: 100%;
   height: 100%;
   max-width: 800px;
-  border-left: 6px dashed gray;
-  border-right: 6px dashed gray;
-  background-color: #DFB5FF;
+  border-left: 6px dashed #7030a0;
+  border-right: 6px dashed #7030a0;
+  background-color: white;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1534,7 +1534,7 @@ input[type=button] {
 
 .interestThemes__introduction h2 {
   font-size: 1rem;
-  color: #2b3640;
+  color: white;
   font-size: 2rem;
   font-weight: 700;
   text-align: center;
@@ -1602,6 +1602,11 @@ input[type=button] {
   font-size: 1.5rem;
 }
 
+.item__graphic--border {
+  border: 4px solid #00a2af;
+  background-color: white;
+}
+
 .item__graphic--light {
   background-color: #d8eff1;
 }
@@ -1633,7 +1638,7 @@ input[type=button] {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-image: url("./../images/dreamBoardBackground.svg");
+  background-image: url("./../images/backgroundpurple.svg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -1648,7 +1653,7 @@ input[type=button] {
 .dreamBoard__introduction h2 {
   font-family: "Montserrat", sans-serif;
   font-size: 1rem;
-  color: #2b3640;
+  color: white;
   font-size: 2rem;
   font-weight: 700;
   text-align: center;
@@ -1688,7 +1693,7 @@ input[type=button] {
 }
 
 .dreamBoard__container {
-  background-color: #d8eff1;
+  /* background-color: $lightBlue;*/
   width: 100%;
   height: 100vh;
   place-content: center;
@@ -1699,6 +1704,10 @@ input[type=button] {
           } */
   /* Handle */
   /* Handle on hover */
+  /* &--inProgress {
+            background-color: $inProgressBlue;
+        }
+        */
 }
 
 .dreamBoard__container::-webkit-scrollbar {
@@ -1728,16 +1737,12 @@ input[type=button] {
 }
 
 .dreamBoard__container--unstarted {
-  background-color: #E7FAFC;
+  /* background-color: $unstartedBlue;*/
   border-right: 3px dashed #00a2af;
 }
 
-.dreamBoard__container--inProgress {
-  background-color: #BDEFF4;
-}
-
 .dreamBoard__container--finished {
-  background-color: #8BDBE2;
+  /* background-color: $finishedBlue;*/
   border-left: 3px dashed #00a2af;
 }
 
@@ -1836,7 +1841,7 @@ input[type=button] {
 .dreamBoard__addContainer {
   width: 100%;
   max-width: 600px;
-  background-color: #DFB5FF;
+  background-color: #00a2af;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1851,7 +1856,7 @@ input[type=button] {
       -ms-flex-pack: center;
           justify-content: center;
   padding: 20px 0;
-  border: 3px dashed #7030A0;
+  /*border: 3px dashed #7030A0;*/
 }
 
 .dreamBoard__form {
@@ -1881,7 +1886,7 @@ input[type=button] {
 }
 
 .dreamBoard__addClose {
-  background-color: #B15FEF;
+  background-color: white;
   outline: none;
   border: none;
   border-radius: 8px;
@@ -1960,7 +1965,7 @@ input[type=number] {
 
 .eventThemes__introduction h2 {
   font-size: 1rem;
-  color: #2b3640;
+  color: white;
   font-size: 2rem;
   font-weight: 700;
   text-align: center;
@@ -1986,7 +1991,6 @@ input[type=number] {
 
 .eventThemes__content {
   width: auto;
-  background-color: #d8eff1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2110,7 +2114,6 @@ input[type=number] {
 }
 
 .table--new {
-  background-color: #d8eff1;
   border-top: 6px dashed #00a2af;
   border-bottom: 6px dashed #00a2af;
 }

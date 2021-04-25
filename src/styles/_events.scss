@@ -10,7 +10,7 @@
 
         & h2 {
             font-size: $headerTitle;
-            color: $darkBlue;
+            color: white;
             font-size: 2rem;
             font-weight: $bold;
             text-align: center;
@@ -38,7 +38,6 @@
     &__content{
         
         width: auto;
-        background-color: $lightBlue;
         display: flex;
         flex-wrap: wrap;
         align-items: center;
@@ -139,7 +138,6 @@
 }
 
 .table--new{
-    background-color: $lightBlue;
     border-top: 6px dashed $greenBlue;
     border-bottom: 6px dashed $greenBlue;
 }

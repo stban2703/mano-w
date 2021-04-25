@@ -10,9 +10,9 @@
     width: 100%;
     height: 100%;
     max-width: 800px;
-    border-left: 6px dashed gray;
-    border-right: 6px dashed gray;
-    background-color: $lightPurple;
+    border-left: 6px dashed $purple;
+    border-right: 6px dashed $purple;
+    background-color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
