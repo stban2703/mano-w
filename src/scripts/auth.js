@@ -22,7 +22,7 @@ firebase.auth().onAuthStateChanged((user) => {
                 handleChatbotWhenIsLogged();
 
                 if (document.querySelector(".dreamBoard")) {
-                    //getUserDreams();
+                    getUserDreams();
                 }
             }
         })

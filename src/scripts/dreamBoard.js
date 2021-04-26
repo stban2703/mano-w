@@ -7,6 +7,7 @@ const dreamBoardForm = document.querySelector(".dreamBoard__form");
 const dreamUnstartedSection = document.querySelector(".dreamBoard__itemContainer--unstarted");
 const dreamInProgressSection = document.querySelector(".dreamBoard__itemContainer--inProgress");
 const dreamFinishedSection = document.querySelector(".dreamBoard__itemContainer--finished");
+let dreamBoardFormQuantity = dreamBoardForm.quantity;
 
 let unstartedDreamsList = [];
 let inProgressDreamsList = [];
@@ -73,25 +74,41 @@ function renderDreams(unstartedList, inProgressList, finishedList) {
 function appendDreamItems(list) {
     list.forEach(elem => {
         const newDreamItem = document.createElement("div");
-        newDreamItem.setAttribute('draggable','true');
-        newDreamItem.setAttribute('onDragEnd','dragEndHandler(event)');
-        newDreamItem.classList.add("dreamBoard__item");
+        newDreamItem.setAttribute('draggable', 'true');
+        newDreamItem.setAttribute('onDragEnd', 'dragEndHandler(event)');
+        newDreamItem.classList.add("dreamItem");
         newDreamItem.innerHTML = `
-            <span class="dreamBoard__item__title">
-                ${elem.goal}
-            </span>
-            <button class="dreamBoard__item__deleteBtn">x</button>
-            <div class="dreamBoard__item__objective">
-                <img src="./src/images/moneyIcon.svg" alt="">
-                <span class="dreamBoard__item__objective--value">$${elem.quantity}</span>
-            </div>
-            <div class="dreamBoard__item__objective">
-                <img src="./src/images/dateIcon.svg" alt="">
-                <span class="dreamBoard__item__objective--value">${elem.time}</span>
-            </div>
-            ${(elem.status != "unstarted") ? `<button class="dreamBoard__itemBtn backState state">Anterior estado</button>` : ''}
-            ${(elem.status != "finished") ? `<button class="dreamBoard__itemBtn nextState state">Siguiente estado</button>` : ''}`
-
+                        <section class="dreamItem__header">
+                            <span class="dreamItem__title">
+                                ${elem.goal}
+                            </span>
+                            <button class="dreamItem__deleteBtn">x</button>
+                        </section>
+                        <section class="dreamItem__section">
+                            <div class="dreamItem__info">
+                                <img src="./src/images/moneyIcon.svg" alt="">
+                                <span class="dreamItem__value">${new Intl.NumberFormat("co-ES", {style: "currency", currency: "COP"}).format(elem.quantity)}</span>
+                            </div>
+                            <div class="dreamItem__info">
+                                <img src="./src/images/dateIcon.svg" alt="">
+                                <span class="dreamItem__value">01/01/2021</span>
+                            </div>
+                        </section>
+                        <form class="dreamItem__payForm">
+                            <label for="pay">Ingresa la cantidad a abonar</label>
+                            <input type="number" name="pay" placeholder="0" required>
+                            <button class="dreamItem__btn">Abonar a la meta</button>
+                        </form>
+                        <section class="dreamItem__remainingSection">
+                            <h4>Ahora te falta:</h4>
+                            <h2 class="dreamItem__remainingMoney">$800.000</h2>
+                            <h5>para cumplir tu sueño</h4>
+                        </section>
+                        <section class="dreamItem__controls">
+                            <button class="dreamItem__btn nextState">Iniciar</button>
+                        </section>`
+        /*${(elem.status != "unstarted") ? `<button class="dreamBoard__itemBtn backState state">Anterior estado</button>` : ''}
+        ${(elem.status != "finished") ? `<button class="dreamBoard__itemBtn nextState state">Siguiente estado</button>` : ''}*/
 
         switch (elem.status) {
             default:
@@ -145,7 +162,7 @@ function handleChangeStatus(htmlElement, elem, newStatus) {
 }
 
 function handleRemoveDream(htmlElement, elem) {
-    const deleteBtn = htmlElement.querySelector(".dreamBoard__item__deleteBtn");
+    const deleteBtn = htmlElement.querySelector(".dreamItem__deleteBtn");
     deleteBtn.addEventListener('click', () => {
         userDreamsRef.doc(elem.id).delete().then(() => {
             console.log("Document successfully deleted!");
@@ -194,13 +211,13 @@ function handleOpenMessageRemoveClass() {
     dreamBoardNotification.classList.add('openModal__notification--hidden');
 }
 
-function handleOpenMessageAddClass () {
+function handleOpenMessageAddClass() {
     dreamBoardNotification.classList.remove('openModal__notification--hidden');
 }
 
 function dragOverHandler(ev) {
     ev.preventDefault();
-  }
+}
 
 function dropHandler(ev) {
     ev.preventDefault();

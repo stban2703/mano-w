@@ -1088,7 +1088,7 @@ input[type=button] {
 }
 
 .btn:hover {
-  background-color: #00a2af;
+  background-color: #7030A0;
 }
 
 .btn:focus {
@@ -2004,6 +2004,9 @@ input[type="number"] {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin: auto;
   border-radius: 40px;
   padding: 18px;
@@ -2023,8 +2026,9 @@ input[type="number"] {
 .dreamItem__title {
   color: white;
   font-weight: 700;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   margin-right: 5px;
+  margin-left: 20px;
 }
 
 .dreamItem__deleteBtn {
@@ -2046,6 +2050,12 @@ input[type="number"] {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100%;
   height: 100%;
   margin-bottom: 20px;
@@ -2055,12 +2065,14 @@ input[type="number"] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
+  max-width: 260px;
   margin-bottom: 10px;
 }
 
@@ -2073,18 +2085,99 @@ input[type="number"] {
   font-family: "Poppins", sans-serif;
   font-size: 1.5rem;
   text-align: right;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+.dreamItem__controls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
 }
 
 .dreamItem__btn {
   background-color: white;
   color: #FF6C02;
-  font-family: "Montserrat", sans-serif;
-  font-size: 1.15rem;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.1rem;
   font-weight: 700;
   border-radius: 25px;
   border: none;
   width: 100%;
-  padding: 10px;
+  max-width: 250px;
+  padding: 8px 10px;
+}
+
+.dreamItem__payForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.dreamItem__payForm label {
+  color: white;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  font-weight: lighter;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+
+.dreamItem__payForm input {
+  width: 100%;
+  max-width: 280px;
+  background-color: white;
+  border: none;
+  outline: none;
+  text-align: right;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  padding: 8px 10px;
+  margin-bottom: 15px;
+}
+
+.dreamItem__remainingSection {
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 10px;
+}
+
+.dreamItem__remainingSection h4 {
+  text-align: center;
+  color: white;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.dreamItem__remainingSection h5 {
+  text-align: center;
+  color: white;
+  font-size: 0.8rem;
+  margin-bottom: 5px;
+}
+
+.dreamItem__remainingMoney {
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  font-size: 2rem;
+  margin-bottom: 5px;
 }
 
 .eventThemes {

@@ -92,8 +92,18 @@
                                 <span class="dreamItem__value">01/01/2021</span>
                             </div>
                         </section>
+                        <form class="dreamItem__payForm">
+                            <label for="pay">Ingresa la cantidad a abonar</label>
+                            <input type="number" name="pay" placeholder="0" required>
+                            <button class="dreamItem__btn">Abonar a la meta</button>
+                        </form>
+                        <section class="dreamItem__remainingSection">
+                            <h4>Ahora te falta:</h4>
+                            <h2 class="dreamItem__remainingMoney">$800.000</h2>
+                            <h5>para cumplir tu sueño</h4>
+                        </section>
                         <section class="dreamItem__controls">
-                            <button class="dreamItem__btn nextState">Siguiente estado</button>
+                            <button class="dreamItem__btn nextState">Iniciar</button>
                         </section>
                     </div>
                 </section>
@@ -110,19 +120,19 @@
                     <div class="input">
                         <label class=" input__label input__label--white" for="goal">Nombre de la meta</label>
                         <input class="input__textBox" type="text" name="goal"
-                            placeholder="Escribe el nombre de la meta">
+                            placeholder="Escribe el nombre de la meta" required>
                     </div>
                     <div class="input">
                         <label class="input__label input__label--white" for="quantity">Cantidad</label>
                         <input class="input__textBox" type="number" name="quantity"
-                            placeholder="Digita el monto de la meta">
+                            placeholder="Digita el monto de la meta" required>
                     </div>
                     <div class="input">
                         <label class="input__label input__label--white" for="time">
                             Selecciona la fecha límite en el calendario
                             <img class="input__labelIcon" src="./src/images/calendarrrow.svg" alt="">
                         </label>
-                        <input class="input__textBox" type="date" name="time">
+                        <input class="input__textBox" type="date" name="time" required>
                     </div>
                     <button class="btn">
                         Agregar

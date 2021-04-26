@@ -4,6 +4,7 @@
     max-width: 380px;
     display: flex;
     flex-direction: column;
+    align-items: center;
     margin: auto;
     border-radius: 40px;
     padding: 18px;
@@ -18,8 +19,9 @@
     &__title {
         color: white;
         font-weight: $bold;
-        font-size: 1.2rem;
+        font-size: 1.5rem;
         margin-right: 5px;
+        margin-left: 20px;
     }
 
     &__deleteBtn {
@@ -36,6 +38,8 @@
     &__section {
         display: flex;
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
         width: 100%;
         height: 100%;
         margin-bottom: 20px;
@@ -43,9 +47,10 @@
 
     &__info {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
         width: 100%;
+        max-width: 260px;
         margin-bottom: 10px;
 
         & img {
@@ -57,18 +62,85 @@
             font-family: $poppins;
             font-size: 1.5rem;
             text-align: right;
+            align-self: flex-end;
         }
+    }
+
+    &__controls {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
     }
 
     &__btn {
         background-color: white;
         color: $orange;   
-        font-family: $monserrat;
-        font-size: 1.15rem;
+        font-family: $poppins;
+        font-size: 1.1rem;
         font-weight: $bold;
         border-radius: 25px;
         border: none;
         width: 100%;
-        padding: 10px;
+        max-width: 250px;
+        padding: 8px 10px;
+    }
+
+    &__payForm {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 15px;
+
+        label {
+            color: white;
+            font-family: $poppins;
+            text-align: center;
+            font-weight: lighter;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            max-width: 280px;
+            background-color: white;
+            border: none;
+            outline: none;
+            text-align: right;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            padding: 8px 10px;
+            margin-bottom: 15px;
+        }
+    }
+
+    &__remainingSection {
+        width: 100%;
+        font-family: $poppins;
+        margin-bottom: 10px;
+
+        h4 {
+            text-align: center;
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        h5 {
+            text-align: center;
+            color: white;
+            font-size: 0.8rem;
+            margin-bottom: 5px;
+        }
+    }
+
+    &__remainingMoney {
+        text-align: center;
+        color: white;
+        font-weight: bold;
+        font-size: 2rem;
+        margin-bottom: 5px;
     }
 }
