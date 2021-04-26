@@ -1095,7 +1095,7 @@ input[type=button] {
   outline: none;
 }
 
-.chatbotOpen {
+.openModal {
   position: fixed;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1107,7 +1107,7 @@ input[type=button] {
   position: fixed;
 }
 
-.chatbotOpen__notification {
+.openModal__notification {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1129,18 +1129,18 @@ input[type=button] {
   transition: .25s;
 }
 
-.chatbotOpen__notification p {
+.openModal__notification p {
   font-size: 1.125rem;
   color: white;
 }
 
-.chatbotOpen__notification--hidden {
+.openModal__notification--hidden {
   opacity: 0;
   -webkit-transform: translate(100%, 0);
           transform: translate(100%, 0);
 }
 
-.chatbotOpen__btn {
+.openModal__btn {
   background-color: #FF6C02;
   border-radius: 100%;
   width: 120px;
@@ -1163,11 +1163,11 @@ input[type=button] {
           animation: pulse 3s infinite;
 }
 
-.chatbotOpen__btn:hover {
+.openModal__btn:hover {
   cursor: pointer;
 }
 
-.chatbotOpen__icon {
+.openModal__icon {
   width: 50%;
   margin-left: 5px;
   margin-top: 8px;
@@ -1197,11 +1197,55 @@ input[type=button] {
   }
 }
 
-.chatbotOpen__title {
+.openModal__title {
   font-family: "Poppins", sans-serif;
   color: white;
   margin-top: 5px;
   font-weight: bold;
+}
+
+.openModal--dreamBoard .openModal__notification {
+  background-color: #FF6C02;
+}
+
+.openModal--dreamBoard .openModal__btn {
+  background-color: #7030A0;
+  -webkit-animation: pulsePurple 3s infinite;
+          animation: pulsePurple 3s infinite;
+}
+
+.openModal--dreamBoard .openModal__icon {
+  width: 35%;
+}
+
+@-webkit-keyframes pulsePurple {
+  0% {
+    background-color: #7030A0;
+  }
+  50% {
+    background-color: #893ec2;
+  }
+  100% {
+    background-color: #7030A0;
+  }
+}
+
+@keyframes pulsePurple {
+  0% {
+    background-color: #7030A0;
+  }
+  50% {
+    background-color: #893ec2;
+  }
+  100% {
+    background-color: #7030A0;
+  }
+}
+
+.openModal--dreamBoard .openModal__title {
+  width: 50%;
+  text-align: center;
+  font-size: 0.9rem;
 }
 
 .login {

@@ -1,5 +1,7 @@
 const dreamBoardAddModal = document.querySelector(".dreamBoard__addModal");
-const dreamBoardAddBtn = document.querySelector(".dreamBoard__addBtn");
+const dreamBoardAddBtn = document.querySelector(".openModal--dreamBoard");
+const dreamBoardButtonOpen = document.querySelector('.openModal__btn');
+const dreamBoardNotification = document.querySelector(".openModal__notification")
 const dreamBoardCloseModalBtn = document.querySelector(".dreamBoard__addClose");
 const dreamBoardForm = document.querySelector(".dreamBoard__form");
 const dreamUnstartedSection = document.querySelector(".dreamBoard__itemContainer--unstarted");
@@ -14,6 +16,22 @@ dreamBoardForm.addEventListener('submit', (event) => {
     event.preventDefault();
     addNewDream();
 });
+
+hideDreamBoardNotification();
+
+dreamBoardAddBtn.addEventListener('click', () => {
+    dreamBoardAddModal.classList.remove("hidden");
+    dreamBoardAddBtn.classList.add("hidden");
+})
+
+dreamBoardCloseModalBtn.addEventListener('click', () => {
+    dreamBoardAddModal.classList.add("hidden");
+    dreamBoardAddBtn.classList.remove("hidden");
+})
+
+// Abrir u ocultar notificacion cuando el mouse entra o sale
+dreamBoardButtonOpen.addEventListener('mouseenter', handleOpenMessageAddClass);
+dreamBoardButtonOpen.addEventListener('mouseleave', handleOpenMessageRemoveClass);
 
 function getUserDreams() {
     unstartedDreamsList = [];
@@ -164,13 +182,21 @@ function addNewDream() {
     dreamBoardAddModal.classList.add("hidden");
 }
 
-dreamBoardAddBtn.addEventListener('click', () => {
-    dreamBoardAddModal.classList.remove("hidden");
-})
 
-dreamBoardCloseModalBtn.addEventListener('click', () => {
-    dreamBoardAddModal.classList.add("hidden");
-})
+
+function hideDreamBoardNotification() {
+    setTimeout(() => {
+        dreamBoardNotification.classList.add("openModal__notification--hidden");
+    }, 4500);
+}
+
+function handleOpenMessageRemoveClass() {
+    dreamBoardNotification.classList.add('openModal__notification--hidden');
+}
+
+function handleOpenMessageAddClass () {
+    dreamBoardNotification.classList.remove('openModal__notification--hidden');
+}
 
 function dragOverHandler(ev) {
     ev.preventDefault();

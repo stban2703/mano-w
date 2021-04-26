@@ -1,4 +1,4 @@
-.chatbotOpen {
+.openModal {
     position: fixed;
     display: flex;
     align-self: flex-end;
@@ -73,5 +73,40 @@
         color: white;
         margin-top: 5px;
         font-weight: bold;
+    }
+
+    &--dreamBoard {
+        .openModal__notification {
+            background-color: $orange;
+        }
+
+        .openModal__btn {
+            background-color: $purple;
+            animation: pulsePurple 3s infinite;
+        }
+
+        .openModal__icon {
+            width: 35%;
+        }
+
+        @keyframes pulsePurple {
+            0% {
+                background-color: #7030A0;
+            }
+        
+            50% {
+                background-color: #893ec2;
+            }
+        
+            100% {
+                background-color: #7030A0;
+            }
+        }
+
+        .openModal__title {
+            width: 50%;
+            text-align: center;
+            font-size: 0.9rem;
+        }
     }
 }

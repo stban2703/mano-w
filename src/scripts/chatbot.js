@@ -1,11 +1,12 @@
 const chatbot = document.querySelector(".chatbot");
 const chatbotMessages = document.querySelector(".chatbot__messages");
-const openChatbotBtn = document.querySelector(".chatbotOpen__btn");
+const chatbotButtonOpen = document.querySelector('.openModal');
+const openChatbotBtn = document.querySelector(".openModal__btn");
 const closeChatbotBtn = document.querySelector(".chatbot__closeBtn");
 const chabotMessageForm = document.querySelector(".chatbot__footer");
-const chatbotNotification = document.querySelector(".chatbotOpen__notification");
+const chatbotNotification = document.querySelector(".openModal__notification");
 const chatbotTextBox = document.querySelector(".chatbot__textBox");
-const chatbotTyping = document.querySelector(".chatbot__typing")
+const chatbotTyping = document.querySelector(".chatbot__typing");
 
 // Esconder notificacion
 hideChatbotNotification();
@@ -40,6 +41,11 @@ closeChatbotBtn.addEventListener('click', function (event) {
     event.preventDefault();
     handleCloseChatbot();
 })
+
+// Abrir u ocultar notificacion cuando el mouse entra o sale
+
+chatbotButtonOpen.addEventListener('mouseenter', handleOpenMessageAddClass);
+chatbotButtonOpen.addEventListener('mouseleave', handleOpenMessageRemoveClass);
 
 function getMessages(isOnline) {
     // Obtener los mensajes de firestore
@@ -303,18 +309,14 @@ function handleCloseChatbot() {
 
 function hideChatbotNotification() {
     setTimeout(() => {
-        chatbotNotification.classList.add("chatbotOpen__notification--hidden");
+        chatbotNotification.classList.add("openModal__notification--hidden");
     }, 4500);
 }
 
-var chatbotButtonOpen = document.querySelector('.chatbotOpen');
-
-var handleOpenMessageRemoveClass = () =>{
-    chatbotNotification.classList.add('chatbotOpen__notification--hidden');
+function handleOpenMessageRemoveClass() {
+    chatbotNotification.classList.add('openModal__notification--hidden');
 }
 
-var handleOpenMessageAddClass = () =>{
-    chatbotNotification.classList.remove('chatbotOpen__notification--hidden');
+function handleOpenMessageAddClass() {
+    chatbotNotification.classList.remove('openModal__notification--hidden');
 }
-chatbotButtonOpen.addEventListener('mouseenter', handleOpenMessageAddClass);
-chatbotButtonOpen.addEventListener('mouseleave', handleOpenMessageRemoveClass);
