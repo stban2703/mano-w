@@ -1,5 +1,5 @@
 .chatbot {
-    background-color: $lightOrange;
+    background-color: #F2F2F2;
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -72,7 +72,7 @@
         overflow-x: hidden;
 
         &::-webkit-scrollbar {
-            background-color: $lightOrange;
+            background-color: #F2F2F2;
             width: 10px;
         }
 
