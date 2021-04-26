@@ -7,9 +7,20 @@
     font-weight: bold;
     margin-bottom: 15px;
 
-    label {
+    &__label {
         font-weight: bold;
         font-size: 1.15rem;
+        position: relative;
+
+        &--white {
+            color: white;
+            font-weight: normal;
+        }
+    }
+
+    &__labelIcon {
+        position: absolute;
+        right: 20px;
     }
 
     &__textBox {

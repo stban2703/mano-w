@@ -129,22 +129,32 @@
                 <img class="dreamBoard__addImage" src="./src/images/cerdito.svg" alt="">
                 <form class="dreamBoard__form">
                     <h3>Crear una meta</h3>
-                    <label class="input">
-                        Nombre de la meta
-                        <input class="input__textBox" type="text" name="goal">
-                    </label>
-                    <label class="input">
-                        Cantidad
-                        <input class="input__textBox" type="number" name="quantity">
-                    </label>
-                    <label class="input">
-                        Fecha límite
+                    <div class="input">
+                        <label class=" input__label input__label--white" for="goal">Nombre de la meta</label>
+                        <input class="input__textBox" type="text" name="goal" placeholder="Escribe el nombre de la meta">
+                    </div>
+                    <div class="input">
+                        <label class="input__label input__label--white" for="quantity">Cantidad</label>
+                        <input class="input__textBox" type="number" name="quantity" placeholder="Digita el monto de la meta">
+                    </div>
+                    <div class="input">
+                        <label class="input__label input__label--white" for="time">
+                            Selecciona la fecha límite en el calendario
+                            <img class="input__labelIcon" src="./src/images/calendarrrow.svg" alt="">
+                        </label>
                         <input class="input__textBox" type="date" name="time">
-                    </label>
+                    </div>
                     <button class="btn">
                         Agregar
                     </button>
                 </form>
+            </div>
+        </section>
+        <section class="dreamBoard__footer">
+            <img src="./src/images/thnikingcharacter.svg" alt="">
+            <div>
+                <q>“Cuida de los pequeños gastos; un pequeño agujero, hunde un barco”</q>
+                <p>-Benjamin Franklin</p>
             </div>
         </section>
     </main>

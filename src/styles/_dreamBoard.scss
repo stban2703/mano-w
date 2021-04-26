@@ -191,7 +191,7 @@
 
     &__form {
         width: 100%;
-        max-width: 500px;
+        max-width: 450px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -202,6 +202,7 @@
             font-weight: bold;
             align-self: flex-start;
             margin-bottom: 20px;
+            color: white;
         }
     }
 
@@ -226,6 +227,34 @@
     &__addImage {
         width: 300px;
         margin-bottom: 10px;
+    }
+
+    &__footer {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 5px 20px;
+        justify-content: space-around;
+
+        div {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        q {
+            font-style: italic;
+            font-size: 2rem;
+            text-align: right;
+        }
+
+        p {
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-align: right;
+        }
     }
 }
 
@@ -262,7 +291,5 @@ input[type=number]::-webkit-inner-spin-button {
 }
 
 input[type=number] {
-
     -moz-appearance:textfield;
-
 }
