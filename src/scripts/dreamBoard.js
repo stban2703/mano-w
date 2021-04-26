@@ -74,39 +74,43 @@ function renderDreams(unstartedList, inProgressList, finishedList) {
 function appendDreamItems(list) {
     list.forEach(elem => {
         const newDreamItem = document.createElement("div");
-        newDreamItem.setAttribute('draggable', 'true');
-        newDreamItem.setAttribute('onDragEnd', 'dragEndHandler(event)');
+        //newDreamItem.setAttribute('draggable', 'true');
+        //newDreamItem.setAttribute('onDragEnd', 'dragEndHandler(event)');
         newDreamItem.classList.add("dreamItem");
         newDreamItem.innerHTML = `
-                        <section class="dreamItem__header">
-                            <span class="dreamItem__title">
-                                ${elem.goal}
-                            </span>
-                            <button class="dreamItem__deleteBtn">x</button>
-                        </section>
-                        <section class="dreamItem__section">
-                            <div class="dreamItem__info">
-                                <img src="./src/images/moneyIcon.svg" alt="">
-                                <span class="dreamItem__value">${new Intl.NumberFormat("co-ES", {style: "currency", currency: "COP"}).format(elem.quantity)}</span>
-                            </div>
-                            <div class="dreamItem__info">
-                                <img src="./src/images/dateIcon.svg" alt="">
-                                <span class="dreamItem__value">01/01/2021</span>
-                            </div>
-                        </section>
-                        <form class="dreamItem__payForm">
-                            <label for="pay">Ingresa la cantidad a abonar</label>
-                            <input type="number" name="pay" placeholder="0" required>
-                            <button class="dreamItem__btn">Abonar a la meta</button>
-                        </form>
-                        <section class="dreamItem__remainingSection">
-                            <h4>Ahora te falta:</h4>
-                            <h2 class="dreamItem__remainingMoney">$800.000</h2>
-                            <h5>para cumplir tu sueño</h4>
-                        </section>
-                        <section class="dreamItem__controls">
-                            <button class="dreamItem__btn nextState">Iniciar</button>
-                        </section>`
+                <section class="dreamItem__header">
+                    <span class="dreamItem__title">
+                        ${elem.goal}
+                    </span>
+                    <button class="dreamItem__deleteBtn">x</button>
+                </section>
+                <section class="dreamItem__section">
+                    <div class="dreamItem__info">
+                        <img src="./src/images/moneyIcon.svg" alt="">
+                        <span class="dreamItem__value">${new Intl.NumberFormat("co-ES", { style: "currency", currency: "COP" }).format(elem.quantity)}</span>
+                    </div>
+                    <div class="dreamItem__info">
+                        <img src="./src/images/dateIcon.svg" alt="">
+                        <span class="dreamItem__value">01/01/2021</span>
+                    </div>
+                </section>
+                ${(elem.status == "inprogress") ?
+                `<form class="dreamItem__payForm">
+                    <label for="pay">Ingresa la cantidad a abonar</label>
+                    <input type="number" name="pay" placeholder="0" required>
+                    <button class="dreamItem__btn">Abonar a la meta</button>
+                </form>
+                <section class="dreamItem__remainingSection">
+                    <h4>Ahora te falta:</h4>
+                    <h2 class="dreamItem__remainingMoney">$800.000</h2>
+                    <h5>para cumplir tu sueño</h4>
+                </section>` : ''}
+                 ${(elem.status == "unstarted") ?
+                `<section class="dreamItem__controls">
+                    <button class="dreamItem__btn nextState">Iniciar</button>
+                </section>
+                ` : ''
+            }`
         /*${(elem.status != "unstarted") ? `<button class="dreamBoard__itemBtn backState state">Anterior estado</button>` : ''}
         ${(elem.status != "finished") ? `<button class="dreamBoard__itemBtn nextState state">Siguiente estado</button>` : ''}*/
 
@@ -131,11 +135,11 @@ function appendDreamItems(list) {
                 break;
             case "inprogress":
                 dreamInProgressSection.appendChild(newDreamItem);
-                handleChangeStatus(newDreamItem, elem, "unstarted");
+                //handleChangeStatus(newDreamItem, elem, "unstarted");
                 break;
             case "finished":
                 dreamFinishedSection.appendChild(newDreamItem);
-                handleChangeStatus(newDreamItem, elem, "inprogress");
+                //handleChangeStatus(newDreamItem, elem, "inprogress");
                 break;
         }
         handleRemoveDream(newDreamItem, elem);
@@ -144,21 +148,24 @@ function appendDreamItems(list) {
 }
 
 function handleChangeStatus(htmlElement, elem, newStatus) {
-    const stateBtn = htmlElement;
-    stateBtn.addEventListener('click', () => {
-        console.log(elem.id);
-        userDreamsRef.doc(elem.id).update({
-            status: newStatus
-        })
-            .then(() => {
-                console.log("Document successfully updated!");
-                getUserDreams();
+    const stateBtn = htmlElement.querySelector(".nextState");
+
+    if (stateBtn) {
+        stateBtn.addEventListener('click', () => {
+            console.log(elem.id);
+            userDreamsRef.doc(elem.id).update({
+                status: newStatus
             })
-            .catch((error) => {
-                // The document probably doesn't exist.
-                console.error("Error updating document: ", error);
-            });
-    })
+                .then(() => {
+                    console.log("Document successfully updated!");
+                    getUserDreams();
+                })
+                .catch((error) => {
+                    // The document probably doesn't exist.
+                    console.error("Error updating document: ", error);
+                });
+        })
+    }
 }
 
 function handleRemoveDream(htmlElement, elem) {
@@ -215,7 +222,7 @@ function handleOpenMessageAddClass() {
     dreamBoardNotification.classList.remove('openModal__notification--hidden');
 }
 
-function dragOverHandler(ev) {
+/*function dragOverHandler(ev) {
     ev.preventDefault();
 }
 
@@ -228,4 +235,4 @@ function dragEndHandler(ev) {
     ev.preventDefault();
     console.log('dragEnded');
     console.log(ev.target);
-}
+}*/
