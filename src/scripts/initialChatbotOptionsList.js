@@ -29,7 +29,7 @@ const chatBotOptionsList = [
                     {
                         value: "Información",
                         imageUrl: "./src/images/chatbotinformation.svg",
-                        redirectUrl: "productInformation.html"
+                        redirectUrl: "https://www.bancow.com.co/ahorro/cuenta-de-ahorro-basica/"
                     },
                     {
                         value: "Duda específica",
@@ -46,7 +46,7 @@ const chatBotOptionsList = [
                     {   
                         value: "Información",
                         imageUrl: "./src/images/chatbotinformation.svg",
-                        redirectUrl: "productInformation.html"
+                        redirectUrl: "https://www.bancow.com.co/credito/microcredito/"
                     },
                     {
                         value: "Duda específica",
