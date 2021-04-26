@@ -7,7 +7,6 @@ const dreamBoardForm = document.querySelector(".dreamBoard__form");
 const dreamUnstartedSection = document.querySelector(".dreamBoard__itemContainer--unstarted");
 const dreamInProgressSection = document.querySelector(".dreamBoard__itemContainer--inProgress");
 const dreamFinishedSection = document.querySelector(".dreamBoard__itemContainer--finished");
-let dreamBoardFormQuantity = dreamBoardForm.quantity;
 
 let unstartedDreamsList = [];
 let inProgressDreamsList = [];
@@ -168,22 +167,38 @@ function handleRemoveDream(htmlElement, elem) {
 }
 
 function handlePayToGoal(htmlElement, elem) {
-    console.log(elem.pay)
     const payForm = htmlElement.querySelector(".dreamItem__payForm");
     if (payForm) {
         payForm.addEventListener('submit', event => {
+            let sum = parseInt(elem.pay) + parseInt(payForm.pay.value);
+            console.log(sum)
             event.preventDefault();
-            userDreamsRef.doc(elem.id).update({
-                pay: parseInt(elem.pay) + parseInt(payForm.pay.value)
-            })
-                .then(() => {
-                    console.log("Document successfully updated!");
-                    getUserDreams();
+            if (sum < elem.quantity) {
+                userDreamsRef.doc(elem.id).update({
+                    pay: sum
                 })
-                .catch((error) => {
-                    // The document probably doesn't exist.
-                    console.error("Error updating document: ", error);
-                });
+                    .then(() => {
+                        console.log("Document successfully updated!");
+                        getUserDreams();
+                    })
+                    .catch((error) => {
+                        // The document probably doesn't exist.
+                        console.error("Error updating document: ", error);
+                    });
+            } else if (sum >= elem.quantity) {
+                userDreamsRef.doc(elem.id).update({
+                    pay: sum,
+                    status: "finished"
+                })
+                    .then(() => {
+                        console.log("Document successfully updated!");
+                        getUserDreams();
+                    })
+                    .catch((error) => {
+                        // The document probably doesn't exist.
+                        console.error("Error updating document: ", error);
+                    });
+            }
         })
     }
 }
