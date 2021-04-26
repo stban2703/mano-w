@@ -138,6 +138,7 @@ function handleChangeStatus(htmlElement, elem, newStatus) {
 
     if (stateBtn) {
         stateBtn.addEventListener('click', () => {
+            console.log(stateBtn);
             console.log(elem.id);
             userDreamsRef.doc(elem.id).update({
                 status: newStatus
@@ -157,13 +158,20 @@ function handleChangeStatus(htmlElement, elem, newStatus) {
 function handleRemoveDream(htmlElement, elem) {
     const deleteBtn = htmlElement.querySelector(".dreamItem__deleteBtn");
     deleteBtn.addEventListener('click', () => {
-        userDreamsRef.doc(elem.id).delete().then(() => {
-            console.log("Document successfully deleted!");
-            getUserDreams();
-        }).catch((error) => {
-            console.error("Error removing document: ", error);
+        document.querySelector('.dreamBoard__addModal--deleteItem').classList.remove('hidden');
+        document.querySelector('.deleteBtn').addEventListener('click', ()=>{
+            userDreamsRef.doc(elem.id).delete().then(() => {
+                console.log("Document successfully deleted!");
+                getUserDreams();
+                document.querySelector('.dreamBoard__addModal--deleteItem').classList.add('hidden');
+            }).catch((error) => {
+                console.error("Error removing document: ", error);
+            });
         });
-    })
+        document.querySelector('.dreamBoard__addClose--deleteItem').addEventListener('click', ()=>{
+            document.querySelector('.dreamBoard__addModal--deleteItem').classList.add('hidden');
+        });
+    });
 }
 
 function handlePayToGoal(htmlElement, elem) {
