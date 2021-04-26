@@ -1,0 +1,74 @@
+.dreamItem {
+    background-color: $orange;
+    width: 100%;
+    max-width: 380px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    border-radius: 40px;
+    padding: 18px;
+
+    &__header {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+
+    &__title {
+        color: white;
+        font-weight: $bold;
+        font-size: 1.2rem;
+        margin-right: 5px;
+    }
+
+    &__deleteBtn {
+        border: none;
+        width: 35px;
+        height: 35px;
+        max-width: none;
+        font-size: 1.2rem;
+        color: black;
+        background-color: white;
+        border-radius: 5px;
+    }
+
+    &__section {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        margin-bottom: 20px;
+    }
+
+    &__info {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 10px;
+
+        & img {
+            width: 50px;
+        }
+
+        & span {
+            color: white;
+            font-family: $poppins;
+            font-size: 1.5rem;
+            text-align: right;
+        }
+    }
+
+    &__btn {
+        background-color: white;
+        color: $orange;   
+        font-family: $monserrat;
+        font-size: 1.15rem;
+        font-weight: $bold;
+        border-radius: 25px;
+        border: none;
+        width: 100%;
+        padding: 10px;
+    }
+}
