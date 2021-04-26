@@ -91,7 +91,7 @@ function appendDreamItems(list) {
                     </div>
                     <div class="dreamItem__info">
                         <img src="./src/images/dateIcon.svg" alt="">
-                        <span class="dreamItem__value">01/01/2021</span>
+                        <span class="dreamItem__value">${elem.time}</span>
                     </div>
                 </section>
                 ${(elem.status == "inprogress") ?
