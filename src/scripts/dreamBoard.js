@@ -15,6 +15,7 @@ let finishedDreamsList = [];
 
 dreamBoardForm.addEventListener('submit', (event) => {
     event.preventDefault();
+    dreamBoardAddBtn.classList.remove("hidden");
     addNewDream();
 });
 
@@ -87,7 +88,7 @@ function appendDreamItems(list) {
                 <section class="dreamItem__section">
                     <div class="dreamItem__info">
                         <img src="./src/images/moneyIcon.svg" alt="">
-                        <span class="dreamItem__value">${new Intl.NumberFormat("co-ES", { style: "currency", currency: "COP" }).format(elem.quantity)}</span>
+                        <span class="dreamItem__value">${formatMoney(elem.quantity)}</span>
                     </div>
                     <div class="dreamItem__info">
                         <img src="./src/images/dateIcon.svg" alt="">
@@ -102,7 +103,7 @@ function appendDreamItems(list) {
                 </form>
                 <section class="dreamItem__remainingSection">
                     <h4>Ahora te falta:</h4>
-                    <h2 class="dreamItem__remainingMoney">$800.000</h2>
+                    <h2 class="dreamItem__remainingMoney">${formatMoney(elem.quantity - elem.pay)}</h2>
                     <h5>para cumplir tu sueño</h4>
                 </section>` : ''}
                  ${(elem.status == "unstarted") ?
@@ -123,27 +124,13 @@ function appendDreamItems(list) {
             case "inprogress":
                 dreamInProgressSection.appendChild(newDreamItem);
                 handleChangeStatus(newDreamItem, elem, "finished");
+                handlePayToGoal(newDreamItem, elem);
                 break;
             case "finished":
                 dreamFinishedSection.appendChild(newDreamItem);
-                break;
-        }
-        switch (elem.status) {
-            default:
-            case "unstarted":
-                dreamUnstartedSection.appendChild(newDreamItem);
-                break;
-            case "inprogress":
-                dreamInProgressSection.appendChild(newDreamItem);
-                //handleChangeStatus(newDreamItem, elem, "unstarted");
-                break;
-            case "finished":
-                dreamFinishedSection.appendChild(newDreamItem);
-                //handleChangeStatus(newDreamItem, elem, "inprogress");
                 break;
         }
         handleRemoveDream(newDreamItem, elem);
-
     })
 }
 
@@ -180,6 +167,27 @@ function handleRemoveDream(htmlElement, elem) {
     })
 }
 
+function handlePayToGoal(htmlElement, elem) {
+    console.log(elem.pay)
+    const payForm = htmlElement.querySelector(".dreamItem__payForm");
+    if (payForm) {
+        payForm.addEventListener('submit', event => {
+            event.preventDefault();
+            userDreamsRef.doc(elem.id).update({
+                pay: parseInt(elem.pay) + parseInt(payForm.pay.value)
+            })
+                .then(() => {
+                    console.log("Document successfully updated!");
+                    getUserDreams();
+                })
+                .catch((error) => {
+                    // The document probably doesn't exist.
+                    console.error("Error updating document: ", error);
+                });
+        })
+    }
+}
+
 function addNewDream() {
     const dreamGoal = dreamBoardForm.goal.value;
     const dreamQuantity = dreamBoardForm.quantity.value;
@@ -187,9 +195,10 @@ function addNewDream() {
 
     const newDream = {
         goal: dreamGoal,
-        quantity: dreamQuantity,
+        quantity: parseInt(dreamQuantity),
         time: dreamTime,
-        status: "unstarted"
+        status: "unstarted",
+        pay: parseInt(0)
     }
 
     userDreamsRef.add(
@@ -206,7 +215,9 @@ function addNewDream() {
     dreamBoardAddModal.classList.add("hidden");
 }
 
-
+function formatMoney(money) {
+    return new Intl.NumberFormat("co-ES", { style: "currency", currency: "COP" }).format(money).replace(/(\.|,)00$/g, '');
+}
 
 function hideDreamBoardNotification() {
     setTimeout(() => {
