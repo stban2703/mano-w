@@ -474,8 +474,7 @@ input[type=button] {
       -ms-flex-pack: center;
           justify-content: center;
   padding: 80px 0;
-  background-color: #DFB5FF;
-  background-image: url("./../images/ctaTrama.svg");
+  background-color: #7030A0;
   background-position: center;
   position: relative;
   overflow: hidden;
