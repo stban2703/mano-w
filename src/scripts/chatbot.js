@@ -7,6 +7,8 @@ const chabotMessageForm = document.querySelector(".chatbot__footer");
 const chatbotNotification = document.querySelector(".floatButton__notification");
 const chatbotTextBox = document.querySelector(".chatbot__textBox");
 const chatbotTyping = document.querySelector(".chatbot__typing");
+const chatbotTitle = document.querySelector(".chatbot__title");
+const chatbotProfileImage = document.querySelector(".chatbot__profilePicImg");
 
 // Esconder notificacion
 hideChatbotNotification();
@@ -230,6 +232,8 @@ function handleLastUserMessage(message, elem) {
             })
             getMessages(false);*/
             isChatOnline = true;
+            chatbotTitle.innerText = "Asesor Esteban"
+            chatbotProfileImage.src = "./src/images/chatbotprofilepicture.svg";
             handleSendMessageFirestore({
                 text: `Ahora están conectados`,
                 type: "advise",
