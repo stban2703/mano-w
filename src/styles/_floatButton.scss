@@ -1,4 +1,4 @@
-.openModal {
+.floatButton {
     position: fixed;
     display: flex;
     align-self: flex-end;
@@ -76,16 +76,16 @@
     }
 
     &--dreamBoard {
-        .openModal__notification {
+        .floatButton__notification {
             background-color: $orange;
         }
 
-        .openModal__btn {
+        .floatButton__btn {
             background-color: $purple;
             animation: pulsePurple 3s infinite;
         }
 
-        .openModal__icon {
+        .floatButton__icon {
             width: 35%;
         }
 
@@ -103,7 +103,7 @@
             }
         }
 
-        .openModal__title {
+        .floatButton__title {
             width: 50%;
             text-align: center;
             font-size: 0.9rem;

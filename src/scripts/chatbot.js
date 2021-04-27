@@ -1,10 +1,10 @@
 const chatbot = document.querySelector(".chatbot");
 const chatbotMessages = document.querySelector(".chatbot__messages");
-const chatbotButtonOpen = document.querySelector('.openModal');
-const openChatbotBtn = document.querySelector(".openModal__btn");
+const chatbotButtonOpen = document.querySelector('.floatButton');
+const openChatbotBtn = document.querySelector(".floatButton__btn");
 const closeChatbotBtn = document.querySelector(".chatbot__closeBtn");
 const chabotMessageForm = document.querySelector(".chatbot__footer");
-const chatbotNotification = document.querySelector(".openModal__notification");
+const chatbotNotification = document.querySelector(".floatButton__notification");
 const chatbotTextBox = document.querySelector(".chatbot__textBox");
 const chatbotTyping = document.querySelector(".chatbot__typing");
 
@@ -309,14 +309,14 @@ function handleCloseChatbot() {
 
 function hideChatbotNotification() {
     setTimeout(() => {
-        chatbotNotification.classList.add("openModal__notification--hidden");
+        chatbotNotification.classList.add("floatButton__notification--hidden");
     }, 4500);
 }
 
 function handleOpenMessageRemoveClass() {
-    chatbotNotification.classList.add('openModal__notification--hidden');
+    chatbotNotification.classList.add('floatButton__notification--hidden');
 }
 
 function handleOpenMessageAddClass() {
-    chatbotNotification.classList.remove('openModal__notification--hidden');
+    chatbotNotification.classList.remove('floatButton__notification--hidden');
 }

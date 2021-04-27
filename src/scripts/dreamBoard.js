@@ -1,9 +1,9 @@
-const dreamBoardAddModal = document.querySelector(".dreamBoard__addModal");
-const dreamBoardAddBtn = document.querySelector(".openModal--dreamBoard");
-const dreamBoardButtonOpen = document.querySelector('.openModal__btn');
-const dreamBoardNotification = document.querySelector(".openModal__notification")
-const dreamBoardCloseModalBtn = document.querySelector(".dreamBoard__addClose");
-const dreamBoardForm = document.querySelector(".dreamBoard__form");
+const dreamBoardAddModal = document.querySelector(".dreamBoard__modal--addItem");
+const dreamBoardAddBtn = document.querySelector(".floatButton--dreamBoard");
+const dreamBoardOpenAddModalBtn = document.querySelector('.floatButton__btn');
+const dreamBoardNotification = document.querySelector(".floatButton__notification")
+const dreamBoardCloseModalBtn = document.querySelector(".dreamBoard__modalClose--addItem");
+const dreamBoardForm = document.querySelector(".dreamBoard__form--addItem");
 const dreamUnstartedSection = document.querySelector(".dreamBoard__itemContainer--unstarted");
 const dreamInProgressSection = document.querySelector(".dreamBoard__itemContainer--inProgress");
 const dreamFinishedSection = document.querySelector(".dreamBoard__itemContainer--finished");
@@ -11,6 +11,7 @@ const dreamFinishedSection = document.querySelector(".dreamBoard__itemContainer-
 let unstartedDreamsList = [];
 let inProgressDreamsList = [];
 let finishedDreamsList = [];
+let deleteItemId = "";
 
 dreamBoardForm.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -31,8 +32,11 @@ dreamBoardCloseModalBtn.addEventListener('click', () => {
 })
 
 // Abrir u ocultar notificacion cuando el mouse entra o sale
-dreamBoardButtonOpen.addEventListener('mouseenter', handleOpenMessageAddClass);
-dreamBoardButtonOpen.addEventListener('mouseleave', handleOpenMessageRemoveClass);
+dreamBoardOpenAddModalBtn.addEventListener('mouseenter', handleOpenMessageAddClass);
+dreamBoardOpenAddModalBtn.addEventListener('mouseleave', handleOpenMessageRemoveClass);
+
+// Borrar item
+handleDeleteDream();
 
 function getUserDreams() {
     unstartedDreamsList = [];
@@ -129,17 +133,15 @@ function appendDreamItems(list) {
                 dreamFinishedSection.appendChild(newDreamItem);
                 break;
         }
-        handleRemoveDream(newDreamItem, elem);
+        handleOpenDeleteItemModal(newDreamItem, elem);
     })
-}
+};
 
 function handleChangeStatus(htmlElement, elem, newStatus) {
     const stateBtn = htmlElement.querySelector(".nextState");
 
     if (stateBtn) {
         stateBtn.addEventListener('click', () => {
-            console.log(stateBtn);
-            console.log(elem.id);
             userDreamsRef.doc(elem.id).update({
                 status: newStatus
             })
@@ -155,22 +157,28 @@ function handleChangeStatus(htmlElement, elem, newStatus) {
     }
 }
 
-function handleRemoveDream(htmlElement, elem) {
-    const deleteBtn = htmlElement.querySelector(".dreamItem__deleteBtn");
-    deleteBtn.addEventListener('click', () => {
-        document.querySelector('.dreamBoard__addModal--deleteItem').classList.remove('hidden');
-        document.querySelector('.deleteBtn').addEventListener('click', ()=>{
-            userDreamsRef.doc(elem.id).delete().then(() => {
-                console.log("Document successfully deleted!");
-                getUserDreams();
-                document.querySelector('.dreamBoard__addModal--deleteItem').classList.add('hidden');
-            }).catch((error) => {
-                console.error("Error removing document: ", error);
-            });
+function handleOpenDeleteItemModal(htmlElement, elem) {
+    const openDeleteModalBtn = htmlElement.querySelector(".dreamItem__deleteBtn");
+    openDeleteModalBtn.addEventListener('click', () => {
+        deleteItemId = elem.id;
+        document.querySelector('.dreamBoard__modal--deleteItem').classList.remove('hidden');
+    });
+}
+
+function handleDeleteDream() {
+    document.querySelector('.dreamBoard__form--deleteItem').addEventListener('submit', (event)=>{
+        event.preventDefault()
+        userDreamsRef.doc(deleteItemId).delete().then(() => {
+            console.log("Document successfully deleted!");
+            document.querySelector('.dreamBoard__modal--deleteItem').classList.add('hidden');
+            deleteItemId = "";
+            getUserDreams();
+        }).catch((error) => {
+            console.error("Error removing document: ", error);
         });
-        document.querySelector('.dreamBoard__addClose--deleteItem').addEventListener('click', ()=>{
-            document.querySelector('.dreamBoard__addModal--deleteItem').classList.add('hidden');
-        });
+    });
+    document.querySelector('.dreamBoard__modalClose--deleteItem').addEventListener('click', ()=>{
+        document.querySelector('.dreamBoard__modal--deleteItem').classList.add('hidden');
     });
 }
 
@@ -244,16 +252,16 @@ function formatMoney(money) {
 
 function hideDreamBoardNotification() {
     setTimeout(() => {
-        dreamBoardNotification.classList.add("openModal__notification--hidden");
+        dreamBoardNotification.classList.add("floatButton__notification--hidden");
     }, 4500);
 }
 
 function handleOpenMessageRemoveClass() {
-    dreamBoardNotification.classList.add('openModal__notification--hidden');
+    dreamBoardNotification.classList.add('floatButton__notification--hidden');
 }
 
 function handleOpenMessageAddClass() {
-    dreamBoardNotification.classList.remove('openModal__notification--hidden');
+    dreamBoardNotification.classList.remove('floatButton__notification--hidden');
 }
 
 /*function dragOverHandler(ev) {

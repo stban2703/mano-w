@@ -1104,7 +1104,7 @@ input[type=button] {
   outline: none;
 }
 
-.openModal {
+.floatButton {
   position: fixed;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1116,7 +1116,7 @@ input[type=button] {
   position: fixed;
 }
 
-.openModal__notification {
+.floatButton__notification {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1138,18 +1138,18 @@ input[type=button] {
   transition: .25s;
 }
 
-.openModal__notification p {
+.floatButton__notification p {
   font-size: 1.125rem;
   color: white;
 }
 
-.openModal__notification--hidden {
+.floatButton__notification--hidden {
   opacity: 0;
   -webkit-transform: translate(100%, 0);
           transform: translate(100%, 0);
 }
 
-.openModal__btn {
+.floatButton__btn {
   background-color: #FF6C02;
   border-radius: 100%;
   width: 120px;
@@ -1172,11 +1172,11 @@ input[type=button] {
           animation: pulse 3s infinite;
 }
 
-.openModal__btn:hover {
+.floatButton__btn:hover {
   cursor: pointer;
 }
 
-.openModal__icon {
+.floatButton__icon {
   width: 50%;
   margin-left: 5px;
   margin-top: 8px;
@@ -1206,24 +1206,24 @@ input[type=button] {
   }
 }
 
-.openModal__title {
+.floatButton__title {
   font-family: "Poppins", sans-serif;
   color: white;
   margin-top: 5px;
   font-weight: bold;
 }
 
-.openModal--dreamBoard .openModal__notification {
+.floatButton--dreamBoard .floatButton__notification {
   background-color: #FF6C02;
 }
 
-.openModal--dreamBoard .openModal__btn {
+.floatButton--dreamBoard .floatButton__btn {
   background-color: #7030A0;
   -webkit-animation: pulsePurple 3s infinite;
           animation: pulsePurple 3s infinite;
 }
 
-.openModal--dreamBoard .openModal__icon {
+.floatButton--dreamBoard .floatButton__icon {
   width: 35%;
 }
 
@@ -1251,7 +1251,7 @@ input[type=button] {
   }
 }
 
-.openModal--dreamBoard .openModal__title {
+.floatButton--dreamBoard .floatButton__title {
   width: 50%;
   text-align: center;
   font-size: 0.9rem;
@@ -1825,7 +1825,7 @@ input[type=button] {
   padding: 0 20px;
 }
 
-.dreamBoard__addModal {
+.dreamBoard__modal {
   position: fixed;
   left: 0;
   top: 0;
@@ -1847,7 +1847,7 @@ input[type=button] {
   background-color: rgba(255, 255, 255, 0.5);
 }
 
-.dreamBoard__addContainer {
+.dreamBoard__modalContainer {
   width: 100%;
   max-width: 600px;
   background-color: #00a2af;
@@ -1895,7 +1895,7 @@ input[type=button] {
   color: white;
 }
 
-.dreamBoard__addClose {
+.dreamBoard__modalClose {
   background-color: white;
   outline: none;
   border: none;
@@ -1919,11 +1919,11 @@ input[type=button] {
   margin-right: 20px;
 }
 
-.dreamBoard__addClose img {
+.dreamBoard__modalClose img {
   max-width: none;
 }
 
-.dreamBoard__addImage {
+.dreamBoard__modalImage {
   width: 300px;
   margin-bottom: 10px;
 }

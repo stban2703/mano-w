@@ -4,7 +4,7 @@ let userDreamsRef;
 let localMessageList = [];
 
 firebase.auth().onAuthStateChanged((user) => {
-    const openChatbotBtn = document.querySelector(".openModal");
+    const openChatbotBtn = document.querySelector(".floatButton");
     if (user) {
         const uid = user.uid;
         if (openChatbotBtn) {

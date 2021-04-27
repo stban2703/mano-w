@@ -108,30 +108,32 @@
                 </section>
             </div>
         </section>
-        <section class="dreamBoard__addModal--deleteItem hidden">
-            <div class="dreamBoard__addContainer--deleteItem">
-                <button class="dreamBoard__addClose--deleteItem">
+        <section class="dreamBoard__modal dreamBoard__modal--deleteItem hidden">
+            <div class="dreamBoard__modalContainer dreamBoard__modalContainer--deleteItem">
+                <button class="dreamBoard__modalClose dreamBoard__modalClose--deleteItem">
                     <img src="./src/images/equis.svg" alt="">
                 </button>
-                <img class="dreamBoard__addImage" src="./src/images/cerdito.svg" alt="">
+                <img class="dreamBoard__modalImage" src="./src/images/cerdito.svg" alt="">
+                <form class="dreamBoard__form dreamBoard__form--deleteItem">
                     <h3>¿Estás seguro de querer eliminar el sueño?</h3>
-                    <button class="deleteBtn">
+                    <button class="btn deleteBtn">
                         Eliminar
                     </button>
+                </form>
             </div>
         </section>
-        <section class="dreamBoard__addModal hidden">
-            <div class="dreamBoard__addContainer">
-                <button class="dreamBoard__addClose">
+        <section class="dreamBoard__modal dreamBoard__modal--addItem hidden">
+            <div class="dreamBoard__modalContainer">
+                <button class="dreamBoard__modalClose dreamBoard__modalClose--addItem">
                     <img src="./src/images/equis.svg" alt="">
                 </button>
-                <img class="dreamBoard__addImage" src="./src/images/cerdito.svg" alt="">
-                <form class="dreamBoard__form">
+                <img class="dreamBoard__modalImage" src="./src/images/cerdito.svg" alt="">
+                <form class="dreamBoard__form dreamBoard__form--addItem">
                     <h3>Crear una meta</h3>
                     <div class="input">
                         <label class=" input__label input__label--white" for="goal">Nombre de la meta</label>
-                        <input class="input__textBox" type="text" name="goal"
-                            placeholder="Escribe el nombre de la meta" required>
+                        <input class="input__textBox" type="text" name="goal" placeholder="Escribe el nombre de la meta"
+                            required>
                     </div>
                     <div class="input">
                         <label class="input__label input__label--white" for="quantity">Cantidad</label>
@@ -183,13 +185,13 @@
             </p>
         </section>
     </footer>
-    <div class="openModal openModal--dreamBoard hidden">
-        <section class="openModal__notification">
+    <div class="floatButton floatButton--dreamBoard hidden">
+        <section class="floatButton__notification">
             <p>Pulsa aquí si quieres <strong>crear un nuevo sueño</strong>.</p>
         </section>
-        <section class="openModal__btn">
-            <img class="openModal__icon" src="./src/images/plusicon.svg" alt="">
-            <span class="openModal__title">Agregar sueño</span>
+        <section class="floatButton__btn">
+            <img class="floatButton__icon" src="./src/images/plusicon.svg" alt="">
+            <span class="floatButton__title">Agregar sueño</span>
         </section>
     </div>
     <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
