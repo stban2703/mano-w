@@ -1141,6 +1141,7 @@ input[type=button] {
 .floatButton__notification p {
   font-size: 1.125rem;
   color: white;
+  width: 100%;
 }
 
 .floatButton__notification--hidden {
