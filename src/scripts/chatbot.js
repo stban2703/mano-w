@@ -204,31 +204,34 @@ function handleLastUserMessage(message, elem) {
         }, 1500);
 
     } else {
-        if (message.type === "user" && elem.itemList) {
-            newMessage = {
-                type: "bot",
-                text: elem.text,
-                itemList: message.selectedOption.itemList,
-                date: Date.now(),
-                hour: getMessageHour()
-            }
-            chatbotTyping.classList.remove("invisible");
-        } else if (message.type === "user" && elem.isFinal) {
-            newMessage = {
-                id: localMessageList.length,
-                text: "Te contactaré con un asesor, dame unos segundos...",
-                type: "asesor",
-                date: Date.now(),
-                hour: getMessageHour()
-            }
-            chatbotTyping.classList.remove("invisible");
-        } else if (message.type === "user" && elem.redirectUrl) {
-            newMessage = {
-                id: localMessageList.length,
-                text: `Por favor, haz click <a href="${elem.redirectUrl}">aquí</a> para obtener información`,
-                type: "asesor",
-                date: Date.now(),
-                hour: getMessageHour()
+        if (message.type === "user") {
+
+            if (elem.itemList) {
+                newMessage = {
+                    type: "bot",
+                    text: elem.text,
+                    itemList: message.selectedOption.itemList,
+                    date: Date.now(),
+                    hour: getMessageHour()
+                }
+
+            } else if (elem.isFinal) {
+                newMessage = {
+                    id: localMessageList.length,
+                    text: "Te contactaré con un asesor, dame unos segundos...",
+                    type: "asesor",
+                    date: Date.now(),
+                    hour: getMessageHour()
+                }
+
+            } else if (elem.redirectUrl) {
+                newMessage = {
+                    id: localMessageList.length,
+                    text: `Por favor, haz click <a href="${elem.redirectUrl}">aquí</a> para obtener información`,
+                    type: "asesor",
+                    date: Date.now(),
+                    hour: getMessageHour()
+                }
             }
             chatbotTyping.classList.remove("invisible");
         }
@@ -239,14 +242,6 @@ function handleLastUserMessage(message, elem) {
             getMessages(false);
 
             if (elem.isFinal) {
-                /*localMessageList.push({
-                    id: localMessageList.length,
-                    text: `Ahora están conectados`,
-                    type: "advise",
-                    date: Date.now(),
-                    hour: getMessageHour()
-                })
-                getMessages(false);*/
                 isChatOnline = true;
                 chatbotTitle.innerText = "Asesor Esteban"
                 chatbotProfileImage.src = "./src/images/chatbotprofilepicture.svg";
