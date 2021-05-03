@@ -618,7 +618,7 @@ input[type=button] {
       -ms-flex-direction: column;
           flex-direction: column;
   width: 100%;
-  height: 510px;
+  height: 550px;
   max-width: 400px;
   border-radius: 23px 23px 0 0;
   position: fixed;
@@ -642,7 +642,7 @@ input[type=button] {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 10px;
+  padding: 15px 20px;
   background-color: #FF6C02;
   border-radius: 23px 23px 0 0;
   position: relative;
@@ -664,6 +664,11 @@ input[type=button] {
 .chatbot__profilePic {
   max-width: none;
   margin-right: 8px;
+}
+
+.chatbot__profilePic img {
+  max-width: none;
+  width: 70px;
 }
 
 .chatbot__botIntro {
@@ -704,7 +709,7 @@ input[type=button] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 0 10px;
+  padding: 10px 20px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -802,7 +807,7 @@ input[type=button] {
 
 .chatbot__footer {
   width: 100%;
-  padding: 5px;
+  padding: 10px 20px;
   -ms-flex-item-align: end;
       align-self: flex-end;
   justify-self: flex-end;
@@ -845,7 +850,6 @@ input[type=button] {
   height: 100%;
   border: none;
   right: 0;
-  height: 100%;
 }
 
 .chatbot__typing {

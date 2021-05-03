@@ -54,7 +54,7 @@ function handleChatbotWhenIsLogged() {
     const chatbot = document.querySelector(".chatbot");
     if (chatbot) {
         localMessageList.push(
-            {
+            /*{
                 id: 0,
                 type: "bot",
                 text: `¡Hola! Soy Alfonso Bot. ${userInfo.sex === "female" ? "Bienvenida" : "Bienvenido"} <strong>${userInfo.name}</strong>,
@@ -63,7 +63,9 @@ function handleChatbotWhenIsLogged() {
                 itemList: chatBotOptionsList,
                 date: Date.now(),
                 hour: getMessageHour()
-            }
+            }*/
+            //{chatbotGenderMessage, type: "bot", id: 0, date: Date.now(), hour: getMessageHour()}
+            { id: 0, date: Date.now(), hour: getMessageHour(), type: "bot", ...chatbotGenderMessage }
         )
 
         if (document.querySelector(".chatbot")) {

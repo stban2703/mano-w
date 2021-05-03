@@ -27,12 +27,6 @@ chabotMessageForm.addEventListener("submit", function (event) {
     chabotMessageForm.userMessage.value = "";
 })
 
-/*chatbotTextBox.addEventListener("input", function() {
-    chatbotTextBox.style.height = "" + chatbotTextBox.scrollHeight + "px";
-    chatbotTextBox.scrollTop = chatbotTextBox.scrollHeight;
-    //console.log(chatbotTextBox.scrollHeight)
-})*/
-
 // Abrir y cerrar chatbot
 openChatbotBtn.addEventListener('click', function (event) {
     event.preventDefault();
@@ -45,7 +39,6 @@ closeChatbotBtn.addEventListener('click', function (event) {
 })
 
 // Abrir u ocultar notificacion cuando el mouse entra o sale
-
 chatbotButtonOpen.addEventListener('mouseenter', handleOpenMessageAddClass);
 chatbotButtonOpen.addEventListener('mouseleave', handleOpenMessageRemoveClass);
 
@@ -59,13 +52,13 @@ function getMessages(isOnline) {
                 dbMessageList.push(object);
             });
             cleanRender("online");
-            renderChatMessages(dbMessageList, true);
+            renderChatMessages(dbMessageList, isOnline);
         });
     } else {
         // Cargar mensajes locales
         localMessageListCopy = [...localMessageList];
         cleanRender("local");
-        renderChatMessages(localMessageListCopy, false);
+        renderChatMessages(localMessageListCopy, isOnline);
     }
 }
 
@@ -188,60 +181,84 @@ function handleClickOptions(elem) {
 // Controlar el chatbot dependiendo del ultimo mensaje del usuario
 function handleLastUserMessage(message, elem) {
     let newMessage;
-    if (message.type === "user" && elem.itemList) {
-        newMessage = {
-            type: "bot",
-            text: elem.text,
-            itemList: message.selectedOption.itemList,
-            date: Date.now(),
-            hour: getMessageHour()
-        }
-        chatbotTyping.classList.remove("invisible");
-    } else if (message.type === "user" && elem.isFinal) {
-        newMessage = {
-            id: localMessageList.length,
-            text: "Te contactaré con un asesor, dame unos segundos...",
-            type: "asesor",
-            date: Date.now(),
-            hour: getMessageHour()
-        }
-        chatbotTyping.classList.remove("invisible");
-    } else if (message.type === "user" && elem.redirectUrl) {
-        newMessage = {
-            id: localMessageList.length,
-            text: `Por favor, haz click <a href="${elem.redirectUrl}">aquí</a> para obtener información`,
-            type: "asesor",
-            date: Date.now(),
-            hour: getMessageHour()
-        }
-        chatbotTyping.classList.remove("invisible");
-    }
-    // Dar un tiempo al chatbot para enviar el mensaje
-    setTimeout(() => {
-        localMessageList.push(newMessage);
-        chatbotTyping.classList.add("invisible");
-        getMessages(false);
 
-        if (elem.isFinal) {
-            /*localMessageList.push({
-                id: localMessageList.length,
-                text: `Ahora están conectados`,
-                type: "advise",
-                date: Date.now(),
-                hour: getMessageHour()
-            })
-            getMessages(false);*/
-            isChatOnline = true;
-            chatbotTitle.innerText = "Asesor Esteban"
-            chatbotProfileImage.src = "./src/images/chatbotprofilepicture.svg";
-            handleSendMessageFirestore({
-                text: `Ahora están conectados`,
-                type: "advise",
-                date: Date.now(),
-                hour: getMessageHour()
-            })
+    if (elem.gender) {
+        newMessage = {
+            id: 0,
+            type: "bot",
+            text: `¡Hola! Soy ${elem.value}. ${userInfo.sex === "female" ? "Bienvenida" : "Bienvenido"} <strong>${userInfo.name}</strong>,
+            dime en qué te puedo ayudar.<br>
+            <strong>Elige el tema que desees obtener información:<strong>`,
+            itemList: chatBotOptionsList,
+            date: Date.now(),
+            hour: getMessageHour()
         }
-    }, 1500);
+
+        setTimeout(() => {
+            chatbotProfileImage.classList.remove("invisible");
+            chatbotProfileImage.src = elem.imageUrl;
+            chatbotTitle.innerText = elem.value;
+            localMessageList.push(newMessage);
+            chatbotTyping.classList.add("invisible");
+            getMessages(false);
+        }, 1500);
+
+    } else {
+        if (message.type === "user" && elem.itemList) {
+            newMessage = {
+                type: "bot",
+                text: elem.text,
+                itemList: message.selectedOption.itemList,
+                date: Date.now(),
+                hour: getMessageHour()
+            }
+            chatbotTyping.classList.remove("invisible");
+        } else if (message.type === "user" && elem.isFinal) {
+            newMessage = {
+                id: localMessageList.length,
+                text: "Te contactaré con un asesor, dame unos segundos...",
+                type: "asesor",
+                date: Date.now(),
+                hour: getMessageHour()
+            }
+            chatbotTyping.classList.remove("invisible");
+        } else if (message.type === "user" && elem.redirectUrl) {
+            newMessage = {
+                id: localMessageList.length,
+                text: `Por favor, haz click <a href="${elem.redirectUrl}">aquí</a> para obtener información`,
+                type: "asesor",
+                date: Date.now(),
+                hour: getMessageHour()
+            }
+            chatbotTyping.classList.remove("invisible");
+        }
+        // Dar un tiempo al chatbot para enviar el mensaje
+        setTimeout(() => {
+            localMessageList.push(newMessage);
+            chatbotTyping.classList.add("invisible");
+            getMessages(false);
+
+            if (elem.isFinal) {
+                /*localMessageList.push({
+                    id: localMessageList.length,
+                    text: `Ahora están conectados`,
+                    type: "advise",
+                    date: Date.now(),
+                    hour: getMessageHour()
+                })
+                getMessages(false);*/
+                isChatOnline = true;
+                chatbotTitle.innerText = "Asesor Esteban"
+                chatbotProfileImage.src = "./src/images/chatbotprofilepicture.svg";
+                handleSendMessageFirestore({
+                    text: `Ahora están conectados`,
+                    type: "advise",
+                    date: Date.now(),
+                    hour: getMessageHour()
+                })
+            }
+        }, 1500);
+    }
 }
 
 // Enivar mensaje a firestore y recuperarlos

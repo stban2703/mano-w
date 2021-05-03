@@ -43,7 +43,7 @@ const chatBotOptionsList = [
                 imageUrl: "./src/images/chatbotmicrocredits.svg",
                 text: "Elige qué quieres conocer de Microcréditos:",
                 itemList: [
-                    {   
+                    {
                         value: "Información",
                         imageUrl: "./src/images/chatbotinformation.svg",
                         redirectUrl: "https://www.bancow.com.co/credito/microcredito/"
@@ -116,3 +116,22 @@ const chatBotOptionsList = [
         ]
     }
 ]
+
+const chatbotGenderMessage = {
+    id: 0,
+    value: "Selecciona el Bot con el que deseas hablar",
+    text: "Selecciona el Bot con el que deseas hablar",
+    isGenderSelect: true,
+    itemList: [
+        {
+            value: "Alfonso Bot",
+            imageUrl: "./src/images/malebot.svg",
+            gender: "male"
+        },
+        {
+            value: "Amparo Bot",
+            imageUrl: "./src/images/femalebot.svg",
+            gender: "female"
+        }
+    ]
+}
