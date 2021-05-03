@@ -19,9 +19,15 @@ let dbMessageList = [];
 // Variable para saber si esta chateando online con un asesor
 let isChatOnline = false;
 
+chatbotTextBox.addEventListener("input", function () {
+    chatbotTextBox.style.height = "1px";
+    chatbotTextBox.style.height = (chatbotTextBox.scrollHeight) + "px";
+})
+
 // Enviar mensaje del input al chatbot
 chabotMessageForm.addEventListener("submit", function (event) {
     event.preventDefault();
+    chatbotTextBox.style.height = "100%";
     let messageText = chabotMessageForm.userMessage.value;
     handleAddMessagesInList(messageText, "user", isChatOnline);
     chabotMessageForm.userMessage.value = "";
