@@ -269,8 +269,6 @@ function handleGetDreamProgress(actualValue, totalValue) {
 }
 
 
-function handleRenderDreamProgress(actualValue) {
-    console.log(actualValue);
-    let op = 100 - actualValue;               
-    return `background: linear-gradient(to right, $greenBlue, $greenBlue ${op}%, #CE5702 ${op}%, #CE5702 100%)`
+function handleRenderDreamProgress(actualValue) {          
+    return `background: linear-gradient(to right, #00a2af, #00a2af ${actualValue}%, #CE5702 ${actualValue}%, #CE5702 100%)`
 }
