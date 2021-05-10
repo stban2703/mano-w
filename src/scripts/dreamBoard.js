@@ -108,15 +108,15 @@ function appendDreamItems(list) {
                     <h4>Ahora te falta:</h4>
                     <h2 class="dreamItem__remainingMoney">${formatMoney(elem.quantity - elem.pay)}</h2>
                     <h5>para cumplir tu sueño</h4>
-                </section>` : ''}
+                </section> 
+                <div class="dreamItem__progress" style="${handleRenderDreamProgress(handleGetDreamProgress(elem.pay, elem.quantity))}"></div>` : ''}
                  ${(elem.status == "unstarted") ?
                 `<section class="dreamItem__controls">
                     <button class="dreamItem__btn nextState">Iniciar</button>
                 </section>
                 ` : ''
+                
             }`
-        /*${(elem.status != "unstarted") ? `<button class="dreamBoard__itemBtn backState state">Anterior estado</button>` : ''}
-        ${(elem.status != "finished") ? `<button class="dreamBoard__itemBtn nextState state">Siguiente estado</button>` : ''}*/
 
         switch (elem.status) {
             default:
@@ -187,7 +187,7 @@ function handlePayToGoal(htmlElement, elem) {
     if (payForm) {
         payForm.addEventListener('submit', event => {
             let sum = parseInt(elem.pay) + parseInt(payForm.pay.value);
-            console.log(sum)
+            //console.log(sum)
             event.preventDefault();
             if (sum < elem.quantity) {
                 userDreamsRef.doc(elem.id).update({
@@ -264,17 +264,13 @@ function handleOpenMessageAddClass() {
     dreamBoardNotification.classList.remove('floatButton__notification--hidden');
 }
 
-/*function dragOverHandler(ev) {
-    ev.preventDefault();
+function handleGetDreamProgress(actualValue, totalValue) {
+    return ((actualValue*100)/totalValue)
 }
 
-function dropHandler(ev) {
-    ev.preventDefault();
-    console.log('Dropeado');
-    console.log(ev.target);
+
+function handleRenderDreamProgress(actualValue) {
+    console.log(actualValue);
+    let op = 100 - actualValue;               
+    return `background: linear-gradient(to right, $greenBlue, $greenBlue ${op}%, #CE5702 ${op}%, #CE5702 100%)`
 }
-function dragEndHandler(ev) {
-    ev.preventDefault();
-    console.log('dragEnded');
-    console.log(ev.target);
-}*/

@@ -144,4 +144,11 @@
         font-size: 2rem;
         margin-bottom: 5px;
     }
+
+    &__progress {
+        border-radius: 10px;
+        height: 1.5vh;
+        width: 100%;
+        
+    }
 }
