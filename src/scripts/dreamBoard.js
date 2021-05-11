@@ -1,4 +1,5 @@
 const dreamBoardAddModal = document.querySelector(".dreamBoard__modal--addItem");
+const dreamBoardAddModalCurrency = dreamBoardAddModal.querySelector(".input__currency");
 const dreamBoardAddBtn = document.querySelector(".floatButton--dreamBoard");
 const dreamBoardOpenAddModalBtn = document.querySelector('.floatButton__btn');
 const dreamBoardNotification = document.querySelector(".floatButton__notification")
@@ -7,11 +8,17 @@ const dreamBoardForm = document.querySelector(".dreamBoard__form--addItem");
 const dreamUnstartedSection = document.querySelector(".dreamBoard__itemContainer--unstarted");
 const dreamInProgressSection = document.querySelector(".dreamBoard__itemContainer--inProgress");
 const dreamFinishedSection = document.querySelector(".dreamBoard__itemContainer--finished");
+const dreamBoardAddModalQuantity = dreamBoardForm.querySelector('[name="quantity"]');
 
 let unstartedDreamsList = [];
 let inProgressDreamsList = [];
 let finishedDreamsList = [];
 let deleteItemId = "";
+
+dreamBoardAddModalQuantity.addEventListener("input", () => {
+    let currencyFormat = getFormatMoney(dreamBoardAddModalQuantity.value);
+    dreamBoardAddModalQuantity.value = currencyFormat;
+});
 
 dreamBoardForm.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -91,7 +98,7 @@ function appendDreamItems(list) {
                 <section class="dreamItem__section">
                     <div class="dreamItem__info">
                         <img src="./src/images/moneyIcon.svg" alt="">
-                        <span class="dreamItem__value">${formatMoney(elem.quantity)}</span>
+                        <span class="dreamItem__value">${getFormatMoney(elem.quantity.toString())}</span>
                     </div>
                     <div class="dreamItem__info">
                         <img src="./src/images/dateIcon.svg" alt="">
@@ -101,12 +108,12 @@ function appendDreamItems(list) {
                 ${(elem.status == "inprogress") ?
                 `<form class="dreamItem__payForm">
                     <label for="pay">Ingresa la cantidad a abonar</label>
-                    <input type="number" name="pay" placeholder="0" required>
+                    <input type="text" name="pay" placeholder="0" required>
                     <button class="dreamItem__btn">Abonar a la meta</button>
                 </form>
                 <section class="dreamItem__remainingSection">
                     <h4>Ahora te falta:</h4>
-                    <h2 class="dreamItem__remainingMoney">${formatMoney(elem.quantity - elem.pay)}</h2>
+                    <h2 class="dreamItem__remainingMoney">${getFormatMoney((elem.quantity - elem.pay).toString())}</h2>
                     <h5>para cumplir tu sueño</h4>
                 </section> 
                 <div class="dreamItem__progress" style="${handleRenderDreamProgress(handleGetDreamProgress(elem.pay, elem.quantity))}"></div>` : ''}
@@ -115,7 +122,7 @@ function appendDreamItems(list) {
                     <button class="dreamItem__btn nextState">Iniciar</button>
                 </section>
                 ` : ''
-                
+
             }`
 
         switch (elem.status) {
@@ -166,7 +173,7 @@ function handleOpenDeleteItemModal(htmlElement, elem) {
 }
 
 function handleDeleteDream() {
-    document.querySelector('.dreamBoard__form--deleteItem').addEventListener('submit', (event)=>{
+    document.querySelector('.dreamBoard__form--deleteItem').addEventListener('submit', (event) => {
         event.preventDefault()
         userDreamsRef.doc(deleteItemId).delete().then(() => {
             console.log("Document successfully deleted!");
@@ -177,7 +184,7 @@ function handleDeleteDream() {
             console.error("Error removing document: ", error);
         });
     });
-    document.querySelector('.dreamBoard__modalClose--deleteItem').addEventListener('click', ()=>{
+    document.querySelector('.dreamBoard__modalClose--deleteItem').addEventListener('click', () => {
         document.querySelector('.dreamBoard__modal--deleteItem').classList.add('hidden');
     });
 }
@@ -185,9 +192,15 @@ function handleDeleteDream() {
 function handlePayToGoal(htmlElement, elem) {
     const payForm = htmlElement.querySelector(".dreamItem__payForm");
     if (payForm) {
+
+        const payFormPayInput = payForm.querySelector('[name="pay"]');
+        payFormPayInput.addEventListener("input", () => {
+            let currency = getFormatMoney(payFormPayInput.value);
+            payFormPayInput.value = currency;
+        })
+
         payForm.addEventListener('submit', event => {
-            let sum = parseInt(elem.pay) + parseInt(payForm.pay.value);
-            //console.log(sum)
+            let sum = parseInt(elem.pay) + parseInt(getUnformattedNumber(payFormPayInput.value));
             event.preventDefault();
             if (sum < elem.quantity) {
                 userDreamsRef.doc(elem.id).update({
@@ -221,7 +234,7 @@ function handlePayToGoal(htmlElement, elem) {
 
 function addNewDream() {
     const dreamGoal = dreamBoardForm.goal.value;
-    const dreamQuantity = dreamBoardForm.quantity.value;
+    const dreamQuantity = getUnformattedNumber(dreamBoardForm.quantity.value);
     const dreamTime = dreamBoardForm.time.value;
 
     const newDream = {
@@ -246,8 +259,15 @@ function addNewDream() {
     dreamBoardAddModal.classList.add("hidden");
 }
 
-function formatMoney(money) {
-    return new Intl.NumberFormat("co-ES", { style: "currency", currency: "COP" }).format(money).replace(/(\.|,)00$/g, '');
+function getUnformattedNumber(number) {
+    return number.replace(/\./g,"").replace("$ ", "");
+}
+
+function getFormatMoney(money) {
+    let currency = money.replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+    if (currency != "") {
+        return `$ ${currency}`;
+    } else return "";
 }
 
 function hideDreamBoardNotification() {
@@ -265,10 +285,10 @@ function handleOpenMessageAddClass() {
 }
 
 function handleGetDreamProgress(actualValue, totalValue) {
-    return ((actualValue*100)/totalValue)
+    return ((actualValue * 100) / totalValue)
 }
 
 
-function handleRenderDreamProgress(actualValue) {          
+function handleRenderDreamProgress(actualValue) {
     return `background: linear-gradient(to right, #00a2af, #00a2af ${actualValue}%, #CE5702 ${actualValue}%, #CE5702 100%)`
 }
