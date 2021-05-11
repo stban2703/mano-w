@@ -19,6 +19,14 @@ let dbMessageList = [];
 // Variable para saber si esta chateando online con un asesor
 let isChatOnline = false;
 
+// Enviar mensaje con enter
+chatbotTextBox.addEventListener("keypress", (event)=> {
+    if(event.key == "Enter") {
+        event.preventDefault();
+        handleSubmitMessage();
+    }
+})
+
 chatbotTextBox.addEventListener("input", function () {
     chatbotTextBox.style.height = "1px";
     chatbotTextBox.style.height = (chatbotTextBox.scrollHeight) + "px";
@@ -27,10 +35,7 @@ chatbotTextBox.addEventListener("input", function () {
 // Enviar mensaje del input al chatbot
 chabotMessageForm.addEventListener("submit", function (event) {
     event.preventDefault();
-    chatbotTextBox.style.height = "100%";
-    let messageText = chabotMessageForm.userMessage.value;
-    handleAddMessagesInList(messageText, "user", isChatOnline);
-    chabotMessageForm.userMessage.value = "";
+    handleSubmitMessage();
 })
 
 // Abrir y cerrar chatbot
@@ -47,6 +52,13 @@ closeChatbotBtn.addEventListener('click', function (event) {
 // Abrir u ocultar notificacion cuando el mouse entra o sale
 chatbotButtonOpen.addEventListener('mouseenter', handleOpenMessageAddClass);
 chatbotButtonOpen.addEventListener('mouseleave', handleOpenMessageRemoveClass);
+
+function handleSubmitMessage() {
+    chatbotTextBox.style.height = "100%";
+    let messageText = chabotMessageForm.userMessage.value;
+    handleAddMessagesInList(messageText, "user", isChatOnline);
+    chabotMessageForm.userMessage.value = "";
+}
 
 function getMessages(isOnline) {
     // Obtener los mensajes de firestore
