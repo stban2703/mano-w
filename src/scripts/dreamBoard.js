@@ -2,7 +2,7 @@ const dreamBoardAddModal = document.querySelector(".dreamBoard__modal--addItem")
 const dreamBoardAddModalCurrency = dreamBoardAddModal.querySelector(".input__currency");
 const dreamBoardAddBtn = document.querySelector(".floatButton--dreamBoard");
 const dreamBoardOpenAddModalBtn = document.querySelector('.floatButton__btn');
-const dreamBoardNotification = document.querySelector(".floatButton__notification")
+const dreamBoardNotification = document.querySelector(".floatButton__notification");
 const dreamBoardCloseModalBtn = document.querySelector(".dreamBoard__modalClose--addItem");
 const dreamBoardForm = document.querySelector(".dreamBoard__form--addItem");
 const dreamUnstartedSection = document.querySelector(".dreamBoard__itemContainer--unstarted");
@@ -44,6 +44,9 @@ dreamBoardOpenAddModalBtn.addEventListener('mouseleave', handleOpenMessageRemove
 
 // Borrar item
 handleDeleteDream();
+
+// Controlar modal de completado
+handleCompletedModal();
 
 function getUserDreams() {
     unstartedDreamsList = [];
@@ -189,6 +192,17 @@ function handleDeleteDream() {
     });
 }
 
+function handleCompletedModal() {
+    document.querySelector(".dreamBoard__modal--completed").addEventListener('submit', (event) => {
+        event.preventDefault();
+        document.querySelector(".dreamBoard__modal--completed").classList.add("hidden");
+    })
+
+    document.querySelector(".dreamBoard__modalClose--completed").addEventListener("click", (event) => {
+        document.querySelector(".dreamBoard__modal--completed").classList.add("hidden");
+    })
+}
+
 function handlePayToGoal(htmlElement, elem) {
     const payForm = htmlElement.querySelector(".dreamItem__payForm");
     if (payForm) {
@@ -222,6 +236,8 @@ function handlePayToGoal(htmlElement, elem) {
                     .then(() => {
                         console.log("Document successfully updated!");
                         getUserDreams();
+                        document.querySelector(".dreamBoard__modal--completed").classList.remove("hidden");
+                        document.querySelector(".dreamBoard__modalDreamName").innerText = elem.goal;
                     })
                     .catch((error) => {
                         // The document probably doesn't exist.

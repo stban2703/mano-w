@@ -108,6 +108,25 @@
                 </section>
             </div>
         </section>
+        <section class="dreamBoard__modal dreamBoard__modal--completed hidden">
+            <div class="dreamBoard__modalContainer dreamBoard__modalContainer--completed">
+                <button class="dreamBoard__modalClose dreamBoard__modalClose--completed">
+                    <img src="./src/images/equis.svg" alt="">
+                </button>
+                <img class="dreamBoard__modalImage" src="./src/images/yay.svg" alt="">
+                <form class="dreamBoard__form dreamBoard__form--completed">
+                    <h2 class="dreamBoard__modalBigTitle">¡Felicidades!</h2>
+                    <p class="dreamBoard__modalParragraph">Acabas de cumplir tu sueño de <span
+                            class="dreamBoard__modalDreamName">Soat</span>.
+                        <br>
+                        Te animamos a que sigas <strong>agregando tus sueños</strong> para que puedas realizarlos.
+                    </p>
+                    <button class="btn deleteBtn">
+                        Continuar
+                    </button>
+                </form>
+            </div>
+        </section>
         <section class="dreamBoard__modal dreamBoard__modal--deleteItem hidden">
             <div class="dreamBoard__modalContainer dreamBoard__modalContainer--deleteItem">
                 <button class="dreamBoard__modalClose dreamBoard__modalClose--deleteItem">
@@ -133,7 +152,7 @@
                     <div class="input">
                         <label class=" input__label input__label--white" for="goal">Nombre de la meta</label>
                         <input class="input__textBox" type="text" name="goal" placeholder="Escribe el nombre de la meta"
-                            required>
+                            autocomplete="off" required>
                     </div>
                     <div class="input">
                         <label class="input__label input__label--white" for="quantity">Cantidad</label>

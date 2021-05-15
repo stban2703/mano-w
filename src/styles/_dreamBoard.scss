@@ -122,6 +122,7 @@
         align-items: center;
         justify-content: center;
         background-color: rgba($color: #ffffff, $alpha: 0.5);
+        z-index: 100;
     }
 
     &__modalContainer {
@@ -134,6 +135,24 @@
         justify-content: center;
         padding: 20px 0;
         /*border: 3px dashed #7030A0;*/
+    }
+
+    &__modalBigTitle {
+        color: white;
+        font-family: $monserrat;
+        font-size: 2.5rem;
+        font-weight: bold;
+    }
+
+    &__modalParragraph {
+        color: white;
+        text-align: center;
+        font-size: 1.2rem;
+        margin: 20px 0;
+    }
+
+    &__modalDreamName {
+        font-weight: bold;
     }
 
     &__form {
