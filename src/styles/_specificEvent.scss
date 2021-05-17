@@ -1,0 +1,59 @@
+.specificEvent{
+    
+    &__introduction{
+        
+        width: 100%;
+        background-color: $greenBlue;
+        padding: 7vh;
+        
+        & h2 {
+            font-family: $monserrat;
+            font-size: $headerTitle;
+            color: white;
+            font-size: 2rem;
+            font-weight: $bold;
+            text-align: center;
+            width: 100%;
+        }
+    }
+
+    &__backgroundImg{
+            
+        position: relative;
+
+        & img{
+            z-index: 10;
+        }
+
+        &__imgFilter{
+            position: absolute;
+            width: 100%;
+            top: 0px;
+            height: 100%;
+            background-color: purple;
+            opacity: 47%;
+        }
+
+        &__text {
+            position: absolute;
+            top: 40%;
+            left: 10vh;
+        }
+
+        &__mainText{
+            font-family: $monserrat;
+            font-size: $headerTitle;
+            color: white;
+            font-size: 4rem;
+            font-weight: $bold;
+        }
+
+        &__subText{
+            font-family: $monserrat;
+            margin-top: 5vh;
+            color: white;
+            font-size: 2rem;
+            font-weight: $bold;
+        }
+    }
+}
