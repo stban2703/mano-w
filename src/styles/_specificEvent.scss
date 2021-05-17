@@ -56,4 +56,74 @@
             font-weight: $bold;
         }
     }
+
+    &__mainEvent {
+        width: 80%;
+
+        & h2{
+            padding: 5vh 0;
+            font-size: 1.5rem;
+            font-family: $monserrat;  
+            font-weight: $bold;
+        }
+        
+        &__shortInfo{
+            display: inline-flex;
+            width: 49%;
+            padding: 0 10vh;
+
+            &__info{
+                width: 100%;
+                display: flex;
+                margin-bottom: 3vh;
+
+                & span {
+                    width: 100%;
+                    color: black;
+                    position: relative;
+                    font-family: $poppins;
+                    font-size: 1rem;
+                }
+            }
+        }
+
+        &__longInfo{
+            font-family: $poppins;
+            margin: 0px;
+            display: inline-flex;
+            border: 2px solid $lightBlue;
+            border-radius: 50px;
+            width: 49%;
+            height: 40vh;
+            padding: 25px;
+        }
+
+        &__theme {
+            font-weight: $bold;
+            font-family: $monserrat;
+            display: block;
+            
+            &--value {
+                padding: 5px 20px; 
+                font-family: $poppins;
+                background-color: $purple;
+                color: white;
+                border-radius: 30px;
+            }
+        }
+
+        &__register {
+            margin-top: 3vh;
+        }
+    }
+
+    &__exponent {
+
+        & h2{
+            padding: 5vh 0;
+            font-size: 1.5rem;
+            font-family: $monserrat;  
+            font-weight: $bold;
+        }
+    }
 }
