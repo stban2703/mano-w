@@ -96,7 +96,9 @@ function appendDreamItems(list) {
                     <span class="dreamItem__title">
                         ${elem.goal}
                     </span>
-                    <button class="dreamItem__deleteBtn">x</button>
+                    <button class="dreamItem__deleteBtn">
+                        <img src="./src/images/equisdreamitem.svg" alt="">
+                    </button>
                 </section>
                 <section class="dreamItem__section">
                     <div class="dreamItem__info">
@@ -306,5 +308,5 @@ function handleGetDreamProgress(actualValue, totalValue) {
 
 
 function handleRenderDreamProgress(actualValue) {
-    return `background: linear-gradient(to right, #00a2af, #00a2af ${actualValue}%, #CE5702 ${actualValue}%, #CE5702 100%)`
+    return `background: linear-gradient(to right, #00A2AF, #00A2AF ${actualValue}%, #D3D3D3 ${actualValue}%, #D3D3D3 100%)`
 }
