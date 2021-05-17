@@ -25,7 +25,7 @@
     }
 
     &__description {
-        background-color: $greenBlue;
+        background-color: $purple;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -60,6 +60,7 @@
     }
 
     &__btn {
+        color: $greenBlue;
         background-color: white;
         border-radius: 27px;
         margin-top: 20px;
