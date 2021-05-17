@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +9,7 @@
     <link rel="shortcut icon" href="./src/images/favicon.ico" type="image/x-icon">
     <title>Mano W</title>
 </head>
+
 <body>
     <header class="header">
         <a href="index.html" class="header__logo">
@@ -46,13 +48,33 @@
             </a>
         </section>
     </header>
-    <main class="interestThemes">
-        <section class="interestThemes__introduction">
+    <main class="products">
+        <section class="products__introduction">
             <img src="./src/images/backgroundpurple.svg" alt="">
             <h2>Productos</h2>
         </section>
-        <p class="interestThemes__select">Haz click en el producto de tu interés y te redirigirá a la página del banco donde está la información</p>
-        <section class="interestThemes__content">
+        <p class="products__select">Haz click en el producto de tu interés y te redirigirá a la página del banco donde
+            está la información</p>
+        <section class="products__content">
+            <a class="productsItem" href="https://www.bancow.com.co/inversion/cdt/#3">
+                <div class="productsItem__icon">
+                    <img src="./src/images/CDT.svg" alt="">
+                </div>
+                <p class="productsItem__title">CDT</p>
+            </a>
+            <a class="productsItem" href="https://www.bancow.com.co/ahorro/cuenta-de-ahorro-basica/">
+                <div class="productsItem__icon">
+                    <img src="./src/images/microCredito.svg" alt="">
+                </div>
+                <p class="productsItem__title">Microcrédito</p>
+            </a>
+            <a class="productsItem" href="https://www.bancow.com.co/credito/microcredito/">
+                <div class="productsItem__icon">
+                    <img src="./src/images/cuentaDeAhorros.svg" alt="">
+                </div>
+                <p class="productsItem__title">Cuenta de ahorro</p>
+            </a>
+            <!--
             <a href="https://www.bancow.com.co/inversion/cdt/#3">
                 <div class="interestThemes__content__item">
                     <div class="interestThemes__content__item__graphic item__graphic--dark">
@@ -73,6 +95,7 @@
                 </div>
                 <p>Cuenta de ahorro</p>
             </div>
+            -->
         </section>
     </main>
     <footer class="footer">
@@ -108,4 +131,5 @@
     <script src="./src/scripts/profile.js"></script>
     <script src="./src/scripts/handleHeader.js"></script>
 </body>
+
 </html>

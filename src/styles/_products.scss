@@ -1,0 +1,38 @@
+.products {
+    font-family: $monserrat;
+
+    &__introduction {
+        position: relative;
+
+        img {
+            width: 100%;
+        }
+
+        & h2 {
+            font-size: $headerTitle;
+            color: white;
+            font-size: 2rem;
+            font-weight: $bold;
+            text-align: center;
+            position: absolute;
+            width: 100%;
+            top: 40%;
+        }
+    }
+
+    &__select {
+        text-align: center;
+        margin: 4vh 0;
+    }
+
+    &__content {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 50px;
+
+    }
+}
