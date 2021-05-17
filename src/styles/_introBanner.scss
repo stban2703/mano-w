@@ -1,0 +1,19 @@
+.introBanner {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 120px;
+    align-items: center;
+    justify-content: center;
+
+    h2 {
+        font-family: $monserrat;
+        font-size: 2rem;
+        font-weight: bold;
+        color: white;
+    }
+
+    &--purple {
+        background-color: $purple;
+    }
+}
