@@ -20,5 +20,13 @@
     &:focus{
         outline: none;
     }
+
+    &--purple {
+        background-color: $purple;
+
+        &:hover {
+            background-color: $orange;
+        }
+    }
 }
 
