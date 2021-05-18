@@ -50,6 +50,11 @@
     width: 100%;
     max-width: 630px;
     height: 100%;
+
+    img {
+      position: relative;
+      right: -10%;
+    }
   }
 
   &__title {
