@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mano W</title>
+        <link rel="stylesheet" href="./src/styles/main.css">
+        <link rel="shortcut icon" href="./src/images/favicon.ico" type="image/x-icon">
+    </head>
+<body>
+    <header class="header">
+        <a href="index.html" class="header__logo">
+            <img class="header__logo" src="./src/images/manowlogo.svg" alt="">
+        </a>
+        <nav class="header__menu">
+            <a href="index.html" class="header__section">
+                <h3 class="header__title">Inicio</h3>
+            </a>
+            <a href="products.html" class="header__section">
+                <h3 class="header__title">Productos</h3>
+            </a>
+            <a href="interestThemes.html" class="header__section">
+                <h3 class="header__title">Temas de interés</h3>
+            </a>
+            <a href="dreamBoard.html" class="header__section">
+                <h3 class="header__title">Tablero de sueños</h3>
+            </a>
+            <a href="events.html" class="header__section">
+                <h3 class="header__title">Eventos</h3>
+            </a>
+        </nav>
+        <section class="header__menu">
+            <button class="header__section header__logOut logOutBtn hidden">
+                <h3 class="header__title">Cerrar sesión</h3>
+            </button>
+            <a href="./profile.html" class="header__user hidden">
+                <h3 class="header__title">Perfil</h3>
+                <img src="./src/images/userlogo.svg" alt="">
+            </a>
+            <a href="./login.html" class="header__section header__login">
+                <h3 class="header__title">Iniciar sesión</h3>
+            </a>
+            <a href="./register.html" class="header__section header__register">
+                <h3 class="header__title">Registro</h3>
+            </a>
+        </section>
+    </header>
+    <main class="introduction">
+        <section class="specificEvent__introduction">
+            <h2>Eventos</h2>
+        </section>
+        <section class="specificEvent__backgroundImg">
+            <img src="/src/images/eventImg.png" alt="">
+            <div class="specificEvent__backgroundImg__imgFilter"></div>
+            <div class="specificEvent__backgroundImg__text">
+                <p class="specificEvent__backgroundImg__mainText">Reinvéntese <br>financieramente</p>
+                <p class="specificEvent__backgroundImg__subText">Capacitación</p>
+            </div>
+        </section>
+        <section class="specificEvent__mainEvent">
+            <h2>Resumen</h2>
+            <div class="specificEvent__mainEvent__shortInfo">
+                <div class="specificEvent__mainEvent__shortInfo__section">
+                    <div class="specificEvent__mainEvent__shortInfo__info">
+                        <img src="./src/images/location.svg" alt="">
+                        <span class="specificEvent__mainEvent__shortInfo__value">Virtual</span>
+                    </div>
+                    <div class="specificEvent__mainEvent__shortInfo__info">
+                        <img src="./src/images/calendar.svg" alt="">
+                        <span class="specificEvent__mainEvent__shortInfo__value">Viernes 28 de mayo del 2021</span>
+                    </div>
+                    <div class="specificEvent__mainEvent__shortInfo__info">
+                        <img src="./src/images/location.svg" alt="">
+                        <span class="specificEvent__mainEvent__shortInfo__value">2:00 PM (Hora Colombia)</span>
+                    </div>
+                    <div class="specificEvent__mainEvent__theme">
+                        <span><strong>Tema:</strong></span>
+                        <span class="specificEvent__mainEvent__theme--value">Emprendimiento</span>
+                    </div>
+                    <button class="btn specificEvent__mainEvent__register">Registrarse</button>
+                </div>
+            </div>
+            <div class="specificEvent__mainEvent__longInfo">
+                <div class="specificEvent__mainEvent__shortInfo__section">
+                    <p>Para muchos microempresarios colombianos los primeros meses del año resultan difíciles. Suele ocurrir que no alcanzan a saldar sus deudas y las promesas de sanear sus finanzas con prontitud y hacer un mejor manejo del crédito surgen después de aprender una dura lección.
+                        Pero, ¿cómo lograr que la planeación financiera sea la respuesta para no verse en aprietos? Descúbrelo en esta capacitación.</p>
+                </div>
+            </div>
+        </section>
+        <section class="specificEvent__exponent">
+            <h2>Exponente</h2>
+            <div class="specificEvent__exponent__container">
+                <div class="specificEvent__exponent__container__info">
+                    <img src="/src/images/mariaTorresPhoto.png" alt="">
+                    <span class="specificEvent__exponent__container__info--name">María Torres</span>
+                    <span class="specificEvent__exponent__container__info--age">30 años</span>
+                </div>
+                <p class="specificEvent__exponent__container__data">Realizó evaluación de impacto de las Políticas Públicas, en especial los efectos directos de programas sociales sobre salud y educación. Adicionalmente estudió los efectos indirectos e inesperados de la política sobre mercado laboral, participación política, crimen, entre otros. En general le interesa identificar cambios de comportamientos inducidos por los programas sociales.
+                </p>
+            </div>
+        </section>
+        <div class="specificEvent__organizer">
+            <span><strong>Organizador del evento:</strong></span>
+            <span class="specificEvent__organizer--value">The Ranga Media Company</span>
+        </div>
+        <section class="specificEvent__form__container">
+            <form class="specificEvent__form__form">
+
+                <h2>Registro del evento</h2>
+                
+                <div class="input overlay">
+                    <label for="identification">Nombre</label>
+                    <input class="input__textBox" name="identification" type="text" placeholder="Escribe tu mombre" required>
+                </div>
+
+                <div class="input overlay">
+                    <label for="password">Apellidos</label>
+                    <input class="input__textBox" name="password" type="password" placeholder="Escribe tus apellidos" required>
+                </div>
+
+                <div class="input overlay">
+                    <label for="password">Celular</label>
+                    <input class="input__textBox" name="password" type="password" placeholder="Escribe tu número celular" required>
+                </div>
+
+                <button class="btn overlay">Registrarse</button>
+            </form>
+            <section class="specificEvent__form__character">
+                <h1 class="specificEvent__form__title">Iniciar sesión</h1>
+                <img class="specificEvent__form__image" src="./src/images/eventForm.svg">
+            </section>
+        </section>
+    </main>
+</body>
+</html>
