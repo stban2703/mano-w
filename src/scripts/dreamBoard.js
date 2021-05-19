@@ -107,7 +107,7 @@ function appendDreamItems(list) {
                     </div>
                     <div class="dreamItem__info">
                         <img src="./src/images/dateIcon.svg" alt="">
-                        <span class="dreamItem__value">${elem.time}</span>
+                        <span class="dreamItem__value">${getTimestampToDate(getDateToTimestamp(elem.time))}</span>
                     </div>
                 </section>
                 ${(elem.status == "inprogress") ?
