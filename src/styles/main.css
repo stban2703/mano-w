@@ -3469,15 +3469,15 @@ body {
           flex-direction: column;
 }
 
-.hidden {
-  display: none;
-}
-
 .overlay {
   z-index: 10;
 }
 
 .invisible {
   visibility: hidden;
+}
+
+.hidden {
+  display: none;
 }
 /*# sourceMappingURL=main.css.map */
