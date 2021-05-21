@@ -6,9 +6,15 @@
     align-items: center;
     justify-content: center;
 
+    &:hover {
+        cursor: pointer;
+    }
+
     &__icon {
-        border: 8px solid $purple;
+        max-width: none;
+        border: 8px solid rgba($color: #000000, $alpha: 0);
         border-radius: 100%;
+        margin-bottom: 10px;
     }
 
     &__title {
@@ -16,5 +22,24 @@
         font-size: 1.5rem;
         color: $darkBlue;
         font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    &__cursor {
+        opacity: 0;
+    }
+
+    &--selected {
+        .aboutUsItem__icon {
+            border: 8px solid $purple;
+        }
+    
+        .aboutUsItem__title {
+            color: $purple;
+        }
+
+        .aboutUsItem__cursor {
+            opacity: 1;
+        }
     }
 }
