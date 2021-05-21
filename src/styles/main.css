@@ -3180,7 +3180,7 @@ input[type="number"] {
   display: flex;
 }
 
-.aboutUs__item {
+.aboutUsItem {
   width: 100%;
   max-width: 280px;
   display: -webkit-box;
@@ -3198,9 +3198,14 @@ input[type="number"] {
           justify-content: center;
 }
 
-.aboutUs__item h2 {
+.aboutUsItem__icon {
+  border: 8px solid #7030A0;
+  border-radius: 100%;
+}
+
+.aboutUsItem__title {
   font-family: "Montserrat", sans-serif;
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: #2b3640;
   font-weight: bold;
 }
