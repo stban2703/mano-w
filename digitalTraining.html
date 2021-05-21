@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/styles/main.css">
+    <link rel="shortcut icon" href="./src/images/favicon.ico" type="image/x-icon">
+    <link href="http://vjs.zencdn.net/4.12/video-js.css" rel="stylesheet">
+    <script src="http://vjs.zencdn.net/4.12/video.js"></script>
+    <style type="text/css">
+        .vjs-default-skin .vjs-big-play-button { font-size: 2em; }
+    </style>
+    <title>Mano W</title>
+
+</head>
+<body>
+    <header class="header">
+        <a href="index.html" class="header__logo">
+            <img class="header__logo" src="./src/images/manowlogo.svg" alt="">
+        </a>
+        <nav class="header__menu">
+            <a href="index.html" class="header__section">
+                <h3 class="header__title">Inicio</h3>
+            </a>
+            <a href="products.html" class="header__section">
+                <h3 class="header__title">Productos</h3>
+            </a>
+            <a href="interestThemes.html" class="header__section">
+                <h3 class="header__title">Temas de interés</h3>
+            </a>
+            <a href="dreamBoard.html" class="header__section">
+                <h3 class="header__title">Tablero de sueños</h3>
+            </a>
+            <a href="events.html" class="header__section">
+                <h3 class="header__title">Eventos</h3>
+            </a>
+        </nav>
+        <section class="header__menu">
+            <button class="header__section header__logOut logOutBtn hidden">
+                <h3 class="header__title">Cerrar sesión</h3>
+            </button>
+            <a href="./profile.html" class="header__user hidden">
+                <h3 class="header__title">Perfil</h3>
+                <img src="./src/images/userlogo.svg" alt="">
+            </a>
+            <a href="./login.html" class="header__section header__login">
+                <h3 class="header__title">Iniciar sesión</h3>
+            </a>
+            <a href="./register.html" class="header__section header__register">
+                <h3 class="header__title">Registro</h3>
+            </a>
+        </section>
+    </header>
+
+    <main>
+        <section class="digitalThemes__introduction">
+            <h2>Entrenamiento Digital</h2>
+        </section>
+
+
+        <section class="digitalThemes digitalThemes--orange">
+            <div class="digitalThemes__content">
+                <h2 class="digitalThemes__title digitalThemes__title--orange">
+                    ANALISTA VIRTUAL
+                </h2>
+                <div class="digitalThemes__icon digitalThemes__icon--left">
+                    <img src="./src/images/analista.svg" alt="">
+                </div>
+            </div>
+ 
+            <div class="digitalThemes__video digitalThemes__video--right">
+                <video id="video1" class="video-js vjs-default-skin" style="margin-bottom: 15px;" controls preload="none" width="700" height="400" poster="./src/images/video.svg" data-setup="{}">
+                    <source src="./src/images/videoplantilla.mp4" type='video/mp4'>
+
+                    <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+                </video>
+            </div>
+        </section>
+
+        <section class="digitalThemes digitalThemes--reverse digitalThemes--purple">
+
+            <div class="digitalThemes__content">
+                <h2 class="digitalThemes__title digitalThemes__title--purple">
+                    TABLERO DE SUEÑOS
+                </h2>
+                <div class="digitalThemes__icon digitalThemes__icon--right">
+                    <img src="./src/images/icontablero.svg" alt="">
+                </div>
+            </div>
+ 
+            <div class="digitalThemes__video digitalThemes__video--left">
+                <video id="video1" class="video-js vjs-default-skin" style="margin-bottom: 15px;" controls preload="none" width="700" height="400" poster="./src/images/video.svg" data-setup="{}">
+                    <source src="./src/images/videoplantilla.mp4" type='video/mp4'>
+
+                    <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+                </video>
+ 
+            </div>
+
+        </section>
+
+        <section class="digitalThemes digitalThemes--green">
+            <div class="digitalThemes__content">
+                <h2 class="digitalThemes__title digitalThemes__title--green">
+                    ANALISTA VIRTUAL
+                </h2>
+                <div class="digitalThemes__icon digitalThemes__icon--left">
+                    <img src="./src/images/iconeventos.svg" alt="">
+                </div>
+            </div>
+ 
+            <div class="digitalThemes__video digitalThemes__video--right">
+                <video id="video1" class="video-js vjs-default-skin" style="margin-bottom: 15px;" controls preload="none" width="700" height="400" poster="./src/images/video.svg" data-setup="{}">
+                    <source src="./src/images/videoplantilla.mp4" type='video/mp4'>
+
+                    <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+                </video>
+ 
+            </div>
+        </section>
+
+        <div>
+
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <section class="footer__menu">
+            <div class="socialMedia">
+                <a href="" class="socialMedia__icon"><img src="./src/images/facebook.svg" alt=""></a>
+                <a href="" class="socialMedia__icon"><img src="./src/images/twitter.svg" alt=""></a>
+                <a href="" class="socialMedia__icon"><img src="./src/images/youtube.svg" alt=""></a>
+                <a href="" class="socialMedia__icon"><img src="./src/images/instagram.svg" alt=""></a>
+            </div>
+            <a href="" class="footer__section">Acerca de nosotros</a>
+            <a href="" class="footer__section">Analista virtual</a>
+            <a href="" class="footer__section">Página del Banco W</a>
+        </section>
+        <section class="footer__contact">
+            <p class="footer__info">
+                Copyright todos los derechos reservados - Banco W 2021
+            </p>
+            <p class="footer__info">
+                Correo interno
+            </p>
+            <p class="footer__info">
+                Página web Defensoria del Consumidor Financiero <a href="">www.defensorialg.com.co</a>
+            </p>
+        </section>
+    </footer>
+    
+</body>
+</html>
