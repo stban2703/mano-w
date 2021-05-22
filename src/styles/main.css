@@ -246,7 +246,6 @@ input[type=button] {
 .header {
   width: 100%;
   padding: 5px 30px;
-  height: 1000px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -279,6 +278,13 @@ input[type=button] {
           align-items: center;
 }
 
+.header__menu--nav {
+  width: 100%;
+  max-width: 800px;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
 .header__section {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -287,7 +293,7 @@ input[type=button] {
       -ms-flex-align: center;
           align-items: center;
   background: none;
-  margin: 0 10px;
+  margin: 0 6px;
   border: none;
 }
 
@@ -297,6 +303,7 @@ input[type=button] {
   font-weight: 700;
   font-size: 1rem;
   color: #7030A0;
+  text-align: center;
 }
 
 .header__title:hover:after {

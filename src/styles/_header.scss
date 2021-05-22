@@ -1,7 +1,6 @@
 .header {
     width: 100%;
     padding: 5px 30px;
-    height: 1000px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -15,13 +14,19 @@
         display: flex;
         flex-direction: row;
         align-items: center;
+
+        &--nav {
+            width: 100%;
+            max-width: 800px;
+            justify-content: space-around;
+        }
     }
 
     &__section {
         display: flex;
         align-items: center;
         background: none;
-        margin: 0 10px;
+        margin: 0 6px;
         border: none;
     }
 
@@ -31,6 +36,7 @@
         font-weight: $bold;
         font-size: $headerTitle;
         color: $purple;
+        text-align: center;
 
         &:hover{
 
