@@ -1743,6 +1743,7 @@ input[type=button] {
 }
 
 .interestThemes__content__item__graphic {
+  border: 4px solid #00a2af;
   position: relative;
   width: 30vh;
   height: 30vh;
@@ -1768,6 +1769,10 @@ input[type=button] {
   color: #2b3640;
 }
 
+.interestThemes__content__item--selected .interestThemes__content__item__graphic {
+  border: 8px solid #7030A0;
+}
+
 .interestThemes__next {
   margin: 5vh auto;
   display: -webkit-box;
@@ -1787,24 +1792,6 @@ input[type=button] {
   color: white;
   font-weight: 700;
   font-size: 1.5rem;
-}
-
-.item__graphic--border {
-  border: 4px solid #00a2af;
-  background-color: white;
-}
-
-.item__graphic--light {
-  background-color: #d8eff1;
-}
-
-.item__graphic--dark {
-  background-color: #00a2af;
-}
-
-.interestThemes__content__item:focus {
-  border: 2px solid #7030A0;
-  outline: #7030A0;
 }
 
 .dreamBoard {

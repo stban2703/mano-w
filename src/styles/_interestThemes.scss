@@ -49,6 +49,7 @@
             }
 
             &__graphic{
+                border: 4px solid $greenBlue;
                 position: relative;
                 width: 30vh;
                 height: 30vh;
@@ -72,6 +73,12 @@
                 color: $darkBlue;
             }
 
+            &--selected {
+                .interestThemes__content__item__graphic {
+                    border: 8px solid $purple;
+                }
+            }
+
         }
     }
     &__next{
@@ -88,24 +95,4 @@
         font-weight: $bold;
         font-size: 1.5rem;
     }
-}
-
-.item__graphic--border{ 
-    border: 4px solid $greenBlue;
-    background-color: white;
-    
-}
-
-.item__graphic--light{
-    background-color: $lightBlue;
-       
-}
-
-.item__graphic--dark{
-    background-color: $greenBlue;
-}
-
-.interestThemes__content__item:focus{
-    border: 2px solid $purple;
-    outline: $purple;
 }
