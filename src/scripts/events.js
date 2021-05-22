@@ -3,6 +3,8 @@ const conferenceSection = document.querySelector(".events__content--conference")
 const trainingSection = document.querySelector(".events__content--training");
 
 let eventsList = [];
+let recentEvents = [];
+let otherEvents = [];
 getEvents();
 
 function getEvents() {
@@ -12,11 +14,15 @@ function getEvents() {
                 let eventObject = doc.data();
                 eventObject.id = doc.id;
                 eventsList.push(eventObject);
+                eventsList.sort((a, b) => {
+                    return a.date - b.date;
+                });
             });
-            eventsList.sort((a, b) => {
-                return a.date - b.date;
-            });
-            renderRecentEvents(eventsList);
+
+            recentEvents = [...eventsList].splice(0, 3);
+            otherEvents = [...eventsList].splice(3, eventsList.length);
+            renderRecentEvents(recentEvents);
+            renderOtherEvents(otherEvents);
         })
         .catch((error) => {
             console.log("Error getting documents: ", error);
@@ -25,11 +31,22 @@ function getEvents() {
 
 function renderRecentEvents(list) {
     recentSection.innerHTML = "";
-    let copy = [...list];
-    copy = copy.splice(0, 3);
-    copy.forEach(elem => {
+    list.forEach(elem => {
         const eventItem = getEventItem(elem);
         recentSection.appendChild(eventItem);
+    })
+}
+
+function renderOtherEvents(list) {
+    conferenceSection.innerHTML = "";
+    trainingSection.innerHTML = ""
+    list.forEach(elem => {
+        const eventItem = getEventItem(elem);
+        if(elem.tag === "Conferencia") {
+            conferenceSection.appendChild(eventItem);
+        } else {
+            trainingSection.appendChild(eventItem);
+        }
     })
 }
 

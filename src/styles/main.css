@@ -2514,7 +2514,7 @@ input[type="number"] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: 30px 0;
+  margin: 20px 0;
 }
 
 .events__select h4 {
@@ -2541,6 +2541,7 @@ input[type="number"] {
           justify-content: center;
   text-align: center;
   padding: 20px 0;
+  margin-bottom: 60px;
 }
 
 .events__content--recent {
@@ -2624,6 +2625,9 @@ input[type="number"] {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .eventItem__header p {
