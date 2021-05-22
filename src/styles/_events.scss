@@ -1,5 +1,6 @@
 .events {
     font-family: $monserrat;
+    background-color: #F9F9F9;
 
     &__introduction {
         position: relative;
@@ -75,7 +76,6 @@
     }
 
     &__content{
-        
         width: auto;
         display: flex;
         flex-wrap: wrap;
@@ -88,14 +88,6 @@
         &--recent{
             border-top: 6px dashed $greenBlue;
             border-bottom: 6px dashed $greenBlue;
-        }
-
-        &--conference{
-            background-color: white;
-        }
-
-        &--training{
-            background-color: white;
         }
 
         & h4 {

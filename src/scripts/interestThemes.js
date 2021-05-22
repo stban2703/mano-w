@@ -72,7 +72,7 @@ function handleSelectInterestTheme(elem, obj) {
 function handleInterestThemeNext() {
     interestThemesNextBtn.addEventListener("click", () => {
         let urlFilters = "";
-        interestThemesList.forEach((elem, i) => {
+        interestThemesList.forEach(elem => {
             if (elem.isSelected) {
                 urlFilters += elem.value + "-";
             }

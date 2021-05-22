@@ -5,15 +5,20 @@ const trainingSection = document.querySelector(".events__content--training");
 let eventsList = [];
 let recentEvents = [];
 let otherEvents = [];
-getEvents();
 
-function getEvents() {
+let urlParts = location.search.replace("?", "").split("-");
+console.log(urlParts.length)
+
+getEvents(urlParts);
+
+function getEvents(urlParts) {
     eventRef.get()
         .then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
                 let eventObject = doc.data();
                 eventObject.id = doc.id;
-                eventsList.push(eventObject);
+                //eventsList.push(eventObject);
+                handleInterestThemesFilter(eventObject, urlParts);
                 eventsList.sort((a, b) => {
                     return a.date - b.date;
                 });
@@ -42,12 +47,22 @@ function renderOtherEvents(list) {
     trainingSection.innerHTML = ""
     list.forEach(elem => {
         const eventItem = getEventItem(elem);
-        if(elem.tag === "Conferencia") {
+        if (elem.tag === "Conferencia") {
             conferenceSection.appendChild(eventItem);
         } else {
             trainingSection.appendChild(eventItem);
         }
     })
+
+    if (!conferenceSection.hasChildNodes()) {
+        document.querySelector(".events__select--conference").classList.add("hidden");
+        conferenceSection.classList.add("hidden");
+    }
+
+    if (!trainingSection.hasChildNodes()) {
+        document.querySelector(".events__select--training").classList.add("hidden");
+        trainingSection.classList.add(".hidden");
+    }
 }
 
 function getEventItem(elem) {
@@ -75,8 +90,20 @@ function getEventItem(elem) {
             <button class="btn ${elem.tag === "Conferencia" ? "" : "btn--purple"}">Conoce más</button>
         </section>
         `
-    eventItem.querySelector(".btn").addEventListener("click", function() {
+    eventItem.querySelector(".btn").addEventListener("click", function () {
         window.location = eventUrl;
     })
     return eventItem;
+}
+
+function handleInterestThemesFilter(obj, filters) {
+    if (filters[0] !== "") {
+        filters.forEach((e) => {
+            if (obj.topic === e) {
+                eventsList.push(obj);
+            }
+        })
+    } else {
+        eventsList.push(obj);
+    }
 }
