@@ -2543,6 +2543,19 @@ input[type="number"] {
   padding: 20px 0;
 }
 
+.events__content--recent {
+  border-top: 6px dashed #00a2af;
+  border-bottom: 6px dashed #00a2af;
+}
+
+.events__content--conference {
+  background-color: white;
+}
+
+.events__content--training {
+  background-color: white;
+}
+
 .events__content h4 {
   font-size: 1rem;
   color: #2b3640;
@@ -2574,23 +2587,6 @@ input[type="number"] {
   font-size: 1.5rem;
 }
 
-.item__graphic--orange {
-  background-color: #FF6C02;
-}
-
-.item__graphic--purple {
-  background-color: #7030A0;
-}
-
-.table--new {
-  border-top: 6px dashed #00a2af;
-  border-bottom: 6px dashed #00a2af;
-}
-
-.table--old {
-  background-color: white;
-}
-
 .eventItem {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2611,6 +2607,7 @@ input[type="number"] {
 
 .eventItem__header {
   width: 100%;
+  height: 87px;
   background-color: #FF6C02;
   border-radius: 20px 20px 0 0;
   padding: 10px 0;
@@ -2632,7 +2629,7 @@ input[type="number"] {
 .eventItem__header p {
   color: white;
   width: 100%;
-  max-width: 200px;
+  max-width: 300px;
   text-align: center;
 }
 

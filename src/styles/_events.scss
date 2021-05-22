@@ -84,6 +84,19 @@
         text-align: center;
         padding: 20px 0;
 
+        &--recent{
+            border-top: 6px dashed $greenBlue;
+            border-bottom: 6px dashed $greenBlue;
+        }
+
+        &--conference{
+            background-color: white;
+        }
+
+        &--training{
+            background-color: white;
+        }
+
         & h4 {
             font-size: $headerTitle;
             color: $darkBlue;
@@ -110,22 +123,3 @@
         font-size: 1.5rem;
     }
 }
-
-.item__graphic--orange{
-    background-color: $orange;
-}
-
-.item__graphic--purple{
-    background-color: $purple;
-}
-
-.table--new{
-    border-top: 6px dashed $greenBlue;
-    border-bottom: 6px dashed $greenBlue;
-}
-
-.table--old{
-    background-color: white;
-}
-
-

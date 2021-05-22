@@ -13,3 +13,4 @@ firebase.initializeApp(firebaseConfig);
 
 const db = firebase.firestore();
 const userRef = db.collection('users');
+const eventRef = db.collection('events');
