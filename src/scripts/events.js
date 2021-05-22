@@ -58,6 +58,7 @@ function getEventItem(elem) {
     } else {
         eventItem.classList.add("eventItem--purple");
     }
+    let eventUrl = `specificEvent.html?${elem.id}`;
     eventItem.innerHTML =
         `
         <section class="eventItem__header">
@@ -74,5 +75,8 @@ function getEventItem(elem) {
             <button class="btn ${elem.tag === "Conferencia" ? "" : "btn--purple"}">Conoce más</button>
         </section>
         `
+    eventItem.querySelector(".btn").addEventListener("click", function() {
+        window.location = eventUrl;
+    })
     return eventItem;
 }
