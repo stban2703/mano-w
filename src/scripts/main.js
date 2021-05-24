@@ -13,3 +13,7 @@ function getTimestampToDate(timestamp) {
     let formattedDate = `${day}/${month}/${year}`
     return formattedDate;
 }
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
