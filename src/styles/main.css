@@ -2021,6 +2021,8 @@ input[type=number] {
   width: 100%;
   display: flex;
   margin-bottom: 3vh;
+  align-items: center;
+  justify-content: center;
 }
 .specificEvent__mainEvent__shortInfo__info span {
   width: 100%;
@@ -2028,6 +2030,9 @@ input[type=number] {
   position: relative;
   font-family: "Poppins", sans-serif;
   font-size: 1rem;
+}
+.specificEvent__mainEvent__shortInfo__info__imgContainer {
+  width: 100px;
 }
 .specificEvent__mainEvent__longInfo {
   font-family: "Poppins", sans-serif;

@@ -76,13 +76,17 @@
                 width: 100%;
                 display: flex;
                 margin-bottom: 3vh;
-
+                align-items: center;
+                justify-content: center;
                 & span {
                     width: 100%;
                     color: black;
                     position: relative;
                     font-family: $poppins;
                     font-size: 1rem;
+                }
+                &__imgContainer{
+                    width: 100px;
                 }
             }
         }

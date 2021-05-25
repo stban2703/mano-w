@@ -42,15 +42,21 @@ function setEventInfo(eventInfo) {
     <div class="specificEvent__mainEvent__shortInfo">
         <div class="specificEvent__mainEvent__shortInfo__section">
             <div class="specificEvent__mainEvent__shortInfo__info">
+                <div class="specificEvent__mainEvent__shortInfo__info__imgContainer">
                 <img src="./src/images/location.svg" alt="">
+                </div>
                 <span class="specificEvent__mainEvent__shortInfo__value">Virtual</span>
             </div>
             <div class="specificEvent__mainEvent__shortInfo__info">
-                <img src="./src/images/calendar.svg" alt="">
+                <div class="specificEvent__mainEvent__shortInfo__info__imgContainer">
+                    <img src="./src/images/calendar.svg" alt="">
+                </div>
                 <span class="specificEvent__mainEvent__shortInfo__value">${getTimestampToDate(eventInfo.date)}</span>
             </div>
             <div class="specificEvent__mainEvent__shortInfo__info">
-                <img src="./src/images/location.svg" alt="">
+                <div class="specificEvent__mainEvent__shortInfo__info__imgContainer">
+                    <img src="./src/images/location.svg" alt="">
+                </div>
                 <span class="specificEvent__mainEvent__shortInfo__value">${eventInfo.time} (Hora Colombia)</span>
             </div>
             <div class="specificEvent__mainEvent__theme">
