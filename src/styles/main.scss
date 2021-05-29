@@ -16,6 +16,7 @@ $finishedBlue: #8BDBE2;
 
 // Font weight
 $bold: 700;
+$light: 500;
 
 // Font sizes
 $headerTitle: 1rem;
@@ -60,6 +61,8 @@ $poppins: "Poppins", sans-serif;
 @import "aboutUs";
 @import "aboutUsItem";
 @import "digitalTraining";
+@import "frequentQuestions";
+
 html,
 body {
     width: 100%;

@@ -1,0 +1,48 @@
+.frequentQuestions {
+    &__banner{
+
+    }
+
+    &__mainContent{
+        padding: 10vh;
+        &__theme {
+            margin-top: 5vh;
+            &__title {
+                font-size: 2rem;
+                color: $orange;
+                font-weight: $bold;
+                font-family: $poppins;
+            }
+            &__content {
+                padding: 3vh;
+                border-bottom: 3px solid $purple;
+                &__subtitle {
+                    color: $orange;
+                    font-weight: $bold;
+                    font-family: $poppins;
+                }
+                &__text{
+                    font-weight: $light;
+                    font-family: $poppins;
+                }
+            }
+        }
+        &__notFound {
+            margin: auto;
+            width: 70%;
+            font-weight: $bold;
+            font-family: $poppins;
+            font-size: 2.5rem;
+            color: $orange;
+            text-align: center;
+            
+            & span {
+                font-weight: $bold;
+                font-family: $poppins;
+                font-size: 2.5rem;
+                color: $orange;
+                text-decoration: underline;
+            }
+        }
+    }
+}

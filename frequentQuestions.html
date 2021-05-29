@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mano W</title>
+    <link rel="stylesheet" href="./src/styles/main.css">
+    <link rel="shortcut icon" href="./src/images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header class="header">
+        <a href="index.html" class="header__logo">
+            <img class="header__logo" src="./src/images/manowlogo.svg" alt="">
+        </a>
+        <nav class="header__menu header__menu--nav">
+            <a href="index.html" class="header__section">
+                <h3 class="header__title">Inicio</h3>
+            </a>
+            <a href="products.html" class="header__section">
+                <h3 class="header__title">Productos</h3>
+            </a>
+            <a href="interestThemes.html" class="header__section">
+                <h3 class="header__title">Temas de interés</h3>
+            </a>
+            <a href="dreamBoard.html" class="header__section">
+                <h3 class="header__title">Tablero de sueños</h3>
+            </a>
+            <a href="events.html" class="header__section">
+                <h3 class="header__title">Eventos</h3>
+            </a>
+        </nav>
+        <section class="header__menu">
+            <button class="header__section header__logOut logOutBtn hidden">
+                <h3 class="header__title">Cerrar sesión</h3>
+            </button>
+            <a href="./profile.html" class="header__user hidden">
+                <h3 class="header__title">Perfil</h3>
+                <img src="./src/images/userlogo.svg" alt="">
+            </a>
+            <a href="./login.html" class="header__section header__login">
+                <h3 class="header__title">Iniciar sesión</h3>
+            </a>
+            <a href="./register.html" class="header__section header__register">
+                <h3 class="header__title">Registro</h3>
+            </a>
+        </section>
+    </header>
+
+    <section class="frequentQuestions__banner">
+
+    </section>
+
+    <main class="frequentQuestions__mainContent">
+        <section class="frequentQuestions__mainContent__theme">
+            <h1 class="frequentQuestions__mainContent__theme__title">Eventos</h1>
+            <div class="frequentQuestions__mainContent__theme__content">
+                <p class="frequentQuestions__mainContent__theme__content__subtitle">¿Cómo me puedo inscribir a un evento?</p>
+                <p class="frequentQuestions__mainContent__theme__content__text">Primero debes de ingresar a la información del evento que llame tu atención. Ahí encontrarás un resumen del evento: Fecha, hora y el conferencista, finalmente encontrarás al final de la página un formulario de registro del evento, donde tendrás que llenar con tu nombre y celular para registrarte.</p>
+            </div>
+            <div class="frequentQuestions__mainContent__theme__content">
+                <p class="frequentQuestions__mainContent__theme__content__subtitle">¿Debo de pagar para asistir al evento?</p>
+                <p class="frequentQuestions__mainContent__theme__content__text">Los eventos de Mano W son completamente gratis. Por esto no debes de pagar para asistir a ninguno de nuestros eventos.</p>
+            </div>
+        </section>
+        <section class="frequentQuestions__mainContent__theme">
+            <h1 class="frequentQuestions__mainContent__theme__title">Tablero de sueños</h1>
+            <div class="frequentQuestions__mainContent__theme__content">
+                <p class="frequentQuestions__mainContent__theme__content__subtitle">¿Cómo puedo crear una meta financiera?</p>
+                <p class="frequentQuestions__mainContent__theme__content__text">Primero tienes que ingresar a la página del tablero de los sueños, puedes entrar por la barra de navegación o preguntándole al analista virtual. En la esquina inferior derecha, encontrarás un botón para agregar un nuevo sueño, donde tendrás que agregarle un nombre, cantidad de dinero y una fecha límite.</p>
+            </div>
+            <div class="frequentQuestions__mainContent__theme__content">
+                <p class="frequentQuestions__mainContent__theme__content__subtitle">¿Cada cuánto debo de aportar a mi meta?</p>
+                <p class="frequentQuestions__mainContent__theme__content__text">Puedes aportar a tu meta cada que desees o puedas hacerlo. Algunas ideas como ejemplo serían: Diariamente, quincenal o algún día aleatoriamente. De igual manera, recomendamos para un mejor desarrollo financiero la clave está en la constancia por lo cual nuestra recomendación principal es que sean aportes quincenales para llevar un orden en tu vida financiera.</p>
+            </div>
+        </section>
+        <section class="frequentQuestions__mainContent__theme">
+            <h1 class="frequentQuestions__mainContent__theme__title">Analista virtual (Chatbot)</h1>
+            <div class="frequentQuestions__mainContent__theme__content">
+                <p class="frequentQuestions__mainContent__theme__content__subtitle">¿Cómo puedo realizarle una pregunta específica a mi asesor?</p>
+                <p class="frequentQuestions__mainContent__theme__content__text">Primero tienes que acceder al Chatbot que se encuentra en la esquina inferior derecha de Mano W, ahí tendrás que elegir uno de nuestros productos e indicar que tienes una duda específica, lo cual te dirigirá a conectarte con un asesor que estará dispuesto para ayudarte en lo que necesites.</p>
+            </div>
+            <div class="frequentQuestions__mainContent__theme__content">
+                <p class="frequentQuestions__mainContent__theme__content__subtitle">¿Puedo calificar la atención del Chatbot?</p>
+                <p class="frequentQuestions__mainContent__theme__content__text">Sí, al finalizar la conversación con tu asesor financiero asignado, él o ella te enviará un formulario de Google Forms donde podrás calificar la atención prestada por el analista virtual.</p>
+            </div>
+        </section>
+        <h1 class="frequentQuestions__mainContent__notFound">¿No encontraste lo que buscabas? Habla con el <span>Analista virtual</span></h1>
+    </main>
+
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
+    <script src="./src/scripts/firebase.js"></script>
+    <script src="./src/scripts/auth.js"></script>
+    <script src="./src/scripts/profile.js"></script>
+    <script src="./src/scripts/handleHeader.js"></script>
+    <script src="./src/scripts/initialChatbotOptionsList.js"></script>
+    <script src="./src/scripts/chatbot.js"></script>
+    <script src="./src/scripts/main.js"></script>
+</body>
+
+</html>

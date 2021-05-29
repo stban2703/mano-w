@@ -2432,6 +2432,48 @@ input[type=number] {
   font-size: 1.4rem;
 }
 
+.frequentQuestions__mainContent {
+  padding: 10vh;
+}
+.frequentQuestions__mainContent__theme {
+  margin-top: 5vh;
+}
+.frequentQuestions__mainContent__theme__title {
+  font-size: 2rem;
+  color: #FF6C02;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+}
+.frequentQuestions__mainContent__theme__content {
+  padding: 3vh;
+  border-bottom: 3px solid #7030A0;
+}
+.frequentQuestions__mainContent__theme__content__subtitle {
+  color: #FF6C02;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+}
+.frequentQuestions__mainContent__theme__content__text {
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+}
+.frequentQuestions__mainContent__notFound {
+  margin: auto;
+  width: 70%;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  font-size: 2.5rem;
+  color: #FF6C02;
+  text-align: center;
+}
+.frequentQuestions__mainContent__notFound span {
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  font-size: 2.5rem;
+  color: #FF6C02;
+  text-decoration: underline;
+}
+
 html,
 body {
   width: 100%;
