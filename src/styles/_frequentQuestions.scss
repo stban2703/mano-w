@@ -1,10 +1,54 @@
 .frequentQuestions {
+    &__intro {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        height: 120px;
+        align-items: center;
+        justify-content: center;
+        background-color: $orange;
+        margin-bottom: 30px;
+        h2 {
+            font-family: $monserrat;
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+        }
+    }
     &__banner{
+        position: relative;
+        & img {
+            display: inline-flex;
+            height: 60vh;
+        }
 
+        &__options {
+            width: 49%;
+            height: 60vh;
+            justify-content: center;
+            display: inline-flex;
+            flex-direction: column;
+            position: absolute;
+            right: 0;
+            &__item{
+                background-color: $purple;
+                margin: 20px 0 20px 0;
+                padding: 20px 0 20px 50px;
+                border-top-left-radius: 20px;
+                border-bottom-left-radius: 20px;
+                & span{
+                    color: white;
+                    font-size: 1.5rem;
+                    font-family: $poppins;
+                    font-weight: 600;
+                    
+                }
+            }
+        }
     }
 
     &__mainContent{
-        padding: 10vh;
+        padding: 5vh 10vh 5vh 10vh;
         &__theme {
             margin-top: 5vh;
             &__title {
