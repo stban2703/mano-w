@@ -19,10 +19,10 @@ function getEventData(ID) {
 
 var urlID = location.search.replace("?", "").split("-");
 console.log(urlID);
-var eventInfo = getEventData(urlID);
+//var eventInfo = getEventData(urlID);
 
 console.log(document.querySelector(".introduction"));
-console.log(eventInfo);
+//console.log(eventInfo);
 
 function setEventInfo(eventInfo) {
     document.querySelector(".introduction").innerHTML = 
