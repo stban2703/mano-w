@@ -30,6 +30,12 @@ firebase.auth().onAuthStateChanged((user) => {
                         handleOpenChatbot();
                     })
                 }
+
+                if(document.querySelector(".fQChatbotBtn")) {
+                    document.querySelector(".fQChatbotBtn").addEventListener("click", () => {
+                        handleOpenChatbot();
+                    })
+                }
             }
         })
     } else {
@@ -40,6 +46,12 @@ firebase.auth().onAuthStateChanged((user) => {
 
         if (document.querySelector(".callToAction__btn")) {
             document.querySelector(".callToAction__btn").addEventListener("click", () => {
+                location.href = "login.html";
+            })
+        }
+
+        if(document.querySelector(".fQChatbotBtn")) {
+            document.querySelector(".fQChatbotBtn").addEventListener("click", () => {
                 location.href = "login.html";
             })
         }
