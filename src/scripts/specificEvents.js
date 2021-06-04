@@ -73,7 +73,7 @@ function renderEventInfo(event) {
                             <h4>Tema</h4>
                             <p class="specificEvent__topic ${event.tag === "Conferencia" ? 'specificEvent__topic--orange' : 'specificEvent__topic--purple'}">${formattedTopic}</p>
                         </section>
-                        <button class="btn ${event.tag === "Conferencia" ? 'btn--purple' : ''}">Registrarse</button>
+                        <button class="btn ${event.tag === "Conferencia" ? 'btn--purple' : ''}" onclick="location.href = '#eventRegister'">Registrarse</button>
                     </section>
                     <section class="specificEvent__eventSummaryInfo">
                         <div class="specificEvent__eventSummary">
