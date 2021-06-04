@@ -1,262 +1,185 @@
-.specificEvent{
-    
-    &__introduction{
+.specificEvent {
+    width: 100%;
+
+    &__banner {
         width: 100%;
-        background-color: $greenBlue;
-        padding: 7vh;
-        
-        & h2 {
-            font-family: $monserrat;
-            font-size: $headerTitle;
-            color: white;
-            font-size: 2rem;
-            font-weight: $bold;
-            text-align: center;
-            width: 100%;
-        }
-    }
-
-    &__backgroundImg{
-            
+        height: 450px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
         position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0 30px;
+    }
 
-        & img{
-            z-index: 10;
+    &__bannerFilter {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 1;
+
+        &--purple {
+            background-color: rgba($color: #7030a0, $alpha: 0.47);
         }
 
-        &__imgFilter{
-            position: absolute;
-            width: 100%;
-            top: 0px;
-            height: 100%;
-            background-color: purple;
-            opacity: 47%;
-        }
-
-        &__text {
-            position: absolute;
-            top: 40%;
-            left: 10vh;
-        }
-
-        &__mainText{
-            font-family: $monserrat;
-            font-size: $headerTitle;
-            color: white;
-            font-size: 4rem;
-            font-weight: $bold;
-        }
-
-        &__subText{
-            font-family: $monserrat;
-            margin-top: 5vh;
-            color: white;
-            font-size: 2rem;
-            font-weight: $bold;
+        &--orange {
+            background-color: rgba($color: #ff6c02, $alpha: 0.47);
         }
     }
 
-    &__mainEvent {
-        width: 80%;
-
-        & h2{
-            padding: 5vh 0;
-            font-size: 1.5rem;
-            font-family: $monserrat;  
-            font-weight: $bold;
-        }
-        
-        &__shortInfo{
-            display: inline-flex;
-            width: 49%;
-            padding: 0 10vh;
-
-            &__info{
-                width: 100%;
-                display: flex;
-                margin-bottom: 3vh;
-                align-items: center;
-                justify-content: center;
-                & span {
-                    width: 100%;
-                    color: black;
-                    position: relative;
-                    font-family: $poppins;
-                    font-size: 1rem;
-                }
-                &__imgContainer{
-                    width: 100px;
-                }
-            }
-        }
-
-        &__longInfo{
-            font-family: $poppins;
-            margin: 0px;
-            display: inline-flex;
-            border: 2px solid $lightBlue;
-            border-radius: 50px;
-            width: 49%;
-            padding: 25px;
-        }
-
-        &__theme {
-            font-weight: $bold;
-            font-family: $monserrat;
-            display: block;
-            
-            &--value {
-                padding: 5px 20px; 
-                font-family: $poppins;
-                background-color: $purple;
-                color: white;
-                border-radius: 30px;
-            }
-        }
-
-        &__register {
-            margin-top: 3vh;
-        }
-    }
-
-    &__exponent {
-        width: 80%;
-        & h2{
-            padding: 5vh 0;
-            font-size: 1.5rem;
-            font-family: $monserrat;  
-            font-weight: $bold;
-        }
-
-        &__container {
-            
-            border: 1px solid $purple;
-            border-radius: 50px;
-            display: flex;
-            margin: auto;
-
-            &__info{
-                background-color: $purple;
-                border-radius: 50px;
-                width: 25%;
-                display: inline-flex;
-                flex-direction: column;
-                align-items: center;
-                padding: 20px;
-
-                & img{
-                    width: 50%;
-                    border-radius: 50%;
-                    margin-bottom: 10px;
-                }
-                &--name{
-                    font-family: $monserrat;
-                    font-weight: $bold;
-                    font-size: 1.5rem;
-                    color: white;
-                    margin-bottom: 10px;
-                }
-                &--age{
-                    font-family: $monserrat;
-                    color: white;
-                    margin-bottom: 10px;
-                }
-            }
-
-            &__data{
-                width: 74%;
-                padding: 30px;
-                display: inline-flex;
-                font-family: $poppins;
-                align-items: center;
-            }
-        }
-    }
-    &__form {
-        
-        &__container {
-          width: 50%;
-          height: 100%;
-          max-width: 800px;
-          padding: 50px;
-          border: 6px dashed $greenBlue;
-          background-color: white;
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          margin-left: 70px;
-        }
-      
-        &__logo {
-          max-width: none;
-          width: 400px;
-          margin-bottom: 10px;
-        }
-      
-        &__form {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          width: 100%;
-          height: 100%;
-          max-width: 500px;
-
-          &  h2{
-            margin-bottom: 40px;
-            font-family: $monserrat;
-            font-weight: $bold;
-            width: 100%;
-          }
-        }
-      
-        &__alternative {
-          font-family: $monserrat;
-          margin-bottom: 20px;
-          text-align: center;
-        }
-      
-        &__character {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content:flex-end;
-          width: 100%;
-          height: 100%;
-          max-width: 630px;
-        }
-      
-        &__title {
-          text-align: center;
-          font-family: $monserrat;
-          font-weight: bold;
-          color: $darkBlue;
-          font-size: 3rem;
-          margin-bottom: 60px;
-        }
-      
-        &__image {
-          max-width: none;
-          width: 90%;
-          align-self: flex-start;
-          justify-content: flex-start;
-        }
-    }   
-    
-    &__organizer {
-        font-weight: $bold;
+    &__title {
         font-family: $monserrat;
-        display: block;
-        margin: 40px 0;
-        
-        &--value {
-            padding: 5px 20px; 
-            font-family: $poppins;
+        font-weight: bold;
+        font-size: 3rem;
+        color: white;
+        position: relative;
+        z-index: 2;
+        width: 700px;
+        margin-top: 20px;
+    }
+
+    &__tag {
+        font-family: $monserrat;
+        font-weight: bold;
+        font-size: 2rem;
+        position: relative;
+        color: white;
+        margin-top: 20px;
+        z-index: 2;
+    }
+
+    &__info {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 30px 40px;
+        margin-bottom: 10px;
+    }
+
+    &__infoContainer {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        max-width: 1200px;
+    }
+
+    &__infoTitle {
+        font-family: $monserrat;
+        color: $darkBlue;
+        font-weight: bold;
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+        text-align: left;
+        align-self: flex-start;
+    }
+
+    &__eventInfo {
+        display: flex;
+        width: 100%;
+        margin-left: 20px;
+    }
+
+    &__eventDetails {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        margin-right: 20px;
+    }
+
+    &__microInfo {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    &__topicSection {
+        display: flex;
+        align-items: center;
+        margin-bottom: 30px;
+
+        h4 {
+            font-family: $monserrat;
+            font-weight: bold;
+            color: $darkBlue;
+            font-size: 1.2rem;
+            margin-right: 10px;
+        }
+    }
+
+    &__topic {
+        font-family: $monserrat;
+        color: white;
+        font-size: 1.2rem;
+        border-radius: 27px;
+        padding: 8px 10px;
+
+        &--purple {
             background-color: $purple;
+        }
+
+        &--orange {
+            background-color: $orange;
+        }
+    }
+
+    &__eventSummaryInfo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    &__eventSummary {
+        border-radius: 50px;
+        border: 1px solid $greenBlue;
+        padding: 25px 20px;
+        vertical-align: middle;
+        p {
+            font-family: $poppins;
+            color: $darkBlue;
+            font-size: 1.2rem;
+        }
+    }
+
+    &__organizerSection {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        h4 {
+            font-family: $monserrat;
+            font-weight: bold;
+            color: $darkBlue;
+            font-size: 1.2rem;
+            margin-right: 10px;
+        }
+
+        p {
+            border-radius: 27px;
+            padding: 8px 10px;
+            font-family: $poppins;
             color: white;
-            border-radius: 30px;
+            font-size: 1.2rem;
+        }
+
+        &--purple {
+            p {
+                background-color: $purple;
+            }
+        }
+
+        &--orange {
+            p {
+                background-color: $orange;
+            }
         }
     }
 }

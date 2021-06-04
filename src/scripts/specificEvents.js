@@ -1,120 +1,114 @@
+let urlID = location.search.replace("?", "");
+console.log(urlID);
 
+getEventData(urlID);
 
-function getEventData(ID) {
-    // Obtener los mensajes de firestore
-    console.log(ID);
-    var docRef = db.collection("events").doc(`${ID}`);
+function getEventData(id) {
+    let docRef = eventRef.doc(id);
     docRef.get().then((doc) => {
         if (doc.exists) {
-            console.log("Document data:", doc.data());
-            setEventInfo(doc.data())
+            let event = doc.data();
+            renderEventInfo(event);
         } else {
-            // doc.data() will be undefined in this case
-            alert("No such document!");
+            alert("Este evento no existe o ya no está disponible.");
         }
     }).catch((error) => {
         alert("Error getting document:", error);
     });
 }
 
-var urlID = location.search.replace("?", "").split("-");
-console.log(urlID);
-//var eventInfo = getEventData(urlID);
+function getFormattedTopic(topic) {
+    switch(topic) {
+        case "motivacion":
+            return "Motivación"
 
-console.log(document.querySelector(".introduction"));
-//console.log(eventInfo);
+        case "creditos":
+            return "Créditos"
 
-function setEventInfo(eventInfo) {
-    document.querySelector(".introduction").innerHTML = 
-`<section class="specificEvent__introduction">
-    <h2>Eventos</h2>
-</section>
-<section class="specificEvent__backgroundImg">
-    <img src="./src/images/${eventInfo.bannerUrlImage}.jpg" alt="">
-    <div class="specificEvent__backgroundImg__imgFilter"></div>
-    <div class="specificEvent__backgroundImg__text">
-        <p class="specificEvent__backgroundImg__mainText">${capitalizeFirstLetter(eventInfo.title)}</p>
-        <p class="specificEvent__backgroundImg__subText">${capitalizeFirstLetter(eventInfo.tag)}</p>
-    </div>
-</section>
-<section class="specificEvent__mainEvent">
-    <h2>Resumen</h2>
-    <div class="specificEvent__mainEvent__shortInfo">
-        <div class="specificEvent__mainEvent__shortInfo__section">
-            <div class="specificEvent__mainEvent__shortInfo__info">
-                <div class="specificEvent__mainEvent__shortInfo__info__imgContainer">
-                <img src="./src/images/location.svg" alt="">
-                </div>
-                <span class="specificEvent__mainEvent__shortInfo__value">Virtual</span>
-            </div>
-            <div class="specificEvent__mainEvent__shortInfo__info">
-                <div class="specificEvent__mainEvent__shortInfo__info__imgContainer">
-                    <img src="./src/images/calendar.svg" alt="">
-                </div>
-                <span class="specificEvent__mainEvent__shortInfo__value">${getTimestampToDate(eventInfo.date)}</span>
-            </div>
-            <div class="specificEvent__mainEvent__shortInfo__info">
-                <div class="specificEvent__mainEvent__shortInfo__info__imgContainer">
-                    <img src="./src/images/location.svg" alt="">
-                </div>
-                <span class="specificEvent__mainEvent__shortInfo__value">${eventInfo.time} (Hora Colombia)</span>
-            </div>
-            <div class="specificEvent__mainEvent__theme">
-                <span><strong>Tema:</strong></span>
-                <span class="specificEvent__mainEvent__theme--value">${capitalizeFirstLetter(eventInfo.topic)}</span>
-            </div>
-            <button class="btn specificEvent__mainEvent__register">Registrarse</button>
-        </div>
-    </div>
-    <div class="specificEvent__mainEvent__longInfo">
-        <div class="specificEvent__mainEvent__shortInfo__section">
-            <p>${capitalizeFirstLetter(eventInfo.eventSummary) }</p>
-        </div>
-    </div>
-</section>
-<section class="specificEvent__exponent">
-    <h2>Exponente</h2>
-    <div class="specificEvent__exponent__container">
-        <div class="specificEvent__exponent__container__info">
-            <img src="./src/images/${eventInfo.speakerUrlImage}.png" alt="">
-            <span class="specificEvent__exponent__container__info--name">${eventInfo.speaker}</span>
-            <span class="specificEvent__exponent__container__info--age">${eventInfo.age} años</span>
-        </div>
-        <p class="specificEvent__exponent__container__data">${capitalizeFirstLetter(eventInfo.speakerSummary)}
-        </p>
-    </div>
-</section>
-<div class="specificEvent__organizer">
-<span><strong>Organizador del evento:</strong></span>
-<span class="specificEvent__organizer--value">${capitalizeFirstLetter(eventInfo.organizer)}</span>
-</div>
-<section class="specificEvent__form__container">
-    <form class="specificEvent__form__form">
-
-        <h2>Registro del evento</h2>
-        
-        <div class="input overlay">
-            <label for="identification">Nombre</label>
-            <input class="input__textBox" name="identification" type="text" placeholder="Escribe tu mombre" required>
-        </div>
-
-        <div class="input overlay">
-            <label for="password">Apellidos</label>
-            <input class="input__textBox" name="password" type="password" placeholder="Escribe tus apellidos" required>
-        </div>
-
-        <div class="input overlay">
-            <label for="password">Celular</label>
-            <input class="input__textBox" name="password" type="password" placeholder="Escribe tu número celular" required>
-        </div>
-
-        <button class="btn overlay">Registrarse</button>
-    </form>
-    <section class="specificEvent__form__character">
-        <h1 class="specificEvent__form__title">Iniciar sesión</h1>
-        <img class="specificEvent__form__image" src="./src/images/eventForm.svg">
-    </section>
-</section>
-`
+        default:
+            return capitalizeFirstLetter(topic);
+    }
 }
 
+function renderEventInfo(event) {
+    let formattedTopic = getFormattedTopic(event.topic);
+    const specificEventContainer = document.querySelector(".specificEvent");
+    specificEventContainer.innerHTML = `
+        <section class="introBanner introBanner--blue">
+            <h2>Eventos</h2>
+        </section>
+        <article class="specificEvent__banner" style="background-image: url('./src/images/${event.bannerUrlImage}.jpg');">
+            <div class="specificEvent__bannerFilter ${event.tag === "Conferencia" ? 'specificEvent__bannerFilter--orange' : 'specificEvent__bannerFilter--purple'}">
+
+            </div>
+            <h2 class="specificEvent__title">${event.title}</h2>
+            <h3 class="specificEvent__tag">${event.tag === "Capacitacion" ? "Capacitación" : event.tag}</h3>
+        </article>
+        <article class="specificEvent__info">
+            <article class="specificEvent__infoContainer">
+                <h4 class="specificEvent__infoTitle">Resumen</h4>
+                <section class="specificEvent__eventInfo">
+                    <section class="specificEvent__eventDetails">
+                        <section class="specificEvent__microInfo">
+                            <div class="eventMicroInfo">
+                                <div class="eventMicroInfo__icon">
+                                    <img src="./src/images/location.svg" alt="">
+                                </div>
+                                <span class="eventMicroInfo__title">Virtual</span>
+                            </div>
+                            <div class="eventMicroInfo">
+                                <div class="eventMicroInfo__icon">
+                                    <img src="./src/images/calendar.svg" alt="">
+                                </div>
+                                <span class="eventMicroInfo__title">${getTimestampToFullDate(event.date)}</span>
+                            </div>
+                            <div class="eventMicroInfo">
+                                <div class="eventMicroInfo__icon">
+                                    <img src="./src/images/clock.svg" alt="">
+                                </div>
+                                <span class="eventMicroInfo__title">${getFormattedTime(event.time)} (Hora de Colombia)</span>
+                            </div>
+                        </section>
+                        <section class="specificEvent__topicSection">
+                            <h4>Tema</h4>
+                            <p class="specificEvent__topic ${event.tag === "Conferencia" ? 'specificEvent__topic--orange' : 'specificEvent__topic--purple'}">${formattedTopic}</p>
+                        </section>
+                        <button class="btn ${event.tag === "Conferencia" ? 'btn--purple' : ''}">Registrarse</button>
+                    </section>
+                    <section class="specificEvent__eventSummaryInfo">
+                        <div class="specificEvent__eventSummary">
+                            <p>
+                                ${event.eventSummary}
+                            </p>
+                        </div>
+                    </section>
+                </section>
+            </article>
+        </article>
+        <article class="specificEvent__info">
+            <article class="specificEvent__infoContainer">
+                <h4 class="specificEvent__infoTitle">Exponente</h4>
+                <section class="specificEvent__eventInfo">
+                    <div class="speaker ${event.tag === "Conferencia" ? 'speaker--orange' :'speaker--purple'}">
+                        <section class="speaker__iconSection">
+                            <img src="./src/images/${event.speakerUrlImage}.png" alt="">
+                            <h3 class="speaker__name">${event.speaker}</h3>
+                            <h4 class="speaker__age">${event.age} años</h4>
+                        </section>
+                        <section class="speaker__summarySection">
+                            <p>
+                                ${event.speakerSummary}
+                            </p>
+                        </section>
+                    </div>
+                </section>
+                <section class="specificEvent__eventInfo">
+                    <div class="specificEvent__organizerSection ${event.tag === "Conferencia" ? 'specificEvent__organizerSection--orange' : 'specificEvent__organizerSection--purple'}">
+                        <h4>Organizador del evento</h4>
+                        <p>${event.organizer}</p>
+                    </div>
+                </section>
+            </article>
+        </article>
+    `
+}
