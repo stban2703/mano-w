@@ -144,15 +144,15 @@
             <h2>Registro del evento</h2>
             <div class="input overlay">
                 <label for="identification">Nombre</label>
-                <input class="input__textBox" name="identification" type="text" placeholder="Escribe tu mombre" required>
+                <input class="input__textBox" name="identification" autocomplete="cc-number" type="text" placeholder="Escribe tu mombre" required>
             </div>
             <div class="input overlay">
                 <label for="password">Apellidos</label>
-                <input class="input__textBox" name="password" type="password" placeholder="Escribe tus apellidos" required>
+                <input class="input__textBox" name="password" autocomplete="new-password" type="password" placeholder="Escribe tus apellidos" required>
             </div>
             <div class="input overlay">
                 <label for="password">Celular</label>
-                <input class="input__textBox" name="password" type="password" placeholder="Escribe tu número celular" required>
+                <input class="input__textBox" name="cellphone" type="number" autocomplete="tel" placeholder="Escribe tu número celular" required>
             </div>
             <button class="btn overlay">Registrarse</button>
         </form>
@@ -184,6 +184,49 @@
             </p>
         </section>
     </footer>
+    <div class="floatButton floatButton--chatbot hidden">
+        <section class="floatButton__notification">
+            <p>Hola, soy tu <strong>analista virtual.</strong> Haz click en mí si necesitas información.</p>
+        </section>
+        <section class="floatButton__btn">
+            <img class="floatButton__icon" src="./src/images/chaticon.svg" alt="">
+            <span class="floatButton__title">Chatbot</span>
+        </section>
+    </div>
+    <div class="chatbot hidden">
+        <section class="chatbot__header">
+            <section class="chatbot__info">
+                <div class="chatbot__profilePic">
+                    <img class="chatbot__profilePicImg invisible" src="./src/images/chatbotprofilepicture.svg" alt="">
+                </div>
+                <div class="chatbot__botIntro">
+                    <h3 class="chatbot__title">Analista virtual</h3>
+                    <h4 class="chatbot__name">Mano W</h4>
+                    <p class="chatbot__typing invisible">Escribiendo...</p>
+                </div>
+            </section>
+            <section class="chatbot__closeBtn">
+                <img src="./src/images/chatbotclose.svg" alt="">
+            </section>
+        </section>
+        <section class="chatbot__messages">
+            <div class="chatbot__localMessages">
+
+            </div>
+            <div class="chatbot__onlineMessages">
+
+            </div>
+        </section>
+        <form class="chatbot__footer">
+            <div class="chatbot__input">
+                <!--<input type="text" autocomplete="off" name="userMessage" class="chatbot__textBox" placeholder="Escribe un mensaje...">-->
+                <textarea autocomplete="off" name="userMessage" class="chatbot__textBox" placeholder="Escribe un mensaje..."></textarea>
+                <button class="chatbot__sendBtn">
+                    <img src="./src/images/sendarrow.svg" alt="">
+                </button>
+            </div>
+        </form>
+    </div>
     <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
@@ -192,7 +235,7 @@
     <script src="./src/scripts/profile.js"></script>
     <script src="./src/scripts/handleHeader.js"></script>
     <script src="./src/scripts/initialChatbotOptionsList.js"></script>
-    <!-- <script src="./src/scripts/chatbot.js"></script> -->
+    <script src="./src/scripts/chatbot.js"></script>
     <script src="./src/scripts/main.js"></script>
     <script src="./src/scripts/specificEvents.js"></script>
 </body>

@@ -22,6 +22,9 @@
         align-items: center;
         justify-content: center;
         z-index: 1;
+        &:hover {
+            cursor: pointer;
+        }
 
         img {
             max-width: none;

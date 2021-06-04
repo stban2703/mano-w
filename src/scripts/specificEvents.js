@@ -1,5 +1,4 @@
 let urlID = location.search.replace("?", "");
-console.log(urlID);
 
 getEventData(urlID);
 

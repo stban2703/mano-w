@@ -24,12 +24,24 @@ firebase.auth().onAuthStateChanged((user) => {
                 if (document.querySelector(".dreamBoard")) {
                     getUserDreams();
                 }
+
+                if (document.querySelector(".callToAction__btn")) {
+                    document.querySelector(".callToAction__btn").addEventListener("click", () => {
+                        handleOpenChatbot();
+                    })
+                }
             }
         })
     } else {
         console.log("Not logged")
         if (openChatbotBtn) {
             openChatbotBtn.classList.add("hidden")
+        }
+
+        if (document.querySelector(".callToAction__btn")) {
+            document.querySelector(".callToAction__btn").addEventListener("click", () => {
+                location.href = "login.html";
+            })
         }
     }
 });

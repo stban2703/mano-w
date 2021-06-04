@@ -7,7 +7,6 @@ let recentEvents = [];
 let otherEvents = [];
 
 let urlParts = location.search.replace("?", "").split("-");
-console.log(urlParts.length)
 
 getEvents(urlParts);
 

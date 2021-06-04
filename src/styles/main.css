@@ -556,6 +556,10 @@ input[type=button] {
   z-index: 1;
 }
 
+.callToAction__btn:hover {
+  cursor: pointer;
+}
+
 .callToAction__btn img {
   max-width: none;
 }
