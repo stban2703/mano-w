@@ -4,11 +4,9 @@ console.log(urlID);
 getEventData(urlID);
 
 function getEventData(id) {
-    console.log(id);
     let docRef = eventRef.doc(id);
     docRef.get().then((doc) => {
         if (doc.exists) {
-            console.log("Document data:", doc.data());
             let event = doc.data();
             renderEventInfo(event);
         } else {
@@ -19,7 +17,21 @@ function getEventData(id) {
     });
 }
 
+function getFormattedTopic(topic) {
+    switch(topic) {
+        case "motivacion":
+            return "Motivación"
+
+        case "creditos":
+            return "Créditos"
+
+        default:
+            return capitalizeFirstLetter(topic);
+    }
+}
+
 function renderEventInfo(event) {
+    let formattedTopic = getFormattedTopic(event.topic);
     const specificEventContainer = document.querySelector(".specificEvent2");
     specificEventContainer.innerHTML = `
         <section class="introBanner introBanner--blue">
@@ -59,7 +71,7 @@ function renderEventInfo(event) {
                         </section>
                         <section class="specificEvent2__topicSection">
                             <h4>Tema</h4>
-                            <p class="specificEvent2__topic ${event.tag === "Conferencia" ? 'specificEvent2__topic--orange' : 'specificEvent2__topic--purple'}">${capitalizeFirstLetter(event.topic)}</p>
+                            <p class="specificEvent2__topic ${event.tag === "Conferencia" ? 'specificEvent2__topic--orange' : 'specificEvent2__topic--purple'}">${formattedTopic}</p>
                         </section>
                         <button class="btn ${event.tag === "Conferencia" ? 'btn--purple' : ''}">Registrarse</button>
                     </section>
