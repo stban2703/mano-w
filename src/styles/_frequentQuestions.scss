@@ -32,8 +32,8 @@
             right: 0;
             &__item{
                 background-color: $purple;
-                margin: 20px 0 20px 0;
                 padding: 20px 0 20px 50px;
+                margin: 20px 0;
                 border-top-left-radius: 20px;
                 border-bottom-left-radius: 20px;
                 & span{
@@ -42,6 +42,10 @@
                     font-family: $poppins;
                     font-weight: 600;
                     
+                }
+
+                &:hover {
+                    cursor: pointer;
                 }
             }
         }
@@ -73,11 +77,13 @@
         }
         &__notFound {
             margin: auto;
-            width: 70%;
+            width: 100%;
             font-weight: $bold;
             font-family: $poppins;
             font-size: 2.5rem;
             color: $orange;
+            text-align: center;
+            margin: 30px 0;
             text-align: center;
             
             & span {

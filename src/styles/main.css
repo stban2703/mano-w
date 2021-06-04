@@ -3628,8 +3628,8 @@ input[type="number"] {
 
 .frequentQuestions__banner__options__item {
   background-color: #7030A0;
-  margin: 20px 0 20px 0;
   padding: 20px 0 20px 50px;
+  margin: 20px 0;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
 }
@@ -3639,6 +3639,10 @@ input[type="number"] {
   font-size: 1.5rem;
   font-family: "Poppins", sans-serif;
   font-weight: 600;
+}
+
+.frequentQuestions__banner__options__item:hover {
+  cursor: pointer;
 }
 
 .frequentQuestions__mainContent {
@@ -3674,11 +3678,13 @@ input[type="number"] {
 
 .frequentQuestions__mainContent__notFound {
   margin: auto;
-  width: 70%;
+  width: 100%;
   font-weight: 700;
   font-family: "Poppins", sans-serif;
   font-size: 2.5rem;
   color: #FF6C02;
+  text-align: center;
+  margin: 30px 0;
   text-align: center;
 }
 

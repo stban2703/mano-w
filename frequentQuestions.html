@@ -52,20 +52,20 @@
         </section>
         <img src="./src/images/frequentQuestionsImg.svg" alt="">
         <div class="frequentQuestions__banner__options">
-            <div class="frequentQuestions__banner__options__item">
+            <div class="frequentQuestions__banner__options__item" onclick="location.href = '#events'">
                 <span>Eventos</span>
             </div>
-            <div class="frequentQuestions__banner__options__item">
+            <div class="frequentQuestions__banner__options__item" onclick="location.href = '#dreamBoard'">
                 <span>Tableros de sueños</span>
             </div>
-            <div class="frequentQuestions__banner__options__item">
+            <div class="frequentQuestions__banner__options__item" onclick="location.href = '#chatbot'">
                 <span>Analista virtual (Chatbot)</span>
             </div>
         </div>
     </section>
 
     <main class="frequentQuestions__mainContent">
-        <section class="frequentQuestions__mainContent__theme">
+        <section class="frequentQuestions__mainContent__theme" id="events">
             <h1 class="frequentQuestions__mainContent__theme__title">Eventos</h1>
             <div class="frequentQuestions__mainContent__theme__content">
                 <p class="frequentQuestions__mainContent__theme__content__subtitle">¿Cómo me puedo inscribir a un evento?</p>
@@ -76,7 +76,7 @@
                 <p class="frequentQuestions__mainContent__theme__content__text">Los eventos de Mano W son completamente gratis. Por esto no debes de pagar para asistir a ninguno de nuestros eventos.</p>
             </div>
         </section>
-        <section class="frequentQuestions__mainContent__theme">
+        <section class="frequentQuestions__mainContent__theme" id="dreamBoard">
             <h1 class="frequentQuestions__mainContent__theme__title">Tablero de sueños</h1>
             <div class="frequentQuestions__mainContent__theme__content">
                 <p class="frequentQuestions__mainContent__theme__content__subtitle">¿Cómo puedo crear una meta financiera?</p>
@@ -87,7 +87,7 @@
                 <p class="frequentQuestions__mainContent__theme__content__text">Puedes aportar a tu meta cada que desees o puedas hacerlo. Algunas ideas como ejemplo serían: Diariamente, quincenal o algún día aleatoriamente. De igual manera, recomendamos para un mejor desarrollo financiero la clave está en la constancia por lo cual nuestra recomendación principal es que sean aportes quincenales para llevar un orden en tu vida financiera.</p>
             </div>
         </section>
-        <section class="frequentQuestions__mainContent__theme">
+        <section class="frequentQuestions__mainContent__theme" id="chatbot">
             <h1 class="frequentQuestions__mainContent__theme__title">Analista virtual (Chatbot)</h1>
             <div class="frequentQuestions__mainContent__theme__content">
                 <p class="frequentQuestions__mainContent__theme__content__subtitle">¿Cómo puedo realizarle una pregunta específica a mi asesor?</p>
@@ -98,14 +98,16 @@
                 <p class="frequentQuestions__mainContent__theme__content__text">Sí, al finalizar la conversación con tu asesor financiero asignado, él o ella te enviará un formulario de Google Forms donde podrás calificar la atención prestada por el analista virtual.</p>
             </div>
         </section>
-        <h1 class="frequentQuestions__mainContent__notFound">¿No encontraste lo que buscabas? Habla con el <span>Analista virtual</span></h1>
+        <div class="frequentQuestions__mainContent__notFound">
+            <p>¿No encontraste lo que buscabas?<br>Habla con el <span>Analista virtual</span></p>
+        </div>
         
     </main>
     <section class="frequentQuestions__circleFooter">
         <section class="callToAction">
             <img class="callToAction__backgroundCircle" src="./src/images/ctaCircle.svg" alt="">
             <p class="callToAction__question">¿Quieres conocer más acerca del Banco W?</p>
-            <h3 class="callToAction__clickHere">Haz click aquí</h3>
+            <a class="callToAction__clickHere" href="">Haz click aquí</a>
             <p class="callToAction__slogan">
                 Así de simple, así de amable.
             </p>
@@ -135,6 +137,49 @@
             </p>
         </section>
     </footer>
+    <div class="floatButton floatButton--chatbot hidden">
+        <section class="floatButton__notification">
+            <p>Hola, soy tu <strong>analista virtual.</strong> Haz click en mí si necesitas información.</p>
+        </section>
+        <section class="floatButton__btn">
+            <img class="floatButton__icon" src="./src/images/chaticon.svg" alt="">
+            <span class="floatButton__title">Chatbot</span>
+        </section>
+    </div>
+    <div class="chatbot hidden">
+        <section class="chatbot__header">
+            <section class="chatbot__info">
+                <div class="chatbot__profilePic">
+                    <img class="chatbot__profilePicImg invisible" src="./src/images/chatbotprofilepicture.svg" alt="">
+                </div>
+                <div class="chatbot__botIntro">
+                    <h3 class="chatbot__title">Analista virtual</h3>
+                    <h4 class="chatbot__name">Mano W</h4>
+                    <p class="chatbot__typing invisible">Escribiendo...</p>
+                </div>
+            </section>
+            <section class="chatbot__closeBtn">
+                <img src="./src/images/chatbotclose.svg" alt="">
+            </section>
+        </section>
+        <section class="chatbot__messages">
+            <div class="chatbot__localMessages">
+
+            </div>
+            <div class="chatbot__onlineMessages">
+
+            </div>
+        </section>
+        <form class="chatbot__footer">
+            <div class="chatbot__input">
+                <!--<input type="text" autocomplete="off" name="userMessage" class="chatbot__textBox" placeholder="Escribe un mensaje...">-->
+                <textarea autocomplete="off" name="userMessage" class="chatbot__textBox" placeholder="Escribe un mensaje..."></textarea>
+                <button class="chatbot__sendBtn">
+                    <img src="./src/images/sendarrow.svg" alt="">
+                </button>
+            </div>
+        </form>
+    </div>
     <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
