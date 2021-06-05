@@ -3426,12 +3426,8 @@ input[type="number"] {
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
-  height: 477px;
-  margin-top: 150px;
-  margin-bottom: 100px;
-  padding-bottom: 100px;
-  padding-right: 50px;
-  padding-left: 50px;
+  padding: 50px 20px;
+  margin-bottom: 50px;
 }
 
 .digitalThemes--orange {
@@ -3447,37 +3443,8 @@ input[type="number"] {
 }
 
 .digitalThemes__content {
-  background-color: white;
-  width: auto;
-}
-
-.digitalThemes__introduction {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background-image: url("./../images/backgroundorange.svg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  position: relative;
-  width: 100%;
-  height: 140px;
-  font-family: "Montserrat", sans-serif;
-}
-
-.digitalThemes__introduction h2 {
-  font-family: "Montserrat", sans-serif;
-  font-size: 1rem;
-  color: white;
-  font-size: 2rem;
-  font-weight: 700;
-  text-align: center;
+  width: 50%;
+  margin-right: 10px;
 }
 
 .digitalThemes--reverse {
@@ -3506,13 +3473,11 @@ input[type="number"] {
 }
 
 .digitalThemes__icon img {
-  width: 100%;
   max-width: none;
-  max-width: 600px;
+  height: 380px;
 }
 
 .digitalThemes__video {
-  background-color: white;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3523,21 +3488,21 @@ input[type="number"] {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  width: 100%;
-  height: 100%;
-  max-width: 750px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 50%;
+  margin-left: 10px;
 }
 
 .digitalThemes__video--left {
   text-align: left;
   margin-left: 0;
-  margin-right: 50px;
 }
 
 .digitalThemes__video--right {
   text-align: right;
   margin-right: 0;
-  margin-left: 50px;
 }
 
 .digitalThemes__title {

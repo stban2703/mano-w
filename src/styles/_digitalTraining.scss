@@ -3,12 +3,8 @@
     flex-direction: row;
     align-items: center;
     width: 100%;
-    height: 477px;
-    margin-top: 150px;
-    margin-bottom: 100px;
-    padding-bottom: 100px;
-    padding-right: 50px;
-    padding-left: 50px;
+    padding: 50px 20px;
+    margin-bottom: 50px;
 
     &--orange {
         border-bottom: 6px dashed $orange;           
@@ -23,36 +19,8 @@
     }
 
     &__content{
-        background-color: white;
-        width: auto;
-
-    }
-
- 
-
-
-    &__introduction {
-        display: flex;
-        align-items: center;
-        background-image: url("./../images/backgroundorange.svg");
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        justify-content: center;
-        position: relative;
-        width: 100%;
-        height: 140px;
-        font-family: $monserrat;
-
-        & h2 {
-            font-family: $monserrat;
-            font-size: $headerTitle;
-            color: white;
-            font-size: 2rem;
-            font-weight: $bold;
-            text-align: center;
-        }
-        
+        width: 50%;
+        margin-right: 10px;
     }
 
     &--reverse {
@@ -70,36 +38,27 @@
 
         
         img {
-            width: 100%;
             max-width: none;
-            max-width: 600px;
+            height: 380px;
         }
     }
 
     &__video {
-        background-color: white;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        width: 100%;
-        height: 100%;
-        max-width: 750px;
-        
-        
+        align-items: center;
+        width: 50%;
+        margin-left: 10px;
 
         &--left {
-
             text-align: left;
             margin-left: 0;
-            margin-right: 50px;
-            
         }
 
         &--right {
-
             text-align: right;
             margin-right: 0;
-            margin-left: 50px;
         }
     }
 

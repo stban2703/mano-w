@@ -54,11 +54,9 @@
     </header>
 
     <main>
-        <section class="digitalThemes__introduction">
+        <section class="introBanner introBanner--orange">
             <h2>Entrenamiento Digital</h2>
         </section>
-
-
         <section class="digitalThemes digitalThemes--orange">
             <div class="digitalThemes__content">
                 <h2 class="digitalThemes__title digitalThemes__title--orange">
@@ -68,13 +66,8 @@
                     <img src="./src/images/analista.svg" alt="">
                 </div>
             </div>
- 
             <div class="digitalThemes__video digitalThemes__video--right">
-                <video id="video1" class="video-js vjs-default-skin" style="margin-bottom: 15px;" controls preload="none" width="700" height="400" poster="./src/images/video.svg" data-setup="{}">
-                    <source src="./src/images/videoplantilla.mp4" type='video/mp4'>
-
-                    <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
-                </video>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/Gb11fMyrev4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </section>
 
@@ -90,12 +83,7 @@
             </div>
  
             <div class="digitalThemes__video digitalThemes__video--left">
-                <video id="video1" class="video-js vjs-default-skin" style="margin-bottom: 15px;" controls preload="none" width="700" height="400" poster="./src/images/video.svg" data-setup="{}">
-                    <source src="./src/images/videoplantilla.mp4" type='video/mp4'>
-
-                    <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
-                </video>
- 
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/uE3ztLQTH3Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
 
         </section>
@@ -103,7 +91,7 @@
         <section class="digitalThemes digitalThemes--green">
             <div class="digitalThemes__content">
                 <h2 class="digitalThemes__title digitalThemes__title--green">
-                    ANALISTA VIRTUAL
+                    EVENTOS
                 </h2>
                 <div class="digitalThemes__icon digitalThemes__icon--left">
                     <img src="./src/images/iconeventos.svg" alt="">
@@ -111,19 +99,9 @@
             </div>
  
             <div class="digitalThemes__video digitalThemes__video--right">
-                <video id="video1" class="video-js vjs-default-skin" style="margin-bottom: 15px;" controls preload="none" width="700" height="400" poster="./src/images/video.svg" data-setup="{}">
-                    <source src="./src/images/videoplantilla.mp4" type='video/mp4'>
-
-                    <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
-                </video>
- 
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/RC2Scl8fHtg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </section>
-
-        <div>
-
-        </div>
-
     </main>
 
     <footer class="footer">
@@ -150,6 +128,58 @@
             </p>
         </section>
     </footer>
-    
+    <div class="floatButton floatButton--chatbot hidden">
+        <section class="floatButton__notification">
+            <p>Hola, soy tu <strong>analista virtual.</strong> Haz click en mí si necesitas información.</p>
+        </section>
+        <section class="floatButton__btn">
+            <img class="floatButton__icon" src="./src/images/chaticon.svg" alt="">
+            <span class="floatButton__title">Chatbot</span>
+        </section>
+    </div>
+    <div class="chatbot hidden">
+        <section class="chatbot__header">
+            <section class="chatbot__info">
+                <div class="chatbot__profilePic">
+                    <img class="chatbot__profilePicImg invisible" src="./src/images/chatbotprofilepicture.svg" alt="">
+                </div>
+                <div class="chatbot__botIntro">
+                    <h3 class="chatbot__title">Analista virtual</h3>
+                    <h4 class="chatbot__name">Mano W</h4>
+                    <p class="chatbot__typing invisible">Escribiendo...</p>
+                </div>
+            </section>
+            <section class="chatbot__closeBtn">
+                <img src="./src/images/chatbotclose.svg" alt="">
+            </section>
+        </section>
+        <section class="chatbot__messages">
+            <div class="chatbot__localMessages">
+
+            </div>
+            <div class="chatbot__onlineMessages">
+
+            </div>
+        </section>
+        <form class="chatbot__footer">
+            <div class="chatbot__input">
+                <!--<input type="text" autocomplete="off" name="userMessage" class="chatbot__textBox" placeholder="Escribe un mensaje...">-->
+                <textarea autocomplete="off" name="userMessage" class="chatbot__textBox" placeholder="Escribe un mensaje..."></textarea>
+                <button class="chatbot__sendBtn">
+                    <img src="./src/images/sendarrow.svg" alt="">
+                </button>
+            </div>
+        </form>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
+    <script src="./src/scripts/firebase.js"></script>
+    <script src="./src/scripts/auth.js"></script>
+    <script src="./src/scripts/profile.js"></script>
+    <script src="./src/scripts/handleHeader.js"></script>
+    <script src="./src/scripts/initialChatbotOptionsList.js"></script>
+    <script src="./src/scripts/chatbot.js"></script>
+    <script src="./src/scripts/main.js"></script>
 </body>
 </html>
