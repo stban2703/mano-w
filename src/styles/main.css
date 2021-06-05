@@ -281,6 +281,8 @@ input[type=button] {
 .header__menu--nav {
   width: 100%;
   max-width: 800px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -ms-flex-pack: distribute;
       justify-content: space-around;
 }
@@ -403,7 +405,6 @@ input[type=button] {
   color: #2b3640;
   font-weight: 700;
   font-size: 3rem;
-  margin: 40px 0;
 }
 
 .card {
@@ -3685,6 +3686,7 @@ body {
 .mainVideo {
   width: 100%;
   position: relative;
+  margin-bottom: 30px;
 }
 
 .mainVideo img {
@@ -3692,7 +3694,7 @@ body {
 }
 
 .mainVideo iframe {
-  width: 100vw;
+  width: 100%;
   height: 85vh;
 }
 
