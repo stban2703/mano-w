@@ -78,6 +78,15 @@ body {
     cursor: pointer;
 }
 
+.mainVideo {
+    width: 100%;
+    
+    iframe {
+        width: 100%;
+        height: 85vh;
+    }
+}
+
 .overlay {
     z-index: 10;
 }
