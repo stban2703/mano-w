@@ -245,7 +245,7 @@ function handleLastUserMessage(message, elem) {
             } else if (elem.redirectUrl) {
                 newMessage = {
                     id: localMessageList.length,
-                    text: `Por favor, haz click <a href="${elem.redirectUrl}">aquí</a> para obtener información.`,
+                    text: `Por favor, haz click <a href="${elem.redirectUrl}" target="_blank">aquí</a> para obtener información.`,
                     type: "asesor",
                     date: Date.now(),
                     hour: getMessageHour()

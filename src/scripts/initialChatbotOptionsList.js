@@ -75,7 +75,7 @@ const chatBotOptionsList = [
                     {
                         value: "Videos informativos",
                         imageUrl: "./src/images/chatbotvideo.svg",
-                        redirectUrl: "productInformation.html"
+                        redirectUrl: "https://youtu.be/RC2Scl8fHtg"
                     },
                     {
                         value: "Ir a eventos",
@@ -92,7 +92,7 @@ const chatBotOptionsList = [
                     {
                         value: "Videos informativos",
                         imageUrl: "./src/images/chatbotvideo.svg",
-                        redirectUrl: "productInformation.html"
+                        redirectUrl: "https://youtu.be/uE3ztLQTH3Q"
                     },
                     {
                         value: "Ir al tablero de sueños",
@@ -109,7 +109,7 @@ const chatBotOptionsList = [
                     {
                         value: "Videos informativos",
                         imageUrl: "./src/images/chatbotvideo.svg",
-                        redirectUrl: "productInformation.html"
+                        redirectUrl: "https://youtu.be/Gb11fMyrev4.html"
                     }
                 ]
             }
